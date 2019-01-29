@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Visa ID</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/style.css" rel="stylesheet">	
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="app.js"></script>
+</head>
+
+	<body ng-app="myModule" ng-controller="myController">
+	
+	<div class="container-fluid">
+	
+		<!-- Header Section starts here-->
+		<header class="header_bg">
+			<div class="header_left"></div>
+			<div class="header_right"></div>
+			
+			<div class="container">
+				<div class="logo_pharma">
+					<a href="#"><img src="../images/logo.png" alt="logo"/></a>
+				</div>
+				
+				<div class="banner_text_right">
+					Blockchain for Business<br><b>WITH IBM BLOCKCHAIN</b>
+				</div>
+			</div>
+
+		</header> 
+		<!-- Header Section ends here-->
+		
+		
+		<!-- Content Section ends here-->
+		<div class="student_id_content">
+	  		<div class="container">
+  				<div class="signout">
+					<a href="#"><img src="images/sign_out_btn.png" alt=""/></a>
+				</div>
+  			</div>
+		  	<h2>Apply for <b>Employee</b></h2>
+		  	<p><a href="#">Don’t have?</a> Fill all the details and we will mail you the digital identification number in your mailbox</p>
+		</div>
+		<div class="student_id_forms">
+			<div class="container">
+				<form>
+				
+										<div class="row student_forms_raw">
+					
+						<div class="col-md-3">
+							<label>Legal Name:</label>
+							<input type="text" ng-model="User.Name">
+						</div>
+						
+						
+						<div class="col-md-3">
+							<label>Date of Birth (mm/dd/yyyy)</label>
+							<input type="text" ng-model="User.DOB">
+						</div>
+						
+						<div class="col-md-3">
+							<label>Gender</label>
+							<select ng-model="User.Gender" ng-options="x for x in gender"></select>
+						</div>
+					</div>
+					
+					
+					
+					<div class="row student_forms_raw">
+						
+						<div class="col-md-3">
+							<label>Email:</label>
+							<input type="text" ng-model="User.Email">
+						</div>
+						
+					
+						<div class="col-md-2">
+							<label>Phone Number:</label>
+							<input type="number" ng-model="User.MobileNumber">
+						</div>
+						
+						<div class="col-md-2">
+							<label>Goverment Id:</label>
+							<input type="text" ng-model="User.GovermentId">
+						</div>
+						
+						<div class="col-md-2">
+							<label>Address:</label>
+							<input type="text" ng-model="User.Address">
+						</div>						
+						
+					</div>
+					<div class="row student_forms_raw">
+					
+						<div class="col-md-3">
+							<label>Country:</label>
+							<input type="text" ng-model="Visa.Country">
+						</div>
+						
+						
+						<div class="col-md-3">
+							<label>Duration:</label>
+							<input type="text" ng-model="Visa.Duration">
+						</div>
+						
+						<div class="col-md-3">
+							<label>Reason Of Traveling:</label>
+							<input type="text" ng-model="Visa.ROT">
+						</div>
+				</div>
+				
+					<div class="row student_forms_raw">
+						<div class="col-md-3">
+							<label>Comments:</label>
+							<input type="text" ng-model="Visa.Comments">
+						</div>
+						
+						<div class="col-md-3">
+							<label>Status:</label>
+							<input type="text" ng-model="Visa.Status">
+						</div>						
+					</div>
+					
+
+					
+					<div class="student_bottom_button">
+						<input type="button" value="submit" ng-click="submitUserData()">
+					</div>
+					
+				</form>
+			</div>
+		</div>
+		<!-- Content Section ends here-->
+
+
+		<!-- Footer Section starts here-->
+		<footer class="footer">©  copyright 2018</footer>
+		<!-- Footer Section ends here-->
+		
+	</div>
+	</body>
+
+</html>

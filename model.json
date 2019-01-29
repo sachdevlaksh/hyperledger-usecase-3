@@ -1,0 +1,31 @@
+var Employee= { CurrentEmployer:"",
+				PreviousEmployer:"",
+				TotalExperience:"",
+				CurrentCTC:""
+}
+
+var Visa = {
+			Country:"",
+			Duration:"",
+			ReasonOfTraveling:"",
+			Comments:"",
+			Status:""
+}
+var Student= {
+			HighestEducation:"",
+			CourseToPursue:"",
+			Specialization:"",
+			Type:""
+			
+} 
+var User ={digitalId:"",
+		   Name:"",
+		   DOB:"",
+		   Age:"",
+		   Mobile Number:"",
+		   Gender:"",
+		   registrationTimeStamp:""
+		   employee:Employee,
+		   visa:Visa,
+		   student:Student
+}

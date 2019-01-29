@@ -1,0 +1,148 @@
+var express = require('express');
+var path = require('path');
+var fs = require("fs");
+var bodyParser = require('body-parser');
+var port = process.env.PORT || process.env.VCAP_APP_PORT || '8081';
+var nano = require('nano')('http://localhost:'+port);            
+var app = express();
+var multer  = require('multer');         
+app.use(bodyParser.json());                
+app.use(bodyParser.urlencoded({ extended: true }));        
+
+var upload = multer({dest:__dirname + '/upload'});            
+var type = upload.single('file');                             
+
+app.use('/', express.static(__dirname + '/'));                 
+app.use('/', express.static(__dirname +'/Images'));            
+
+var cloudantUserName = "97db821e-87a4-4507-b8ee-fcc95b72b447-bluemix";
+var cloudantPassword = "ae34609f865eac5720a3e08c9c0208840a9418090a98f9a4c1fcb9fa5573040b";
+var dbCredentials_url = "https://"+cloudantUserName+":"+cloudantPassword+"@"+cloudantUserName+".cloudant.com"; // Set this to your own account// Set this to your own account
+
+//Initialize the library with my account
+var cloudant = require('cloudant')(dbCredentials_url);               
+
+var dbForLogin = cloudant.db.use("logindetails");
+var dbForApplicantData = cloudant.db.use("applicantdata");
+var dbForAdminRequestTable = cloudant.db.use("adminrequesttable");
+
+
+// viewed at http://localhost:8080
+app.get('/', function(req, res) {
+    console.log("Open LoginPage.html page");
+    res.sendFile(path.join(__dirname + '/PSKLogin.html'));
+});
+
+app.post('/loginData', function(req, res) {
+    console.log("Got a POST request for LoginPage.html page");
+    var userName = req.body.username;
+    var password = req.body.password;
+    dbForLogin.get(userName, function(err, body) {
+        if (!err) {
+            var dbPassword = body.agentPassword;
+            if (dbPassword === password) {
+                var response = {
+                    status: 200,
+                    message: 'Success'
+                }
+                res.send(JSON.stringify(response));
+            } else {
+                var response = {
+                    status: 300,
+                    message: 'Username and Password does not match'
+                }
+                res.send(JSON.stringify(response));
+            }
+        } else {
+            var response = {
+                status: 400,
+                message: 'Username does not exists'
+            }
+            res.send(JSON.stringify(response));
+        }
+    });
+});
+
+
+
+app.post('/applicantData', function(req, res) {
+    var response = "";
+    console.log("Got a POST request for StudentDetails.html page");
+    var requestId = "RE0";
+    var applicantData = JSON.parse(JSON.stringify(req.body)); // why two time JSON.parse(JSON.stringify(req.body))
+    var uniqueId = applicantData.name.substring(0, 3) + applicantData.dob.substring(0, 2) + applicantData.ssn.substring(0, 3);
+    dbForAdminRequestTable.list(function(err, body) { //what is list here
+        if (!err) {
+            body.rows.forEach(function(doc) {  // when we use forEach here; when is going to be in loop . How to debug and see
+                requestId = doc.id;
+            });
+        }
+        requestId = requestId.replace(/(\d+)/, function() {
+            return arguments[1] * 1 + 1
+        });
+        var requestDetails = {
+            requestDate: new Date().toJSON().slice(0, 10).replace(/-/g, '/'),
+            applicantName: applicantData.name,
+            status: 'Applied',
+            digitalId: uniqueId
+        }
+        dbForApplicantData.insert(applicantData, uniqueId, function(err, body) {
+            if (!err) {
+                dbForAdminRequestTable.insert(requestDetails, requestId, function(err, body) {
+                    if (!err) {
+                        console.log("Data inserted in admin request table.");
+                    } else {
+                        response = {
+                            status: 100,
+                            message: 'Data not inserted successfully in admin request table.'
+                        }
+                    }
+                });
+                response = {
+                    status: 200,
+                    message: 'Data inserted successfully in applicant data table.',
+                    id: body.id,
+                    revid: body.rev
+                }
+            } else {
+                response = {
+                    status: 300,
+                    message: 'Data not inserted successfully in applicant data table.'
+                }
+            }
+            res.send(JSON.stringify(response));
+        });
+    });
+});
+
+app.post('/applicantDoc', type, function(req, res) {
+    console.log("File :"+JSON.stringify(req.body));
+    fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, data) {
+        if (!err) {
+            dbForApplicantData.attachment.insert(req.body.id, req.file.originalname, data, req.file.mimetype, {
+                rev: req.body.rev
+            }, function(err, body) {
+                if (!err) {
+                    fs.unlink(__dirname + '/upload/' + req.file.filename, function(err) {
+                        if (!err)
+                            console.log('File deleted!');
+                        else
+                            console.log(err);
+                    });
+                    var response = {
+                        status: 200,
+                        message: 'Document uploaded successfully in applicant data table.'
+                    }
+                    res.send(JSON.stringify(response));
+                } else {
+                    var response = {
+                        status: 300,
+                        message: 'Document not uploaded successfully in applicant data table.'
+                    }
+                    res.send(JSON.stringify(response));
+                }
+            });
+        }
+    });
+});
+app.listen(port);
