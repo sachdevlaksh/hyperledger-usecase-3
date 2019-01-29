@@ -1,8 +1,9 @@
 var express = require('express');
 var path = require('path');
 var fs = require("fs");
+var fs = require("fs");
 var bodyParser = require('body-parser');
-var port = process.env.PORT || process.env.VCAP_APP_PORT || '3001';
+var port = process.env.PORT || process.env.VCAP_APP_PORT || '3000';
 var nano = require('nano')('http://localhost:'+port);            
 var app = express();
 var multer  = require('multer');         
@@ -130,7 +131,7 @@ app.post('/userData', function(req, res) {
 });
 
 app.post('/applicantDoc', type, function(req, res) {
-    console.log("File :"+JSON.stringify(req.body));
+    console.log("File :"+JSON.parse(req.body));
     fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, data) {
         if (!err) {
             dbForApplicantData.attachment.insert(req.body.id, req.file.originalname, data, req.file.mimetype, {
