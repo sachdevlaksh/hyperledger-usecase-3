@@ -85,6 +85,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
             url: '/applicantData',
             data: $scope.User
         }).then(function successCallback(response) {
+			console.log(JSON.stringify(response));
             if (JSON.stringify(response) != '{}' && response.data.status == "200") {
 				window.location.href = '/SuccessEntry.html';
                 var fields = [{
