@@ -30,7 +30,7 @@ var dbForAdminRequestTable = cloudant.db.use("adminrequesttable");
 // viewed at http://localhost:8080
 app.get('/', function(req, res) {
     console.log("Open LoginPage.html page");
-    res.sendFile(path.join(__dirname + '/PSKLogin.html'));
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.post('/loginData', function(req, res) {
