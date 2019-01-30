@@ -26,7 +26,10 @@ myApp.service('fileUpload', ['$http', function ($http) {
 }]);
 
 myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$window', function ($scope, fileUpload, $http, $filter, $window) {
-
+    $scope.$watch('myFile', function(newFileObj) {
+        if (newFileObj)
+            $scope.filename = newFileObj.name;
+    });
     function dateTime() {
         var now = new Date();
         return now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + "T" + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
@@ -68,7 +71,8 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
     }
 
     $scope.submitUserData = function () {
-
+        var file = $scope.myFile;
+        console.log(file);
         var dob = $scope.User.DOB;
         var year = Number(dob.substr(6,4));
         var month = Number(dob.substr(3, 2)) - 1;
