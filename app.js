@@ -1,21 +1,5 @@
 var myApp = angular.module("myModule", []);
 
-myApp.directive('fileModel', ['$parse', function($parse) {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
-            var model = $parse(attrs.fileModel);
-            var modelSetter = model.assign;
-
-            element.bind('change', function() {
-                scope.$apply(function() {
-                    modelSetter(scope, element[0].files[0]);
-                });
-            });
-        }
-    };
-}]);
-
 myApp.service('fileUpload', ['$http', function ($http) {
     this.uploadFileAndFieldsToUrl = function (file, fields, uploadUrl) {
         var fd = new FormData();    // what FormData do
@@ -42,7 +26,7 @@ myApp.service('fileUpload', ['$http', function ($http) {
 }]);
 
 myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$window', function ($scope, fileUpload, $http, $filter, $window) {
-    $scope.$watch('myFile', function(newFileObj) {
+    $scope.$watch('myFile', function (newFileObj) {
         if (newFileObj)
             $scope.filename = newFileObj.name;
     });
@@ -71,15 +55,14 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
             username: $scope.userName,
             password: $scope.password
         }
-
-
+        console.log(data);
         $http({
             method: 'POST',
             url: '/loginData',
             data: data
         }).then(function successCallback(response) {
             if (JSON.stringify(response) != '{}' && response.data.status == "200") {
-                window.location.href = '/ApplicationDetails.html';
+                window.location.href = '/digital_id_admin.html';
             } else {
                 alert(response.data.message);
             }
@@ -90,7 +73,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         var file = $scope.myFile;
         console.log(file);
         var dob = $scope.User.DOB;
-        var year = Number(dob.substr(6,4));
+        var year = Number(dob.substr(6, 4));
         var month = Number(dob.substr(3, 2)) - 1;
         var day = Number(dob.substr(0, 2));
         var today = new Date();
@@ -105,9 +88,9 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
             url: '/applicantData',
             data: $scope.User
         }).then(function successCallback(response) {
-			console.log(JSON.stringify(response));
+            console.log(JSON.stringify(response));
             if (JSON.stringify(response) != '{}' && response.data.status == "200") {
-				window.location.href = '/success_entry.html';
+                window.location.href = '/success_entry.html';
                 var fields = [{
                     "name": "id",
                     "data": response.data.id
@@ -124,7 +107,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
             }
         });
     }
-	
+
     $scope.submitEmployeeData = function () {
 
         console.log($scope.User);

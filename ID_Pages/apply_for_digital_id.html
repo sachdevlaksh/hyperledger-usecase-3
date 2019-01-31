@@ -1,107 +1,143 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Sign Up Digital ID</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="../css/bootstrap.min.css" rel="stylesheet">
-		<link href="../css/style.css" rel="stylesheet">	
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-		<script src="../app.js"></script>
+
+<head>
+	<title>Sign Up Digital ID</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="../app.js"></script>
+	<style>
+		#overlay {
+			position: fixed;
+			display: none;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			z-index: 2;
+			cursor: pointer;
+		}
+		
+		#mydiv {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			width: 25em;
+			margin-left: -15em;
+			background-color: #f3f3f3;
+		}
+	</style>
 </head>
 
-	<body ng-app="myModule" ng-controller="myController">
-	
+<body ng-app="myModule" ng-controller="myController" onload="on()">
+
 	<div class="container-fluid">
-	
+		<div id="overlay">
+			<div id="mydiv">
+				<span class="fields_design col-md-8">
+		<label>Digital Id</label>
+		<input type="text" class="light"/>
+		</span>
+				<span class="fields_design col-md-1">
+		<label></label>
+        <img src="../images/arrow_blue.png" align="middle" style="margin-top:18px;" onclick="off()"/>		
+		</span>
+			</div>
+		</div>
 		<!-- Header Section starts here-->
 		<header class="header_bg">
 			<div class="header_left"></div>
 			<div class="header_right"></div>
-			
+
 			<div class="container">
 				<div class="logo_pharma">
-					<a href="#"><img src="../images/logo.png" alt="logo"/></a>
+					<a href="#"><img src="../images/logo.png" alt="logo" /></a>
 				</div>
-				
+
 				<div class="banner_text_right">
 					Blockchain for Business<br><b>WITH IBM BLOCKCHAIN</b>
 				</div>
 			</div>
 
-		</header> 
+		</header>
 		<!-- Header Section ends here-->
-		
-		
+
+
 		<!-- Content Section ends here-->
 		<div class="student_id_content">
-	  		<div class="container">
-  				<div class="signout">
-					<a href="#"><img src="images/sign_out_btn.png" alt=""/></a>
+			<div class="container">
+				<div class="signout">
+					<a href="#"><img src="images/sign_out_btn.png" alt="" /></a>
 				</div>
-  			</div>
-		  	<h2>Apply for <b>digital identification</b></h2>
-		  	<p><a href="#">Don.t have?</a> Fill all the details and we will mail you the digital identification number in your mailbox</p>
+			</div>
+			<h2>Apply for <b>digital identification</b></h2>
+			<p><a href="#">Don’t have?</a> Fill all the details and we will mail you the digital identification number in your mailbox</p>
 		</div>
 		<div class="student_id_forms">
 			<div class="container">
 				<form>
 					<div class="row student_forms_raw">
-					
+
 						<div class="col-md-3">
 							<label>Legal Name:</label>
 							<input type="text" ng-model="User.Name">
 						</div>
-						
-						
+
+
 						<div class="col-md-3">
 							<label>Date of Birth (mm/dd/yyyy)</label>
 							<input type="text" ng-model="User.DOB">
 						</div>
-						
+
 						<div class="col-md-3">
 							<label>Gender</label>
 							<select ng-model="User.Gender" ng-options="x for x in gender"></select>
 						</div>
 					</div>
-					
-					
+
+
 					<div class="row student_forms_raw">
-						
+
 						<div class="col-md-3">
 							<label>Email:</label>
 							<input type="text" ng-model="User.Email">
 						</div>
-						
-					
+
+
 						<div class="col-md-2">
 							<label>Phone Number:</label>
 							<input type="number" ng-model="User.MobileNumber">
 						</div>
-						
+
 						<div class="col-md-2">
 							<label>Goverment Id:</label>
 							<input type="text" ng-model="User.GovermentId">
 						</div>
-						
+
 						<div class="col-md-2">
 							<label>Address:</label>
 							<input type="text" ng-model="User.Address">
-						</div>						
-						
+						</div>
+
 					</div>
-					
+
 					<div class="row student_forms_raw">
 						<div class="col-md-6">
 							<label>Upload Photo ID Proof:</label>
-							<input type="file" name="file" id="file" file-model="myFile" accept="image/*">
-						</div>						
+							<input type="file" value="No file chosen" name="file" id="file" file-model="myFile" accept="image/*">
+						</div>
 					</div>
-					
+
 					<div class="student_bottom_button">
 						<input type="button" value="submit" ng-click="submitUserData()">
 					</div>
-					
+
 				</form>
 			</div>
 		</div>
@@ -109,10 +145,19 @@
 
 
 		<!-- Footer Section starts here-->
-		<footer class="footer">©  copyright 2018</footer>
+		<footer class="footer">© copyright 2018</footer>
 		<!-- Footer Section ends here-->
-		
+
 	</div>
-	</body>
+	<script type="text/javascript">
+function on() {
+document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+document.getElementById("overlay").style.display = "none";
+}
+	</script>
+</body>
 
 </html>
