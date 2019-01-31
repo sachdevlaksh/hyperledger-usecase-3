@@ -62,7 +62,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
             data: data
         }).then(function successCallback(response) {
             if (JSON.stringify(response) != '{}' && response.data.status == "200") {
-                window.location.href = '/digital_id_admin.html';
+                window.location.href = '../AdminPages/digital_id_admin.html';
             } else {
                 alert(response.data.message);
             }

@@ -29,14 +29,14 @@ var dbForAdminRequestTable = cloudant.db.use("adminrequesttable");
 
 
 //create index on login db if not existing
- 	var user = {name:'userId', type:'json', index:{fields:['userId']}};
- 	dbForLogin.index(user, function(er, response) {
- 	if (er) {
- 	console.log("Error creating index on user ID:"+ er);
- 	}else{
- 	console.log('Index creation result on user ID :'+ response.result);
- 	}
- 	});
+	var user = {name:'userId', type:'json', index:{fields:['userId']}};
+	dbForLogin.index(user, function(er, response) {
+	if(er) {
+	console.log("Error creating index on user ID:"+  er);
+	}else{
+	console.log('Index creation result on user ID :'+ response.result);
+	}
+	});
 
 // viewed at http://localhost:8080
 app.get('/', function (req, res) {
@@ -46,12 +46,15 @@ app.get('/', function (req, res) {
 
 app.post('/loginData', function (req, res) {
     console.log("Got a POST request for LoginPage.html page");
-    var userId = req.body.username;
-    var password = req.body.password;
-    dbForLogin.get(userId, function (err, body) {
+   console.log(req.body);
+	 var userId = req.body.username;
+         var password = req.body.password;
+dbForLogin.find({selector:{userId:userId}},function(err,body) { 
         console.log(body);
         if (!err) {
-            var dbPassword = body.password;
+            var dbPassword = body.docs[0].password;
+		console.log("dbPassword: " +dbPassword );
+		console.log("password: " + password);
             if (dbPassword === password) {
                 var response = {
                     status: 200,
