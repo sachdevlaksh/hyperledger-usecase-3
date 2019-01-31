@@ -45,7 +45,8 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
     var Employee = { CurrentEmployer: "", PreviousEmployer: "", TotalExperience: "", CurrentCTC: "" }
     var Visa = { Country: "", Duration: "", ReasonOfTraveling: "", Comments: "", Status: "" }
     var Student = { HighestEducation: "", CourseToPursue: "", Specialization: "", Type: "" }
-    var User = { _id: uniqueId + '', Name: "", DOB: "", Age: "", MobileNumber: "", Gender: "", Email: "", GovermentId: "", Address: "", registrationTimeStamp: timestamp, employee: Employee, visa: Visa, student: Student }
+    var User = { _id: uniqueId + '', Name: "", DOB: "", Age: "", MobileNumber: "", Gender: "", Email: "", GovermentId: "", Address: "", registrationTimeStamp: timestamp, employee: Employee, visa: Visa, student: Student,
+                   visaAproved: false, universityApproved : false,employeeApproved : false, digitalIdApprvoed : false   }
 
 
     $scope.User = User;
