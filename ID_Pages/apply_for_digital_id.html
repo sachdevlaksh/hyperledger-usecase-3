@@ -9,7 +9,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script src="../app.js"></script>
-	<style>
+	<!-- <style>
 		#overlay {
 			position: fixed;
 			display: none;
@@ -32,7 +32,7 @@
 			margin-left: -15em;
 			background-color: #f3f3f3;
 		}
-	</style>
+	</style> -->
 </head>
 
 <body ng-app="myModule" ng-controller="myController" onload="on()">
@@ -86,13 +86,13 @@
 
 						<div class="col-md-3">
 							<label>Legal Name:</label>
-							<input type="text" ng-model="User.Name">
+							<input type="text" ng-model="User.digitalIdInfo.Name">
 						</div>
 
 
 						<div class="col-md-3">
 							<label>Date of Birth (mm/dd/yyyy)</label>
-							<input type="text" ng-model="User.DOB">
+							<input type="text" ng-model="User.digitalIdInfo.DOB">
 						</div>
 
 						<div class="col-md-3">
@@ -106,23 +106,23 @@
 
 						<div class="col-md-3">
 							<label>Email:</label>
-							<input type="text" ng-model="User.Email">
+							<input type="text" ng-model="User.digitalIdInfo.Email">
 						</div>
 
 
 						<div class="col-md-2">
 							<label>Phone Number:</label>
-							<input type="number" ng-model="User.MobileNumber">
+							<input type="number" ng-model="User.digitalIdInfo.MobileNumber">
 						</div>
 
 						<div class="col-md-2">
 							<label>Goverment Id:</label>
-							<input type="text" ng-model="User.GovermentId">
+							<input type="text" ng-model="User.digitalIdInfo.GovermentId">
 						</div>
 
 						<div class="col-md-2">
 							<label>Address:</label>
-							<input type="text" ng-model="User.Address">
+							<input type="text" ng-model="User.digitalIdInfo.Address">
 						</div>
 
 					</div>
@@ -130,7 +130,7 @@
 					<div class="row student_forms_raw">
 						<div class="col-md-6">
 							<label>Upload Photo ID Proof:</label>
-							<input type="file" value="No file chosen" name="file" id="file" file-model="myFile" accept="image/*">
+							<input type="file" class="light" file-model="myFile" accept="image/*"/>
 						</div>
 					</div>
 
@@ -145,7 +145,7 @@
 
 
 		<!-- Footer Section starts here-->
-		<footer class="footer">© copyright 2018</footer>
+		<footer class="footer">© copyright 2019</footer>
 		<!-- Footer Section ends here-->
 
 	</div>

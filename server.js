@@ -78,28 +78,32 @@ dbForLogin.find({selector:{userId:userId}},function(err,body) {
     });
 });
 
-app.post('/applicantData', function (req, res) {
-    var response = "";
-    console.log("Got a POST request for apply_for_digital_id.html page");
-    var applicantData = JSON.parse(JSON.stringify(req.body));
-    console.log(applicantData);
-    dbForApplicantData.insert(applicantData, function (err, body) {
-        if (!err) {
-            response = {
-                status: 200,
-                message: 'Data inserted successfully in applicant data table.',
-                id: body.id,
-                revid: body.rev
-            }
-        } else {
-            response = {
-                status: 300,
-                message: 'Data not inserted successfully in applicant data table.'
-            }
-        }
-        res.send(JSON.stringify(response));
+
+app.post('/applicantData', type, function(req, res) {
+    console.log('Inside Express api to insert data for applicant');
+    var applicantData = JSON.parse(JSON.stringify(req.body.data));
+    applicantData = JSON.parse(User);
+  
+    fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, response) {
+      insertCloudantData(applicantData).then(function(data) {
+      if(data.success){
+          insertDocInCloudant(response, req.file, applicantData.digitalIdInfo.documentDetails).then(function(data) {
+          if(data.success){
+              fs.unlink(__dirname + '/upload/' + req.file.filename, function(err) {
+                  if(!err)
+                    console.log('File deleted !');
+                  else
+                    console.log('Issue deleting File');
+              });
+              res.json ({success : true, message:'Applicant data and document inserted successfully !'});
+          }else
+              res.json ({success : false, message:'Issue inserting applicant document !'});
+          });
+      }else
+          res.json ({success : false, message:'Issue inserting applicant data !'});
+      });
     });
-});
+  });
 
 app.post('/employeeData', function (req, res) {
     var response = "";
