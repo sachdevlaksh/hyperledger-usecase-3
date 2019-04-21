@@ -1,0 +1,84 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Sample business network definition.
+ */
+namespace org.example.basic
+
+asset applicantInfo identified by digitalId {
+  o String digitalId
+  o String Name
+  o String Email
+  o String Address
+  o String createTimestamp
+  o String Age
+  o String MobileNumber
+  o String Gender
+  o String GovermentId
+  o String DOB
+  --> ApplicantAdmin applicantadmin
+  }
+
+asset studentInfo
+identified by digitalId {
+  o String digitalId
+  o String Name
+  o String Email
+  o String Address
+  o String createTimestamp
+  o String Age
+  o String MobileNumber
+  o String Gender
+  o String GovermentId
+  o String DOB
+  --> ApplicantAdmin applicantadmin
+  }
+
+participant ApplicantAdmin identified by ApplicantAdminId {
+  o String ApplicantAdminId
+  o String firstName
+  o String lastName
+}
+
+participant StudentAdmin identified by StudentAdminId {
+  o String StudentAdminId
+  o String firstName
+  o String lastName
+}
+
+participant EmployeeAdmin identified by EmployeeAdminId {
+  o String EmployeeAdminId
+  o String firstName
+  o String lastName
+}
+
+participant VisaAdmin identified by VisaAdminId {
+  o String VisaAdminId
+  o String firstName
+  o String lastName
+}
+
+transaction SampleTransaction {
+  --> SampleAsset asset
+  o String newValue
+}
+
+event SampleEvent {
+  --> SampleAsset asset
+  o String oldValue
+  o String newValue
+}
+
+
