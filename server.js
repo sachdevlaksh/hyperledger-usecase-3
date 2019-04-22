@@ -82,7 +82,8 @@ dbForLogin.find({selector:{userId:userId}},function(err,body) {
 app.post('/applicantData', type, function(req, res) {
     console.log('Inside Express api to insert data for applicant');
     var applicantData = JSON.parse(JSON.stringify(req.body.data));
-    applicantData = JSON.parse(User);
+    applicantData = JSON.parse(applicantData);
+    console.log(applicantData);
   
     fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, response) {
       insertCloudantData(applicantData).then(function(data) {
@@ -178,4 +179,40 @@ app.post('/applicantDoc', type, function (req, res) {
         }
     });
 });
+
+
+// Insert Document in cloudant DB
+var insertDocInCloudant = async (data, file, docData) => {
+	console.log(data);
+	console.log(file);
+	try{
+		var response = await dbForApplicantDocs.insert(docData);
+		console.log('Document related data inserted successfully !');
+		var body = await dbForApplicantDocs.attachment.insert(response.id, file.originalname, data, file.mimetype, { rev: response.rev });
+		console.log('Document inserted successfully !');
+		return({ success: true, message: 'Document uploaded successfully !' });		
+	}catch(err){
+	  console.log('Document related data insertion issue ! ' + err);
+	  return({ success: false, message: 'Document related data insertion issue !' });
+	} 		
+}
+// Insert data/record in cloudant DB
+var insertCloudantData = async (data) => {
+	try{
+		var response =  await dbForApplicantData.find({ selector: { ssn: data.ssn } });
+		if(response && response.docs && response.docs.length > 0){
+		  console.log('SSN already exists in DB !');
+		  return({ success: false, message: 'SSN already exists in DB !'});		
+		}else{
+		  console.log('SSN does not exists in DB !');
+		  var data = await dbForApplicantData.insert(data);
+		  console.log('Applicant Data Inserted !');
+		  return({ success: true, message: 'Applicant Data Inserted Successfully !'});		  
+		}
+	}catch(err) {
+		console.log('Issue fetching/inserting data from DB ! ' + err);
+		return({ success: false, message: 'Issue fetching/inserting data from DB !'});
+	}
+}
+
 app.listen(port);
