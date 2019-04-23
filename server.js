@@ -26,6 +26,7 @@ var cloudant = require('cloudant')(dbCredentials_url);
 var dbForLogin = cloudant.db.use("logindb");
 var dbForApplicantData = cloudant.db.use("digitalid");
 var dbForAdminRequestTable = cloudant.db.use("adminrequesttable");
+var dbForApplicantDocs = cloudant.db.use("applicantdocs");
 
 
 //create index on login db if not existing
