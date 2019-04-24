@@ -9,7 +9,7 @@ var app = express();
 var multer = require('multer');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+var Cloudant = require('@cloudant/cloudant');
 var upload = multer({ dest: __dirname + '/upload' });
 var type = upload.single('file');
 
@@ -18,10 +18,10 @@ app.use('/', express.static(__dirname + '/Images'));
 
 var cloudantUserName = "adfc60ec-fa4a-46a9-bcf9-e554de84b30b-bluemix";
 var cloudantPassword = "0f130af356c2fcfc117f121fa37673bf41c604165888b98399dfd6bcf62dacaa";
-var dbCredentials_url = "https://" + cloudantUserName + ":" + cloudantPassword + "@" + cloudantUserName + ".cloudant.com";
+var cloudant_url = "https://" + cloudantUserName + ":" + cloudantPassword + "@" + cloudantUserName + ".cloudant.com";
 
 //Initialize the library with my account
-var cloudant = require('cloudant')(dbCredentials_url);
+var cloudant = Cloudant(cloudant_url);
 
 var dbForLogin = cloudant.db.use("logindb");
 var dbForApplicantData = cloudant.db.use("digitalid");
@@ -94,11 +94,12 @@ app.post('/verifyLogin', function(req, res) {
 
 // Verify admin login credentials from cloudant DB
 var verifyCredentialsFromCloudant = async (username, password) => {
+console.log("Username :" +username + "Password :" +password);
 	try{
 		var response = await dbForLogin.get(username);
 		console.log('Data found in db for the requested username');
         console.log('DB Login Response' + JSON.stringify(response));
-		if (response.password === password) {
+		if (response.password == password) {
 			console.log('User verification successful');
 			return({ success: true, message: 'User Authentication Successful !' });
 		} else {
