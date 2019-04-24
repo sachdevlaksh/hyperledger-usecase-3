@@ -79,6 +79,37 @@ dbForLogin.find({selector:{userId:userId}},function(err,body) {
     });
 });
 
+// Check Login Details
+app.post('/verifyLogin', function(req, res) {
+	console.log('Inside Express api check for login');
+	console.log('Received login details : ' + JSON.stringify(req.body));
+	verifyCredentialsFromCloudant(req.body.username, req.body.password).then(function(data) {
+	if(data.success){
+		res.json ({success : true, message:'User name verified with password successfully !'});
+	}else
+		res.json ({success : false, message:'User name not found !'});
+	});
+});
+
+
+// Verify admin login credentials from cloudant DB
+var verifyCredentialsFromCloudant = async (username, password) => {
+	try{
+		var response = await dbForLogin.get(username);
+		console.log('Data found in db for the requested username');
+        console.log('DB Login Response' + response)
+		if (response.agentPassword === password) {
+			console.log('User verification successful');
+			return({ success: true, message: 'User Authentication Successful !' });
+		} else {
+			console.log('Invalid User name/Password ');
+			return({ success: false, message: 'Invalid User name/Password !' });
+		}
+	}catch (err){
+		console.log('Data not found in db for the requested username !' + err);
+		return({ success: false, message: 'Data not found in db for the requested username !'});
+	}
+}
 
 app.post('/applicantData', type, function(req, res) {
     console.log('Inside Express api to insert data for applicant');
@@ -90,7 +121,6 @@ app.post('/applicantData', type, function(req, res) {
       insertCloudantData(applicantData).then(function(data) {
       if(data.success){
           insertDocInCloudant(response, req.file, applicantData.digitalIdInfo.documentDetails).then(function(data) {
-	  console.log(data);
           if(data.success){
               fs.unlink(__dirname + '/upload/' + req.file.filename, function(err) {
                   if(!err)
