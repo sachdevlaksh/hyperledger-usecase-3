@@ -97,7 +97,7 @@ var verifyCredentialsFromCloudant = async (username, password) => {
 	try{
 		var response = await dbForLogin.get(username);
 		console.log('Data found in db for the requested username');
-        console.log('DB Login Response' + response)
+        console.log('DB Login Response' + JSON.stringfy(response));
 		if (response.password === password) {
 			console.log('User verification successful');
 			return({ success: true, message: 'User Authentication Successful !' });
