@@ -90,6 +90,7 @@ app.post('/applicantData', type, function(req, res) {
       insertCloudantData(applicantData).then(function(data) {
       if(data.success){
           insertDocInCloudant(response, req.file, applicantData.digitalIdInfo.documentDetails).then(function(data) {
+	  console.log(data);
           if(data.success){
               fs.unlink(__dirname + '/upload/' + req.file.filename, function(err) {
                   if(!err)
