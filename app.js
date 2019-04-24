@@ -233,3 +233,27 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         });
     }
 }]);
+
+myApp.controller('digitalIdAdminLogin', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+
+  $scope.verifyLogin = function() {
+
+    var data = {
+      username: $scope.username,
+      password: $scope.password
+    }
+
+    $http({
+      method: 'POST',
+      url: '/verifyLogin',
+      data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+        window.location.href = '/digital_id_admin.html';
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+}]);
