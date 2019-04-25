@@ -31,11 +31,11 @@ var dbForApplicantDocs = cloudant.db.use("applicantdocs");
 
 //create index on login db if not existing
 	var user = {name:'userId', type:'json', index:{fields:['userId']}};
-	dbForLogin.index(user, function(er, response) {
+	dbForLogin.index(user, function(er, response) {
 	if(er) {
-	console.log("Error creating index on user ID:"+  er);
+	console.log("Error creating index on user ID:"+  er);
 	}else{
-	console.log('Index creation result on user ID :'+ response.result);
+	console.log('Index creation result on user ID :'+ response.result);
 	}
 	});
 
@@ -91,6 +91,34 @@ app.post('/verifyLogin', function(req, res) {
 	});
 });
 
+//Get all digital Ids with digital Id status as 'PENDING'
+app.get('/getDigitalIdRequests', function(req, res) {
+  console.log('Inside Express api check to get all applicants details for digital Id');
+	digitalIdWithPendingStatus().then(function(data) {
+	if(data.success){
+		res.json ({success : true, message:'Data found successfully ! ', result: data.result.docs});
+	}else
+		res.json ({success : false, message:'Cloudant db connectivity issue !'});
+	});  
+});
+
+
+// Fetch all digital Ids with pending digitalId status from cloudant DB
+var digitalIdWithPendingStatus = async () => {
+	try{
+		var response = await dbForApplicantData.find({ selector: { digitalIdStatus: 'Pending' } });
+		if(response && response.docs && response.docs.length > 0) {
+		  console.log('Data found !');
+		  return({ success: true, message: 'Data found !', result: response });
+		} else {
+		  console.log('Data not found !');
+		  return({ success: false, message: 'Data not found !' });
+		}    
+	}catch(err) {
+      console.log('Error finding details from db !' + err);
+      return({ success: false, message: 'Error finding details from db !'});
+    }		
+}
 
 // Verify admin login credentials from cloudant DB
 var verifyCredentialsFromCloudant = async (username, password) => {
