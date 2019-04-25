@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>University Admin</title>
+<title>Digital ID Admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
@@ -13,7 +13,7 @@
 <script src="jQueryAssets/jquery.ui-1.10.4.tabs.min.js"></script>
 </head>
 
-<body>
+<body ng-app="myModule" ng-controller="digitalIdAdmin" ng-init="getDigitalIdRequests()>
 <div class="container-fluid"> 
   
   <!-- Header Section starts here-->
@@ -55,12 +55,12 @@
 					  <th>Applicant Name</th>
 					  <th>Application Status</th>
 					  </tr>
-					  <tr>
-					  <td><a href="#">ABC123</a></td>
-					  <td>DHLIND</td>
-					  <td>DHL, India</td>
-					  <td>G123</td>
-					  <td>20</td>
+					  <tr ng-repeat="x in $data">
+						<td ng-click="selectedDigitalId(x._id)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
+						<td>{{ x.digitalIdInfo.digitalId }}</td>
+						<td>{{ x.digitalIdInfo.createTimestamp | date:'yyyy-MM-dd' }}</td>
+						<td>{{ x.digitalIdInfo.fullName }}</td>
+						<td>{{ x.digitalIdStatus }}</td>
 					  </tr>
 				  </table>
 				</span>
@@ -74,7 +74,7 @@
   </div>
   
   <!-- Footer Section starts here-->
-  <footer class="footer">©  copyright 2018</footer>
+  <footer class="footer">©  copyright 2019</footer>
   <!-- Footer Section ends here--> 
   
 </div>
