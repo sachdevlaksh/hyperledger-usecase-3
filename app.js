@@ -75,19 +75,19 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         createTimestamp: uniqueId,
         dateOfBirth: "",
         documentDetails: document,
+        employee: Employee, 
+        visa: Visa, 
+        student: Student,
         txnMsg: ""
       };
 
       var User = {
         _id: uniqueId + '',
         digitalIdInfo: digitalIdData,
-        employee: Employee, 
-        visa: Visa, 
-        student: Student,
-        visaAproved: false, 
-        universityApproved : false,
-        employeeApproved : false, 
-        digitalIdApprvoed : false,
+        digitalIdStatus : 'Pending',
+        universityAdmissionStatus : 'Pending',
+        employeeApplicationStatus: 'Pending',
+        visaApplicationStatus: 'Pending',  
         ssn: "",
         message: "",
         txnMsg: ""   }
@@ -254,6 +254,40 @@ myApp.controller('digitalIdAdminLogin', ['$scope', 'fileUpload', '$http', '$filt
         alert(response.data.message);
       }
     });
+  }
+
+}]);
+
+
+/* Consortium Admin DigitalId Requests Form Controller */
+myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams', function($scope, $http, $window, NgTableParams) {
+
+  $scope.getDigitalIdRequests = function() {
+    $http({
+      method: 'GET',
+      url: '/getDigitalIdRequests'
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $scope.tableData = response.data.result;
+                $scope.tableParams = new NgTableParams({
+                        count: 4
+                }, {
+                        counts: [],
+                        dataset: $scope.tableData
+                });
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.selectedDigitalId = function(digitalId) {
+        $window.sessionStorage.setItem("_id", digitalId);
+        $window.location.href = '/digital_id_read_only.html';
+  }
+
+  $scope.Logout = function () {
+        window.close();
   }
 
 }]);
