@@ -249,7 +249,7 @@ myApp.controller('digitalIdAdminLogin', ['$scope', 'fileUpload', '$http', '$filt
       data: data
     }).then(function successCallback(response) {
       if(response.data.success == true) {
-        window.location.href = './AdminPages/digital_id_admin.html';
+        window.location.href = '../AdminPages/digital_id_admin.html';
       } else {
         alert(response.data.message);
       }
