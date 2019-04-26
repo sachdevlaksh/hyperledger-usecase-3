@@ -264,7 +264,7 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
   $scope.getDigitalIdRequests = function() {
     $http({
       method: 'GET',
-      url: '/getDigitalIdRequests'
+      url: '../AdminPages/getDigitalIdRequests'
     }).then(function successCallback(response) {
       if(response.data.success == true) {
         
