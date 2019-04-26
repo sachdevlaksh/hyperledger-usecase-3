@@ -283,7 +283,7 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
 
   $scope.selectedDigitalId = function(digitalId) {
         $window.sessionStorage.setItem("_id", digitalId);
-        $window.location.href = '../ReadOnlyPages/digital_id_read_only.html';
+        $window.location.href = '../ReadOnlyPages/digitalId_read_only.html';
   }
 
   $scope.Logout = function () {
