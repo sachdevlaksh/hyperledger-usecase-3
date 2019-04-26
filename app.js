@@ -1,6 +1,5 @@
 var myApp = angular.module("myModule", ['ngTable']);
 
-
 /* File Upload Directive */
 myApp.directive('fileModel', ['$parse', function($parse) {
   return {
