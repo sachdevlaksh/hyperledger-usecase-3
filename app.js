@@ -88,7 +88,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         universityAdmissionStatus : 'Pending',
         employeeApplicationStatus: 'Pending',
         visaApplicationStatus: 'Pending',  
-        ssn: "",
+        GovermentId: "",
         message: "",
         txnMsg: ""   }
 
@@ -139,7 +139,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
             $scope.User.digitalIdInfo.Age = age;
             var file = $scope.myFile;
             $scope.User.digitalIdInfo.documentDetails.docName = file.name;
-            $scope.User.ssn = $scope.User.digitalIdInfo.ssn;
+            $scope.User.GovermentId = $scope.User.digitalIdInfo.GovermentId;
             $scope.User.message = "Record inserted successfully in Cloudant DB.";
             console.log($scope.User.digitalIdInfo);
             var uploadUrl = "/applicantData";
