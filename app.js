@@ -264,7 +264,7 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
   $scope.getDigitalIdRequests = function() {
     $http({
       method: 'GET',
-      url: '../AdminPages/getDigitalIdRequests'
+      url: '/getDigitalIdRequests'
     }).then(function successCallback(response) {
       if(response.data.success == true) {
         
@@ -283,7 +283,7 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
 
   $scope.selectedDigitalId = function(digitalId) {
         $window.sessionStorage.setItem("_id", digitalId);
-        $window.location.href = '/digital_id_read_only.html';
+        $window.location.href = '../AdminPages/digital_id_read_only.html';
   }
 
   $scope.Logout = function () {
