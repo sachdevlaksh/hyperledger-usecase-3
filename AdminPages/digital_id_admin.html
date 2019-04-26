@@ -59,7 +59,7 @@
 					  <th>Applicant Name</th>
 					  <th>Application Status</th>
 					  </tr>
-					  <tr ng-repeat="x in $data">
+					  <tr ng-repeat="x in tableData">
 						<td ng-click="selectedDigitalId(x._id)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
 						<td>{{ x.digitalIdInfo.digitalId }}</td>
 						<td>{{ x.digitalIdInfo.createTimestamp | date:'yyyy-MM-dd' }}</td>

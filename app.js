@@ -269,14 +269,12 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
       if(response.data.success == true) {
         
                 $scope.tableData = response.data.result;
-                $scope.tableParams = new NgTableParams({
+                /*$scope.tableParams = new NgTableParams({
                         count: 4
                 }, {
                         counts: [],
                         dataset: $scope.tableData
-                });
-        console.log("TableParams : " + $scope.tableParams);
-        console.log("dataset : " + dataset);
+                });*/
       } else {
         alert(response.data.message);
       }
