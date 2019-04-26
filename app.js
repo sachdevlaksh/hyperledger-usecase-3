@@ -275,7 +275,7 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
                         counts: [],
                         dataset: $scope.tableData
                 });
-        console.log("TableParams : "tableParams);
+        console.log("TableParams : " + tableParams);
       } else {
         alert(response.data.message);
       }
