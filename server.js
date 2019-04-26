@@ -260,12 +260,12 @@ var insertDocInCloudant = async (data, file, docData) => {
 // Insert data/record in cloudant DB
 var insertCloudantData = async (data) => {
 	try{
-		var response =  await dbForApplicantData.find({ selector: { ssn: data.ssn } });
+		var response =  await dbForApplicantData.find({ selector: { GovermentId: data.GovermentId } });
 		if(response && response.docs && response.docs.length > 0){
-		  console.log('SSN already exists in DB !');
-		  return({ success: false, message: 'SSN already exists in DB !'});		
+		  console.log('GovermentId already exists in DB !');
+		  return({ success: false, message: 'GovermentId already exists in DB !'});		
 		}else{
-		  console.log('SSN does not exists in DB !');
+		  console.log('GovermentId does not exists in DB !');
 		  var data = await dbForApplicantData.insert(data);
 		  console.log('Applicant Data Inserted !');
 		  return({ success: true, message: 'Applicant Data Inserted Successfully !'});		  
