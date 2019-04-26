@@ -267,6 +267,7 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
       url: '/getDigitalIdRequests'
     }).then(function successCallback(response) {
       if(response.data.success == true) {
+        
                 $scope.tableData = response.data.result;
                 $scope.tableParams = new NgTableParams({
                         count: 4
@@ -274,6 +275,7 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
                         counts: [],
                         dataset: $scope.tableData
                 });
+        console.log("TableParams : "tableParams);
       } else {
         alert(response.data.message);
       }
