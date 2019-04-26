@@ -1,4 +1,4 @@
-var myApp = angular.module("myModule", []);
+var myApp = angular.module("myModule", ['ngTable']);
 
 
 /* File Upload Directive */
