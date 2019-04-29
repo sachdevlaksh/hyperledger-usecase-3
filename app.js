@@ -33,7 +33,7 @@ myApp.service('fileUpload', ['$http', function($http) {
         }
       }).then(function successCallback(response) {
         if(response.data.success == true && uploadUrl === '/applicantData') {
-          window.location.href = '/success_entry.html';
+          window.location.href = '/success_DigitalIdEntry.html';
         } else {
           alert(response.data.message);
         }
@@ -236,7 +236,7 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
 	  data: $scope.digitalIdData
 	}).then(function successCallback(response) {
 	  if(response.data.success == true) {
-		$window.location.href = '/university_success.html';
+		$window.location.href = '../success_UniversityIdEntry.html';
 	  } else {
 		alert(response.data.message);
 	  }
