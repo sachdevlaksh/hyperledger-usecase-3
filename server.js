@@ -1,12 +1,13 @@
 var express = require('express');
 var path = require('path');
 var fs = require("fs");
-var fs = require("fs");
+var md5File = require('md5-file');
 var bodyParser = require('body-parser');
 var port = process.env.PORT || process.env.VCAP_APP_PORT || '3001';
 var nano = require('nano')('http://localhost:' + port);
 var app = express();
 var multer = require('multer');
+var nodemailer = require('nodemailer');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var Cloudant = require('@cloudant/cloudant');
@@ -166,6 +167,55 @@ app.post('/applicantData', type, function(req, res) {
       });
     });
   });
+
+  //Get selected _id details from DB
+app.post('/getDigitalIdData', function(req, res) {
+    console.log('Inside Express api check to get digital Id data : ' +req.body._id);
+      getDigitalIdData(req.body._id).then(function(data) {
+      if(data.success){
+          res.json ({success : true, message:'Applicant data found successfully ! ', result: data.response.docs});
+      }else
+          res.json ({success : false, message:'Cloudant db connectivity issue !'});
+      });
+  });
+
+  //Update digital Id applicant details to DB
+app.post('/updateDigitalIdData', function(req, res) {
+    console.log('Inside Express api check to update digital Id data ! ');
+    var applicantData = JSON.parse(JSON.stringify(req.body));
+      updateCloudantData(applicantData).then(function(data) {
+      if(data.success){
+          res.json ({success : true, message:'Applicant data updated successfully ! '});
+      }else
+          res.json ({success : false, message:'Applicant data updation issue !'});
+      });
+  });
+  
+
+
+  //Fetch specific digitalId record from cloudant DB
+  var getDigitalIdData = async (digitalId) => {
+      try{
+          var response = await dbForApplicantData.find({ selector: { _id: digitalId } });
+          console.log('Applicant data found successfully ! ');
+          return({ success: true, message: 'Applicant data found successfully ! ', response: response });
+      }catch(err) {		
+          console.log('Applicant data not present/DB issue ! ' + err);
+          return({ success: false, message: 'Applicant data not present/DB issue !' });
+      }		
+  }
+
+  // Update existence record in cloudant DB
+var updateCloudantData = async (data) => {
+	try{
+		var response = await dbForApplicantData.insert(data);
+		console.log('Applicant data updated successfully ! ');
+        return({ success: true, message: 'Applicant data updated successfully ! ' });
+	}catch(err) {		
+        console.log('Applicant data updation issue ! ' + err);
+        return({ success: false, message: 'Applicant data updation issue !' });
+    }		
+}
 
 app.post('/employeeData', function (req, res) {
     var response = "";

@@ -257,7 +257,72 @@ myApp.controller('digitalIdAdminLogin', ['$scope', 'fileUpload', '$http', '$filt
 
 }]);
 
+/* Digital Id Read Only Form Controller */
+myApp.controller('digitalIdReadOnlyForm', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
 
+    var data = {
+          _id : $window.sessionStorage.getItem("_id")
+    }
+  
+    $scope.loadDigitalIdData = function() {
+      $http({
+        method: 'POST',
+        url: '/getDigitalIdData',
+            data: data
+      }).then(function successCallback(response) {
+        if(response.data.success == true) {
+                  $scope.digitalIdData = response.data.result[0];
+                  $scope.dob = new Date(response.data.result[0].digitalIdInfo.dateOfBirth);
+        } else {
+          alert(response.data.message);
+        }
+      });
+    }
+  
+    $scope.updateDigitalIdData = function (buttonValue) {
+          var message = $scope.digitalIdData.message + " The digital id request has been " + buttonValue + ".";
+          $scope.digitalIdData.message = message;
+  
+          if(buttonValue == "Approved")
+              $scope.digitalIdData.digitalIdStatus = "Approved";
+          
+          if(buttonValue == "Rejected")
+              $scope.digitalIdData.digitalIdStatus = "Rejected";
+  
+      $http({
+        method: 'POST',
+        url: '/updateDigitalIdData',
+            data: $scope.digitalIdData
+      }).then(function successCallback(response) {
+        if(response.data.success == true) {
+              $window.location.href = '../AdminPages/digital_id_admin.html';
+        } else {
+          alert(response.data.message);
+        }
+      });
+    }
+  
+    $scope.Back = function () {
+          $window.location.href = '/consortium_admin.html';
+    }
+  
+    $scope.Logout = function () {
+          window.close();
+    }
+  
+  }]);
+
+//Fetch specific digitalId record from cloudant DB
+var getDigitalIdData = async (digitalId) => {
+	try{
+		var response = await dbForApplicantData.find({ selector: { _id: digitalId } });
+		console.log('Applicant data found successfully ! ');
+        return({ success: true, message: 'Applicant data found successfully ! ', response: response });
+	}catch(err) {		
+        console.log('Applicant data not present/DB issue ! ' + err);
+        return({ success: false, message: 'Applicant data not present/DB issue !' });
+    }		
+}
 /* Consortium Admin DigitalId Requests Form Controller */
 myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams', function($scope, $http, $window, NgTableParams) {
 
