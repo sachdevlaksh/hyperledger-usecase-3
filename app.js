@@ -244,6 +244,7 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
   }
 }]);
 
+// Digital ID Admin Controller
 myApp.controller('digitalIdAdminLogin', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
 
   $scope.verifyLogin = function() {
@@ -334,7 +335,7 @@ var getDigitalIdData = async (digitalId) => {
         return({ success: false, message: 'Applicant data not present/DB issue !' });
     }		
 }
-/* Consortium Admin DigitalId Requests Form Controller */
+/* Digital Admin  Requests Form Controller */
 myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams', function($scope, $http, $window, NgTableParams) {
 
   $scope.getDigitalIdRequests = function() {
@@ -364,6 +365,31 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
 
   $scope.Logout = function () {
         window.close();
+  }
+
+}]);
+
+/* University Admin Login Controller */
+myApp.controller('universityAdminLogin', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+
+  $scope.verifyLogin = function() {
+
+    var data = {
+      username: $scope.username,
+      password: $scope.password
+    }
+
+    $http({
+      method: 'POST',
+      url: '/verifyLogin',
+      data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+        window.location.href = '/AdminPages/university_id_admin .html';
+      } else {
+        alert(response.data.message);
+      }
+    });
   }
 
 }]);
