@@ -179,13 +179,13 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 /* Apply For University Controller */
 myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
 
-  $scope.CourseToPursue = ["Hotel Management", "Enginnering", "Arts", "Finance", "Medical"];
+  $scope.CourseToPursueSelect = ["Hotel Management", "Enginnering", "Arts", "Finance", "Medical"];
 
-  $scope.HighestEducation = ["UG", "PG"];
+  $scope.HighestEducationSelect = ["UG", "PG"];
 
-   $scope.Specialization = ["VLSI", "E&C", "Medicines" ,  "Pharma"];
+   $scope.SpecializationSelect = ["VLSI", "E&C", "Medicines" ,  "Pharma"];
 
-    $scope.Type = ["Regular", "Distance", "Weekends"];
+    $scope.TypeSelect = ["Regular", "Distance", "Weekends"];
 	
   $scope.Back = function () {
         $window.location.href = '/student_portal.html';
