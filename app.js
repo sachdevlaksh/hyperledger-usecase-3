@@ -220,7 +220,7 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
     });
   }
 
-  $scope.addUniversityData = function() {
+  $scope.submitUniversityData = function() {
 	var universityData = { universityName: $scope.selectedUniversityName, universityAddress: $scope.selectedUniversityAddress,
 						   universityId: $scope.selectedUniversityId, courseAppliedFor : $scope.CourseToPursue,
 						   appliedDegreeType: $scope.selectedDegreeType, courseStartDate: '', courseEndDate: '',
