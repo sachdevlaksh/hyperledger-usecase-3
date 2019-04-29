@@ -60,6 +60,16 @@ ul, li, a, h1, h2, h3, p{
 	right:0px;
 	z-index: 99;
 }
+
+.fields_design input[type=text], .fields_design input[type=date], .fields_design textarea{
+	font-size:18px;
+	color: #666666;
+	background: #eceff4;
+	padding: 10px;
+	border: 1px solid #d0d7e1;
+	width: 100%;
+	margin-bottom: 20px;
+}
 .logo_pharma{
 	min-height: 46px;
 	position: relative;
@@ -268,6 +278,15 @@ ul, li, a, h1, h2, h3, p{
 .student_id_content .container{
 	position: relative;
 }
+.content_area .container{
+	background:#fff;
+	padding: 0px;
+	position:relative;
+}
+.container h2 {margin: 10px 15px 25px 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
 .student_id_content h2{
 	font-size:24px;
 	color: #6e6e6e;
@@ -296,7 +315,27 @@ ul, li, a, h1, h2, h3, p{
 	background: #eceff3;
 	padding: 40px 0 20px;
 }
-.student_id_forms label{
+
+.fields_design .select select {
+    border: 1px solid #d0d7e1;
+    color: #666666;
+    display: inline-block;
+    padding: 12px;
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.login_form .select {background:#ededed; padding-top:20px; border-left:5px solid #00b13f; border-right:5px solid #ededed; margin-bottom:20px;}
+.login_form .select label {color:#333333; font-weight:bold; font-size:15px; display:inline-block;
+	width:250px; text-align:left; }
+.login_form .select select {
+	border: 1px solid #e6eaf0;
+	color:#9a9a9a; display:inline-block;
+	padding:10px;
+	width:250px; font-size:15px;
+	margin-bottom:20px;
+}
+/*.student_id_forms label{
 	font-size: 18px;
 	color: #373636;
 	display: block;
@@ -337,7 +376,7 @@ ul, li, a, h1, h2, h3, p{
 	border-radius: 4px;
 	padding: 5px 15px;
 	resize:vertical;
-}
+}*/
 .student_forms_raw{
 	padding-bottom:30px;
 }
