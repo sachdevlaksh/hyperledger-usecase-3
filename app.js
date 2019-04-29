@@ -49,9 +49,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         var now = new Date();
         return now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + "T" + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
     }
-    
-  
-    ////////////////////////////////////////////////////////
+ 
     var document = {
         _id : uniqueId + '-IdProof',
         docName : "",
@@ -59,8 +57,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         digitalId : uniqueId + ''
       }
     
-    
-    
+  
     var digitalIdData = {
         digitalId: "D-" + uniqueId,
         Name: "",
@@ -103,24 +100,6 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         $scope.ctc = ["Less than 5 LPA", "5 - 10 LPA", "Greater than 10 LPA"];
         var uniqueId = Date.now();
 
-        /* $scope.submitLoginData = function () {
-            var data = {
-                username: $scope.userName,
-                password: $scope.password
-            }
-            console.log(data);
-            $http({
-                method: 'POST',
-                url: '/loginData',
-                data: data
-            }).then(function successCallback(response) {
-                if (JSON.stringify(response) != '{}' && response.data.status == "200") {
-                    window.location.href = '../AdminPages/digital_id_admin.html';
-                } else {
-                    alert(response.data.message);
-                }
-            });
-        } */
 
         $scope.submitUserData = function () {
             var file = $scope.myFile;
@@ -143,45 +122,9 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
             console.log($scope.User.digitalIdInfo);
             var uploadUrl = "/applicantData";
             fileUpload.uploadFileAndFieldsToUrl(file, $scope.User, uploadUrl);
-             
-            /* $http({
-                method: 'POST',
-                url: '/applicantData',
-                data: $scope.User
-            }).then(function successCallback(response) {
-                console.log(JSON.stringify(response));
-                if (JSON.stringify(response) != '{}' && response.data.status == "200") {
-                    window.location.href = '/success_entry.html';
-                    var fields = [{
-                        "name": "id",
-                        "data": response.data.id
-                    },
-                    {
-                        "name": "rev",
-                        "data": response.data.revid
-                    }
-                    ]; 
-                    var uploadUrl = "/applicantData";
-                    fileUpload.uploadFileAndFieldsToUrl(file, $scope.applicantData, uploadUrl);
-                }  else {
-                    alert(response.data.message);
-                } 
-            }); */
+                      
         }
     
- /*      var applicantData = {
-        _id: uniqueId + '',
-        digitalIdInfo: digitalIdData,
-        digitalIdStatus: false,
-        universityAdmissionStatus: false,
-        currentDegreeStatus: false,
-        ssn: "",
-        message: "",
-        txnMsg: ""
-      }; */
-
-    ////////////////////////////////////////////////
-
     var timestamp = dateTime();
 
     var Employee = {
@@ -205,7 +148,6 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
          Type: "" 
         }
 
-    
     $scope.submitEmployeeData = function () {
 
         console.log($scope.User);
@@ -231,6 +173,75 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
             }
         });
     }
+}]);
+
+
+/* Apply For University Controller */
+myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+
+  $scope.CourseToPursue = ["Hotel Management", "Enginnering", "Arts", "Finance", "Medical"];
+
+  $scope.HighestEducation = ["UG", "PG"];
+
+   $scope.Specialization = ["VLSI", "E&C", "Medicines" ,  "Pharma"];
+
+    $scope.Type = ["Regular", "Distance", "Weekends"];
+	
+  $scope.Back = function () {
+        $window.location.href = '/student_portal.html';
+  }
+
+  $scope.on = function () {
+        document.getElementById("overlay").style.display = "block";
+  }
+
+  $scope.off = function () {
+        document.getElementById("overlay").style.display = "none";
+  }
+
+  $scope.loadDigitalIdData = function() {
+        var data = {
+          _id : $scope.digitalId
+        }
+
+    $http({
+      method: 'POST',
+      url: '/getDigitalIdData',
+      data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true  && response.data.result[0].digitalIdStatus == 'Approved') {
+		$scope.digitalIdData = response.data.result[0];
+		$scope.dob = new Date(response.data.result[0].digitalIdInfo.DOB);
+		$scope.off();
+      } else {
+        alert(response.data.message);
+                window.close();
+      }
+    });
+  }
+
+  $scope.addUniversityData = function() {
+	var universityData = { universityName: $scope.selectedUniversityName, universityAddress: $scope.selectedUniversityAddress,
+						   universityId: $scope.selectedUniversityId, courseAppliedFor : $scope.CourseToPursue,
+						   appliedDegreeType: $scope.selectedDegreeType, courseStartDate: '', courseEndDate: '',
+						   degreeCompleteStatus: false, digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
+						   universityDocument: ''};
+	var message = $scope.digitalIdData.message + " The applicant has added his university choices.";
+	$scope.digitalIdData.message = message;
+	$scope.digitalIdData.digitalIdInfo.universityDetails = universityData;
+
+	$http({
+	  method: 'POST',
+	  url: '/updateDigitalIdData',
+	  data: $scope.digitalIdData
+	}).then(function successCallback(response) {
+	  if(response.data.success == true) {
+		$window.location.href = '/university_success.html';
+	  } else {
+		alert(response.data.message);
+	  }
+	});	
+  }
 }]);
 
 myApp.controller('digitalIdAdminLogin', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
