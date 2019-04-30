@@ -134,41 +134,40 @@
 							<input type="text" ng-model="digitalIdData.digitalIdInfo.Address" readonly/>
 						</span>
 											<div class="clearfix"></div>
-											<h2>University Details</h2>
+											<h2>Visa Details</h2>
+
 											<span class="fields_design col-md-4">
-							<div class="select">
-							<label>Highest Education:</label>
-							<select type="text" ng-model="HighestEducation" ng-options="x for x in HighestEducationSelect"></select>
-							</div>
+							<label>Visa Country:</label>
+							<input type="text" style="background: white;" ng-model="VisaCountry"> </input>
 							</span>
 
 											<span class="fields_design col-md-4">
 							<div class="select">
-							<label>Course Interest:</label>
-							<select type="text" ng-model="CourseToPursue" ng-options="x for x in CourseToPursueSelect"></select>
+							<label>Total Experience:</label>
+							<select type="text" style="background: white;" ng-model="Duration" ng-options="x for x in DurationSelect"></select>
 							</div>
 							</span>
+							
 
 											<span class="fields_design col-md-4">
-							<div class="select">
-							<label>Domain/Stream:</label>
-							<select type="text" ng-model="Specialization" ng-options="x for x in SpecializationSelect"></select>
-							</div>
-							</span>
-
-							<span class="fields_design col-md-4">
 								<div class="select">
-								<label>University Name:</label>
-								<select type="text" ng-model="selectedUniversityName" ng-options="x for x in selectedUniversityNameSelect"></select>
+								<label>ReasonOfTraveling:</label>
+								<select type="text" ng-model="ReasonOfTraveling" ng-options="x for x in ReasonOfTravelingSelect"></select>
 								</div>
 								</span>
 
-											<span class="fields_design col-md-4">	
-							<div class="select">						
-							<label>Type</label>
-							
-							<select type="text" ng-model="Type" ng-options="x for x in TypeSelect"></select>
-							</div>
+											<span class="fields_design col-md-4">
+								<div class="select">
+								<label>Visa Type:</label>
+								<select type="text" ng-model="VisaType" ng-options="x for x in VisaTypeSelect"></select>
+								</div>
+								</span>
+											<span class="fields_design col-md-4">
+								<div class="select">
+								<label>Mode:</label>
+								<select type="text" ng-model="Mode" ng-options="x for x in ModeSelect"></select>
+								</div>
+								</span>	
 
 						</span>
 
@@ -177,7 +176,7 @@
 											<span class="fields_design col-md-4">
 					 	</span>
 											<span class="fields_design col-md-4">
-					<input type="submit" class="light" value="Submit" ng-click="submitUniversityData()">
+					<input type="submit" class="light" value="Submit" ng-click="submitVisaData()">
 				</span>
 
 										</form>
