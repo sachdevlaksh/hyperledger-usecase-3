@@ -96,9 +96,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         });
 
         $scope.gender = ["Male", "Female"];
-        $scope.type = ["Full-Type", "Part-Type"];
-        $scope.ctc = ["Less than 5 LPA", "5 - 10 LPA", "Greater than 10 LPA"];
-        var uniqueId = Date.now();
+         var uniqueId = Date.now();
 
 
         $scope.submitUserData = function () {
@@ -147,48 +145,24 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
          Specialization: "",
          Type: "" 
         }
-
-    $scope.submitEmployeeData = function () {
-
-        console.log($scope.User);
-        $http({
-            method: 'POST',
-            url: '/employeeData',
-            data: $scope.User
-        }).then(function successCallback(response) {
-            if (JSON.stringify(response) != '{}' && response.data.status == "200") {
-                var fields = [{
-                    "name": "id",
-                    "data": response.data.id
-                },
-                {
-                    "name": "rev",
-                    "data": response.data.revid
-                }
-                ];
-                var uploadUrl = "/applicantDoc";
-                fileUpload.uploadFileAndFieldsToUrl(file, fields, uploadUrl);
-            } else {
-                alert(response.data.message);
-            }
-        });
-    }
 }]);
 
 
 /* Apply For University Controller */
 myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
-
+  
+  
   $scope.CourseToPursueSelect = ["Hotel Management", "Enginnering", "Arts", "Finance", "Medical"];
 
   $scope.HighestEducationSelect = ["UG", "PG"];
 
   $scope.selectedUniversityNameSelect = ["DTU", "KU", "PTU"];
 
-   $scope.SpecializationSelect = ["VLSI", "E&C", "Medicines" ,  "Pharma"];
+  $scope.SpecializationSelect = ["VLSI", "E&C", "Medicines" ,  "Pharma"];
 
-    $scope.TypeSelect = ["Regular", "Distance", "Weekends"];
-	
+  $scope.TypeSelect = ["Regular", "Distance", "Weekends"];
+
+
   $scope.Back = function () {
         $window.location.href = '/student_portal.html';
   }
@@ -234,6 +208,80 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
     appliedCourseToPursue: $scope.CourseToPursue,
     appliedHighestEducation: $scope.HighestEducation,
     courseStartDate: Date.now(),
+    courseEndDate: '',
+    degreeCompleteStatus: false,
+    digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
+    universityDocument: ''
+              };
+	var message = $scope.digitalIdData.message + " The applicant has added his university choices.";
+	$scope.digitalIdData.message = message;
+	$scope.digitalIdData.digitalIdInfo.universityDetails = universityData;
+
+	$http({
+	  method: 'POST',
+	  url: '/updateDigitalIdData',
+	  data: $scope.digitalIdData
+	}).then(function successCallback(response) {
+	  if(response.data.success == true) {
+		$window.location.href = '../success_UniversityIdEntry.html';
+	  } else {
+		alert(response.data.message);
+	  }
+	});	
+  }
+}]);
+
+myApp.controller('applyEmployee', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+
+	 $scope.type = ["Full-Type", "Part-Type"];
+   $scope.exp = ["Beginner", "Mid level", "Higher"];
+   $scope.ctc = ["Less than 5 LPA", "5 - 10 LPA", "Greater than 10 LPA"];
+   $scope.Back = function () {
+
+        $window.location.href = '/student_portal.html';
+  }
+
+  $scope.on = function () {
+        document.getElementById("overlay").style.display = "block";
+  }
+
+  $scope.off = function () {
+        document.getElementById("overlay").style.display = "none";
+  }
+
+  $scope.loadDigitalIdData = function() {
+        var data = {
+          _id : $scope.digitalId
+        }
+
+    $http({
+      method: 'POST',
+      url: '/getDigitalIdData',
+      data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true  && response.data.result[0].universityAdmissionStatus == 'Approved') {
+		$scope.digitalIdData = response.data.result[0];
+		$scope.dob = new Date(response.data.result[0].digitalIdInfo.DOB);
+		$scope.off();
+      } else {
+        alert(response.data.message);
+                window.close();
+      }
+    });
+  }
+
+  $scope.submitEmployeeData = function() {
+	var universityData = { 
+    universityName: $scope.selectedUniversityName,
+    universityAddress: $scope.selectedUniversityAddress,
+    //universityId: $scope.selectedUniversityId,
+    universityId: '0000458698',
+    courseAppliedFor : $scope.CourseToPursue,
+    appliedDegreeType: $scope.Type,
+    appliedSpecialization: $scope.Specialization,
+    appliedCourseToPursue: $scope.CourseToPursue,
+    appliedHighestEducation: $scope.HighestEducation,
+    courseStartDate: Date,
     courseEndDate: '',
     degreeCompleteStatus: false,
     digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
