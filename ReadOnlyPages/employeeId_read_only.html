@@ -41,7 +41,7 @@
     </style>
 </head>
 
-<body ng-app="myModule" ng-controller="digitalIdReadOnlyForm" ng-init="loadDigitalIdData()">
+<body ng-app="myModule" ng-controller="employeeReadOnlyForm" ng-init="loadDigitalIdData()">
     <div class="container-fluid">
         <!-- Header Section starts here-->
         <header class="header_bg">
@@ -68,7 +68,7 @@
                     <a href="#"><img src="images/sign_out_btn.png" alt="" /></a>
                 </div>
             </div>
-            <h2>Apply for <b>digital identification</b></h2>
+            <h2>Apply for <b>Employee</b></h2>
             <p><a href="#">Don’t have?</a> Fill all the details and we will mail you the digital identification number in your
                 mailbox
             </p>
@@ -125,32 +125,60 @@
 
                     </div>
                         
-                     <div class="row student_forms_raw"></div>
-                     <div>
-                         <span class="fields_design col-md-4"></span>
-                        <span class="fields_design col-md-4">
-                            <input type="submit" class="light" value="Approve" ng-click="updateDigitalIdData('Approved')"/>
-                            <input type="submit" class="light" value="Reject" ng-click="updateDigitalIdData('Rejected')"/>
-			            </span>
-                    </div>
-
-
-                </form>
-            </div>
+                    <div class="clearfix"></div>
+			<h2>Document Details</h2>
+			<span class="fields_design col-md-4">
+			<label>Identification Proof</label>
+			<div class="student_bottom_button">
+				<input class="cmn_admin_approve_btn" type="button" value="Download" ng-click="updateStatus('Approved')">
+			</div>	
+			</span>
+			<div class="clearfix"></div></br>
+			<h2>University Details</h2>
+			<!-- <span class="fields_design col-md-4">
+			<label>University Name</label>
+			<input type="text" ng-model="digitalIdData.digitalIdInfo.universityDetails.universityName" readonly/>
+			</span> 
+			<span class="fields_design col-md-4">
+			<label>University Address</label>
+			<input type="text"  ng-model="digitalIdData.digitalIdInfo.universityDetails.universityId" readonly/>
+			</span> -->
+			<span class="fields_design col-md-4">
+			<label>University Id</label>
+			<input type="text"  ng-model="digitalIdData.digitalIdInfo.universityDetails.universityId" readonly/>
+			</span> 
+			<span class="fields_design col-md-4">
+			<label>Course</label>
+			<input type="text"  ng-model="digitalIdData.digitalIdInfo.universityDetails.courseAppliedFor" readonly/>
+			</span>
+			<span class="fields_design col-md-4">
+			<label>Applying For</label>
+			<input type="text"  ng-model="digitalIdData.digitalIdInfo.universityDetails.appliedSpecialization" readonly/>
+			</span>
+			<div class="clearfix"></div></br>
+			<span class="fields_design col-md-4">
+			</span>
+			<span class="fields_design col-md-4">
+			<input type="submit" class="light" value="Approve" ng-click="updateUniversityData('Approved')"/>
+			<input type="submit" class="light" value="Reject" ng-click="updateUniversityData('Approved')"/>
+			</span>
+		  </form>
         </div>
-        <!-- Content Section ends here-->
-
-
-        <!-- Footer Section starts here-->
-        <footer class="footer">© copyright 2019</footer>
-        <!-- Footer Section ends here-->
-
-    </div>
-    <script type="text/javascript">
-        $(function () {
-            $("#Tabs1").tabs();
-        });
-    </script>
+      </div>
+    </section>
+    <!-- Content Section ends here--> 
+    
+  </div>
+  
+  <!-- Footer Section starts here-->
+  <footer class="footer">©  copyright 2018</footer>
+  <!-- Footer Section ends here--> 
+  
+</div>
+<script type="text/javascript">
+$(function() {
+	$( "#Tabs1" ).tabs(); 
+});
+</script>
 </body>
-
 </html>

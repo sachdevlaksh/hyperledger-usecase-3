@@ -42,7 +42,7 @@
 		</style>
 </head>
 
-<body ng-app="myModule" ng-controller="applyUniversity" ng-init="on()">
+<body ng-app="myModule" ng-controller="applyEmployee" ng-init="on()">
 	<div class="container-fluid">
 		<div id="overlay">
 			<div id="mydiv">
@@ -84,8 +84,8 @@
 						<h1>Back</h1>
 					</div>
 				</div>
-				<h2>Apply for <b>admission to an university</b></h2>
-		<p><a href="#">Don’t have?</a> Fill all the details and we will mail you the digital identification number in your mailbox</p>
+				<h2>Apply for <b>Employee</b></h2>
+				<p><a href="#">Don’t have?</a> Fill all the details and we will mail you the digital identification number in your mailbox</p>
 			</div>
 			<div class="student_id_forms">
 				<div class="container">
@@ -138,28 +138,28 @@
 											<span class="fields_design col-md-4">
 							<div class="select">
 							<label>Highest Education:</label>
-					<select type="text" ng-model="HighestEducation" ng-options="x for x in HighestEducationSelect"></select>
+							<select type="text" ng-model="HighestEducation" ng-options="x for x in HighestEducationSelect"></select>
 							</div>
 							</span>
 
 											<span class="fields_design col-md-4">
 							<div class="select">
 							<label>Course Interest:</label>
-				<select type="text" ng-model="CourseToPursue" ng-options="x for x in CourseToPursueSelect"></select>
+							<select type="text" ng-model="CourseToPursue" ng-options="x for x in CourseToPursueSelect"></select>
 							</div>
 							</span>
 
 											<span class="fields_design col-md-4">
 							<div class="select">
 							<label>Domain/Stream:</label>
-					<select type="text" ng-model="Specialization" ng-options="x for x in SpecializationSelect"></select>
+							<select type="text" ng-model="Specialization" ng-options="x for x in SpecializationSelect"></select>
 							</div>
 							</span>
 
 							<span class="fields_design col-md-4">
 								<div class="select">
 								<label>University Name:</label>
-		<select type="text" ng-model="selectedUniversityName" ng-options="x for x in selectedUniversityNameSelect"></select>
+								<select type="text" ng-model="selectedUniversityName" ng-options="x for x in selectedUniversityNameSelect"></select>
 								</div>
 								</span>
 

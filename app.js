@@ -183,6 +183,8 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
 
   $scope.HighestEducationSelect = ["UG", "PG"];
 
+  $scope.selectedUniversityNameSelect = ["DTU", "KU", "PTU"];
+
    $scope.SpecializationSelect = ["VLSI", "E&C", "Medicines" ,  "Pharma"];
 
     $scope.TypeSelect = ["Regular", "Distance", "Weekends"];
@@ -221,11 +223,22 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
   }
 
   $scope.submitUniversityData = function() {
-	var universityData = { universityName: $scope.selectedUniversityName, universityAddress: $scope.selectedUniversityAddress,
-						   universityId: $scope.selectedUniversityId, courseAppliedFor : $scope.CourseToPursue,
-						   appliedDegreeType: $scope.selectedDegreeType, courseStartDate: '', courseEndDate: '',
-						   degreeCompleteStatus: false, digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
-						   universityDocument: ''};
+	var universityData = { 
+    universityName: $scope.selectedUniversityName,
+    universityAddress: $scope.selectedUniversityAddress,
+    //universityId: $scope.selectedUniversityId,
+    universityId: '0000458698',
+    courseAppliedFor : $scope.CourseToPursue,
+    appliedDegreeType: $scope.Type,
+    appliedSpecialization: $scope.Specialization,
+    appliedCourseToPursue: $scope.CourseToPursue,
+    appliedHighestEducation: $scope.HighestEducation,
+    courseStartDate: Date.now(),
+    courseEndDate: '',
+    degreeCompleteStatus: false,
+    digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
+    universityDocument: ''
+              };
 	var message = $scope.digitalIdData.message + " The applicant has added his university choices.";
 	$scope.digitalIdData.message = message;
 	$scope.digitalIdData.digitalIdInfo.universityDetails = universityData;
@@ -324,6 +337,60 @@ myApp.controller('digitalIdReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fi
   
   }]);
 
+
+  /* University Read Only Form Controller */
+myApp.controller('universityReadOnlyForm', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+
+  var data = {
+        _id : $window.sessionStorage.getItem("_id")
+  }
+
+  $scope.loadDigitalIdData = function() {
+    $http({
+      method: 'POST',
+      url: '/getDigitalIdData',
+          data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $scope.digitalIdData = response.data.result[0];
+                $scope.dob = new Date(response.data.result[0].digitalIdInfo.dateOfBirth);
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.updateUniversityData = function (buttonValue) {
+        var message = $scope.digitalIdData.message + " The university admission request has been " + buttonValue + ".";
+        $scope.digitalIdData.message = message;
+
+        if(buttonValue == "Approved")
+                $scope.digitalIdData.universityAdmissionStatus = "Approved";
+
+    $http({
+      method: 'POST',
+      url: '/updateDigitalIdData',
+          data: $scope.digitalIdData
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $window.location.href = '../AdminPages/university_id_admin.html';
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.Back = function () {
+        $window.location.href = '../AdminPages/university_id_admin.html';
+  }
+
+  $scope.Logout = function () {
+        window.close();
+  }
+
+}]);
+
+
 //Fetch specific digitalId record from cloudant DB
 var getDigitalIdData = async (digitalId) => {
 	try{
@@ -385,11 +452,40 @@ myApp.controller('universityAdminLogin', ['$scope', 'fileUpload', '$http', '$fil
       data: data
     }).then(function successCallback(response) {
       if(response.data.success == true) {
-        window.location.href = '/AdminPages/university_id_admin .html';
+        window.location.href = '/AdminPages/university_id_admin.html';
       } else {
         alert(response.data.message);
       }
     });
+  }
+
+}]);
+
+/* University Success Controller */
+myApp.controller('universityAdmin', ['$scope', '$http', '$window', 'NgTableParams', function($scope, $http, $window, NgTableParams) {
+
+  $scope.getUniversityApplicantRequests = function() {
+    $http({
+      method: 'GET',
+      url: '/getUniversityApplicantRequests'
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $scope.tableData = response.data.result;
+/*                 $scope.tableParams = new NgTableParams({
+                        count: 4
+                }, {
+                        counts: [],
+                        dataset: $scope.tableData
+                }); */
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.selectedDigitalId = function(digitalId) {
+        $window.sessionStorage.setItem("_id", digitalId);
+        $window.location.href = '../ReadOnlyPages/university_read_only.html';
   }
 
 }]);

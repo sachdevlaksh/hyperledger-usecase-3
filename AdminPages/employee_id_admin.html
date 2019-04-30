@@ -17,7 +17,7 @@
 <script src="../app.js"></script>
 </head>
 
-<body ng-app="myModule" ng-controller="universityAdmin" ng-init="getUniversityApplicantRequests()">
+<body ng-app="myModule" ng-controller="employeeAdmin" ng-init="getEmployeeApplicantRequests()">
 <div class="container-fluid"> 
   
   <!-- Header Section starts here-->
@@ -39,7 +39,7 @@
 				<a href="#"><img src="../images/sign_out_btn.png" alt="" style="float:right;"/></a>
 			</div>
 		</div>
-		<h2>Review <b>SIGN UP Information for University ID</b></h2>
+		<h2>Review <b>SIGN UP Information for EMPLOYEE</b></h2>
 		</br>
 		<p><a href="#">Review Details?</a> And course completion details and certificates for the applicants</p>
 	</div>
@@ -64,7 +64,7 @@
 						<td ng-click="selectedDigitalId(x._id)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
 						<td>{{ x.digitalIdInfo.digitalId }}</td>
 						<td>{{ x.digitalIdInfo.universityDetails.universityName }}</td>
-						<td>{{ x.digitalIdInfo.fullName }}</td>
+						<td>{{ x.digitalIdInfo.Name }}</td>
 						<td>{{ x.digitalIdInfo.universityDetails.courseAppliedFor }}</td>
 						<td>{{ x.digitalIdInfo.universityDetails.appliedDegreeType }}</td>
 					  </tr>
