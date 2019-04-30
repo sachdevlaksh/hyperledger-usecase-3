@@ -647,4 +647,182 @@ myApp.controller('employeeAdmin', ['$scope', '$http', '$window', 'NgTableParams'
 }]);
 
 
+/* Apply For Visa Controller */
+myApp.controller('applyVisa', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+  
+  $scope.DurationSelect = ["Less than 2 months", "2 -12 Months", "More than 1 year"];
+
+  $scope.ReasonOfTravelingSelect = ["Personal", "Corporate"];
+
+  $scope.VisaTypeSelect = ["Single", "Family"];
+
+  $scope.ModeSelect = ["Normal", "Fast track"];
+
+
+  $scope.Back = function () {
+        $window.location.href = '/student_portal.html';
+  }
+
+  $scope.on = function () {
+        document.getElementById("overlay").style.display = "block";
+  }
+
+  $scope.off = function () {
+        document.getElementById("overlay").style.display = "none";
+  }
+
+  $scope.loadDigitalIdData = function() {
+        var data = {
+          _id : $scope.digitalId
+        }
+
+    $http({
+      method: 'POST',
+      url: '/getDigitalIdData',
+      data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true  && response.data.result[0].employeeApplicationStatus == 'Approved') {
+		$scope.digitalIdData = response.data.result[0];
+		$scope.dob = new Date(response.data.result[0].digitalIdInfo.DOB);
+		$scope.off();
+      } else {
+        alert(response.data.message);
+                window.close();
+      }
+    });
+  }
+
+  $scope.submitVisaData = function() {
+	var VisaData = { 
+    VisaCountry: $scope.VisaCountry,
+    Duration: $scope.DurationSelect,
+    ReasonOfTraveling: $scope.ReasonOfTravelingSelect,
+    VisaType : $scope.VisaTypeSelect,
+    VisaApplyMode: $scope.Mode,
+    digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
+    universityDocument: ''
+              };
+	var message = $scope.digitalIdData.message + " The applicant has added his visa choices.";
+	$scope.digitalIdData.message = message;
+	$scope.digitalIdData.digitalIdInfo.visayDetails = VisaData;
+
+	$http({
+	  method: 'POST',
+	  url: '/updateDigitalIdData',
+	  data: $scope.digitalIdData
+	}).then(function successCallback(response) {
+	  if(response.data.success == true) {
+		$window.location.href = '../success_VisaIdEntry.html';
+	  } else {
+		alert(response.data.message);
+	  }
+	});	
+  }
+}]);
+
+/* Visa Admin Login Controller */
+myApp.controller('visaAdminLogin', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+
+  $scope.verifyLogin = function() {
+
+    var data = {
+      username: $scope.username,
+      password: $scope.password
+    }
+
+    $http({
+      method: 'POST',
+      url: '/verifyLogin',
+      data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+        window.location.href = '/AdminPages/visa_id_admin.html';
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+}]);
+
+/* Visa Success Controller */
+myApp.controller('visaAdmin', ['$scope', '$http', '$window', 'NgTableParams', function($scope, $http, $window, NgTableParams) {
+
+  $scope.getVisaApplicantRequests = function() {
+    $http({
+      method: 'GET',
+      url: '/getVisaApplicantRequests'
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $scope.tableData = response.data.result;
+/*                 $scope.tableParams = new NgTableParams({
+                        count: 4
+                }, {
+                        counts: [],
+                        dataset: $scope.tableData
+                }); */
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.selectedDigitalId = function(digitalId) {
+        $window.sessionStorage.setItem("_id", digitalId);
+        $window.location.href = '../ReadOnlyPages/visa_read_only.html';
+  }
+
+}]);
+
+  /* Visa Read Only Form Controller */
+myApp.controller('visaReadOnlyForm', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+
+  var data = {
+        _id : $window.sessionStorage.getItem("_id")
+  }
+
+  $scope.loadDigitalIdData = function() {
+    $http({
+      method: 'POST',
+      url: '/getDigitalIdData',
+          data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $scope.digitalIdData = response.data.result[0];
+                $scope.dob = new Date(response.data.result[0].digitalIdInfo.dateOfBirth);
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.updateVisaData = function (buttonValue) {
+        var message = $scope.digitalIdData.message + " The Visa admission request has been " + buttonValue + ".";
+        $scope.digitalIdData.message = message;
+
+        if(buttonValue == "Approved")
+                $scope.digitalIdData.visaApplicationStatus = "Approved";
+
+    $http({
+      method: 'POST',
+      url: '/updateDigitalIdData',
+          data: $scope.digitalIdData
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $window.location.href = '../AdminPages/visa_id_admin.html';
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.Back = function () {
+        $window.location.href = '../AdminPages/visa_id_admin.html';
+  }
+
+  $scope.Logout = function () {
+        window.close();
+  }
+
+}]);
 
