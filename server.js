@@ -121,6 +121,24 @@ app.get('/getUniversityApplicantRequests', function(req, res) {
     });
   });
 
+  //Get all digital Ids with Visa application status  as 'PENDING'
+app.get('/getVisaApplicantRequests', function(req, res) {
+    console.log('Inside Express api check to get all applicants details for visa applications');
+    dbForApplicantData.find({ selector: { visaApplicationStatus: 'Pending' } }, function(er, result) {
+      if(er) {
+        console.log('Error finding applicant information from db ' + er);
+        res.json({ success: false, message: 'Error : ' + er });
+      }
+      if(result && result.docs && result.docs.length > 0) {
+        console.log('Data found !');
+        res.json({ success: true, message: 'Data found !', result: result.docs });
+      } else {
+        console.log('Data not found !');
+        res.json({ success: false, message: 'Data not found !' });
+      }
+    });
+  });
+
 //Get all digital Ids with employee application status  as 'PENDING'
 app.get('/getEmployeeApplicantRequests', function(req, res) {
     console.log('Inside Express api check to get all applicants details for employee applications');
