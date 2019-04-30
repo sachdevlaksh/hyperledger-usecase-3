@@ -121,6 +121,26 @@ app.get('/getUniversityApplicantRequests', function(req, res) {
     });
   });
 
+//Get all digital Ids with employee application status  as 'PENDING'
+app.get('/getEmployeeApplicantRequests', function(req, res) {
+    console.log('Inside Express api check to get all applicants details for employee applications');
+    dbForApplicantData.find({ selector: { employeeApplicationStatus: 'Pending' } }, function(er, result) {
+      if(er) {
+        console.log('Error finding applicant information from db ' + er);
+        res.json({ success: false, message: 'Error : ' + er });
+      }
+      if(result && result.docs && result.docs.length > 0) {
+        console.log('Data found !');
+        res.json({ success: true, message: 'Data found !', result: result.docs });
+      } else {
+        console.log('Data not found !');
+        res.json({ success: false, message: 'Data not found !' });
+      }
+    });
+  });
+
+	
+
 // Fetch all digital Ids with pending digitalId status from cloudant DB
 var digitalIdWithPendingStatus = async () => {
 	try{

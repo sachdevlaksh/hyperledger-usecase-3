@@ -438,6 +438,60 @@ myApp.controller('universityReadOnlyForm', ['$scope', 'fileUpload', '$http', '$f
 
 }]);
 
+  /* employee Read Only Form Controller */
+myApp.controller('employeeReadOnlyForm', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+
+  var data = {
+        _id : $window.sessionStorage.getItem("_id")
+  }
+
+  $scope.loadDigitalIdData = function() {
+    $http({
+      method: 'POST',
+      url: '/getDigitalIdData',
+          data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $scope.digitalIdData = response.data.result[0];
+                $scope.dob = new Date(response.data.result[0].digitalIdInfo.dateOfBirth);
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.updateEmployeeData = function (buttonValue) {
+        var message = $scope.digitalIdData.message + " The employee admission request has been " + buttonValue + ".";
+        $scope.digitalIdData.message = message;
+
+        if(buttonValue == "Approved")
+                $scope.digitalIdData.employeeApplicationStatus = "Approved";
+
+    $http({
+      method: 'POST',
+      url: '/updateDigitalIdData',
+          data: $scope.digitalIdData
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $window.location.href = '../AdminPages/employee_id_admin.html';
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.Back = function () {
+        $window.location.href = '../AdminPages/employee_id_admin.html';
+  }
+
+  $scope.Logout = function () {
+        window.close();
+  }
+
+}]);
+
+
+
 
 //Fetch specific digitalId record from cloudant DB
 var getDigitalIdData = async (digitalId) => {
@@ -537,3 +591,60 @@ myApp.controller('universityAdmin', ['$scope', '$http', '$window', 'NgTableParam
   }
 
 }]);
+
+
+/* Employee Admin Login Controller */
+myApp.controller('employeeAdminLogin', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+
+  $scope.verifyLogin = function() {
+
+    var data = {
+      username: $scope.username,
+      password: $scope.password
+    }
+
+    $http({
+      method: 'POST',
+      url: '/verifyLogin',
+      data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+        window.location.href = '/AdminPages/employee_id_admin.html';
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+}]);
+
+/* Employee Success Controller */
+myApp.controller('employeeAdmin', ['$scope', '$http', '$window', 'NgTableParams', function($scope, $http, $window, NgTableParams) {
+
+  $scope.getEmployeeApplicantRequests = function() {
+    $http({
+      method: 'GET',
+      url: '/getEmployeeApplicantRequests'
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $scope.tableData = response.data.result;
+/*                 $scope.tableParams = new NgTableParams({
+                        count: 4
+                }, {
+                        counts: [],
+                        dataset: $scope.tableData
+                }); */
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.selectedDigitalId = function(digitalId) {
+        $window.sessionStorage.setItem("_id", digitalId);
+        $window.location.href = '../ReadOnlyPages/employeeId_read_only.html';
+  }
+}]);
+
+
+
