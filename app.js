@@ -695,16 +695,16 @@ myApp.controller('applyVisa', ['$scope', 'fileUpload', '$http', '$filter', '$win
   $scope.submitVisaData = function() {
 	var VisaData = { 
     VisaCountry: $scope.VisaCountry,
-    Duration: $scope.DurationSelect,
-    ReasonOfTraveling: $scope.ReasonOfTravelingSelect,
-    VisaType : $scope.VisaTypeSelect,
-    VisaApplyMode: $scope.Mode,
+    Duration: $scope.Duration,
+    ReasonOfTraveling: $scope.ReasonOfTraveling,
+    VisaType : $scope.VisaType,
+    VisaApplyMode: $scope.VisaApplyMode,
     digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
     universityDocument: ''
               };
 	var message = $scope.digitalIdData.message + " The applicant has added his visa choices.";
 	$scope.digitalIdData.message = message;
-	$scope.digitalIdData.digitalIdInfo.visayDetails = VisaData;
+	$scope.digitalIdData.digitalIdInfo.visaDetails = VisaData;
 
 	$http({
 	  method: 'POST',
