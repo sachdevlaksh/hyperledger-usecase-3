@@ -1,0 +1,131 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Write your model definitions here
+ */
+
+namespace org.general.digitalid
+
+participant ApplicantAdmin identified by ApplicantAdminId {
+  o String ApplicantAdminId
+  o String firstName
+  o String lastName
+}
+
+participant StudentAdmin identified by StudentAdminId {
+  o String StudentAdminId
+  o String firstName
+  o String lastName
+}
+
+participant EmployeeAdmin identified by EmployeeAdminId {
+  o String EmployeeAdminId
+  o String firstName
+  o String lastName
+}
+
+participant VisaAdmin identified by VisaAdminId {
+  o String VisaAdminId
+  o String firstName
+  o String lastName
+}
+
+ asset document identified by id  {
+      o  String id 
+      o  String docName 
+      o  String docType 
+      o  String digitalId 
+      }
+
+ asset DigitalIdDataInfo identified by digitalId {
+       o String digitalId
+       o String Name
+       o String DOB
+       o String Age
+       o String MobileNumber
+       o String Gender
+       o String Email
+       o String GovermentId
+       o String Address
+       o String createTimestamp
+       o String dateOfBirth
+       o String documentDetails
+       o Student student
+       o Employee employee 
+       o Visa visa       
+       o String txnMsg
+      }
+
+asset User identified by GovermentId {
+   o String id
+   o DigitalIdDataInfo digitalIdDataInfo
+   o String  digitalIdStatus 
+   o String universityAdmissionStatus 
+   o String employeeApplicationStatus
+   o String visaApplicationStatus 
+   o String  GovermentId
+   o String  message
+   o String  txnMsg 
+ }
+
+ asset Student identified by GovermentId  {
+    o String  HighestEducation
+    o String  CourseToPursue
+    o String  Specialization
+    o String  Type
+    o String GovermentId
+        }
+
+ asset Employee identified by GovermentId  {
+    o String  CurrentEmployer
+    o String   PreviousEmployer
+    o String  TotalExperience
+    o String   CurrentCTC
+     o String  GovermentId
+        }
+ 
+ asset Visa identified by GovermentId  {
+    o String  Country
+    o String  Duration
+    o String  ReasonOfTraveling
+    o String  Comments
+    o String  Status
+    o String  GovermentId
+    
+ }
+
+transaction RegisterUser {
+  o User user 
+ }
+
+transaction RegisterStudentInfo {
+ o User user 
+ o Student student
+ o String studentInfoStatus
+}
+
+transaction RegisterEmployeeInfo {
+ o User user  
+ o Employee employee 
+ o String employeeInfoStatus
+}
+
+transaction RegisterVisaInfo {
+  o User user 
+  o Visa visa  
+  o String visaInfoStatus
+}
+
+
