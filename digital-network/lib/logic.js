@@ -40,10 +40,12 @@ newUserDetails =  UserDetails.user;
  function RegisterStudentInfo(registerStudentRecoord) {
    //udpate the asset after Student Admin transaction
    if (registerStudentRecoord.studentInfoStatus = 'Approved') {     
-        registerStudentRecoord.universityAdmissionStatus = "Approved";
-     	registerStudentRecoord.user.digitalIdDataInfo.student = registerStudentRecoord.student;
+        registerStudentRecoord.user.universityAdmissionStatus = "Approved";
+     	registerStudentRecoord.user.DigitalIdDataInfo.Student = registerStudentRecoord.student;
+     console.log(" Student Object"+JSON.stringify(registerStudentRecoord.user.DigitalIdDataInfo));
+     
     } else {         
-     registerStudentInfo.user.universityAdmissionStatus = 'Pending'
+     registerStudentInfo.user.universityAdmissionStatus  = "Pending";
    }       
    
    //get asset registry for User, and update on the ledger
