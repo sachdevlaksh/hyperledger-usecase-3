@@ -116,7 +116,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
                 age--;
             }
 
-            $scope.User.digitalIdInfo.Age = age;
+            $scope.User.user.digitalIdInfo.Age = age;
             var file = $scope.myFile;
             $scope.User.digitalIdInfo.documentDetails.docName = file.name;
             $scope.User.GovermentId = $scope.User.digitalIdInfo.GovermentId;
