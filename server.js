@@ -7,8 +7,8 @@ var port = process.env.PORT || process.env.VCAP_APP_PORT || '3001';
 var nano = require('nano')('http://localhost:' + port);
 var app = express();
 var multer = require('multer');
-var nodemailer = require('nodemailer');
 var axios = require("axios");
+var nodemailer = require('nodemailer');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 var Cloudant = require('@cloudant/cloudant');
@@ -200,8 +200,8 @@ console.log("Username :" +username + "Password :" +password);
 app.post('/applicantData', type, function(req, res) {
     console.log('Inside Express api to insert data for applicant');
     var applicantData = JSON.parse(JSON.stringify(req.body.data));
-    applicantData = JSON.parse(applicantData);
-    console.log(applicantData);
+    ApplicantJSONdata = JSON.parse(applicantData);
+    console.log(ApplicantJSONdata);
 	
 	var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"	
 	
@@ -211,7 +211,7 @@ app.post('/applicantData', type, function(req, res) {
         }
 		};
 	
-	applicantData(url, applicantData, headers).then(function (data) {
+	applicantData(url, ApplicantJSONdata, headers).then(function (data) {
         if (data.success) {
 	
 	    res.json({
