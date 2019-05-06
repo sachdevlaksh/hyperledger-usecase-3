@@ -224,7 +224,7 @@ app.post('/applicantData', type, function(req, res) {
         });	
 
 	
-  
+   } 
 //     fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, response) {
 //       insertCloudantData(applicantData).then(function(data) {
 //       if(data.success){
@@ -262,7 +262,7 @@ var applicantData = async (url, data, headers) => {
     }
 }	
 
-}
+
 
   //Get selected _id details from DB
 app.post('/getDigitalIdData', function(req, res) {
