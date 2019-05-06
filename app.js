@@ -78,6 +78,8 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
       };
 
       var User = {
+	 user: {
+	 "$class": "org.general.digitalid.User",
         _id: uniqueId + '',
         digitalIdInfo: digitalIdData,
         digitalIdStatus : 'Pending',
@@ -86,7 +88,9 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         visaApplicationStatus: 'Pending',  
         GovermentId: "",
         message: "",
-        txnMsg: ""   }
+        txnMsg: ""   
+	 }
+      }
 
         $scope.User = User;
 
@@ -125,26 +129,33 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
     
     var timestamp = dateTime();
 
+    var Student = {
+	"$class": "org.general.digitalid.Student",
+         HighestEducation: " ",
+         CourseToPursue: " ",
+         Specialization: " ",
+         Type: " ", 
+	 GovermentId : " "
+        }
+
     var Employee = {
-         CurrentEmployer: "",
-         PreviousEmployer: "",
-         TotalExperience: "",
-         CurrentCTC: "" 
+	"$class": "org.general.digitalid.Employee",
+         CurrentEmployer: " ",
+         PreviousEmployer: " ",
+         TotalExperience: " ",
+         CurrentCTC: " " , 
+	 GovermentId : " "
         }
     var Visa = { 
+	"$class": "org.general.digitalid.Visa",
         Country: "",
         Duration: "",
         ReasonOfTraveling: "",
         Comments: "",
-        Status: "" 
+        Status: "" , 
+	GovermentId : " "	    
         }
 
-    var Student = { 
-        HighestEducation: "",
-         CourseToPursue: "",
-         Specialization: "",
-         Type: "" 
-        }
 }]);
 
 
