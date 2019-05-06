@@ -262,7 +262,7 @@ var applicantData = async (url, data, headers) => {
     }
 }	
 
-	
+}
 
   //Get selected _id details from DB
 app.post('/getDigitalIdData', function(req, res) {
