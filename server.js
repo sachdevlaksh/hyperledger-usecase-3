@@ -224,7 +224,7 @@ app.post('/applicantData', type, function(req, res) {
         });	
 
 	
-   } 
+   });
 //     fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, response) {
 //       insertCloudantData(applicantData).then(function(data) {
 //       if(data.success){
@@ -244,7 +244,7 @@ app.post('/applicantData', type, function(req, res) {
 //           res.json ({success : false, message:'Issue inserting applicant data !'});
 //       });
 //     });
-  });
+
 var applicantData = async (url, data, headers) => {
     
    try {
