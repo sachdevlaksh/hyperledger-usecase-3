@@ -17,92 +17,104 @@
 /** 
  * @param {org.general.digitalid.RegisterUser} UserDetails
  * @transaction
-*/
+ */
 
-function RegisterUser(UserDetails){
-console.log(UserDetails);
- var factory = getFactory();
-var newUserDetails = factory.newResource('org.general.digitalid','User',UserDetails.user.GovermentId);
-newUserDetails =  UserDetails.user;
-  return getAssetRegistry('org.general.digitalid.User')
- .then(function(registry) {
-   registry.add(newUserDetails)
-  });
+function RegisterUser(UserDetails) {
+    console.log(UserDetails);
+    var factory = getFactory();
+    var newUserDetails = factory.newResource('org.general.digitalid', 'User', UserDetails.user.GovermentId);
+    newUserDetails = UserDetails.user;
+    return getAssetRegistry('org.general.digitalid.User')
+        .then(function (registry) {
+            registry.add(newUserDetails)
+        });
 }
 
 /**
-* 
+ * 
  * @param {org.general.digitalid.RegisterStudentInfo} registerStudentRecoord 
  * @transaction
  */
 
+function RegisterStudentInfo(registerStudentRecoord) {
+    var userObj = registerStudentRecoord.user;
+    console.log("user Object : " + JSON.stringify(userObj));
+    console.log("student Object : " + JSON.stringify(userObj.digitalIdDataInfo.student));
+    //udpate the asset after Student Admin transaction
+    if (registerStudentRecoord.StudentInfoStatus = 'Approved') {
+        userObj.universityAdmissionStatus = "Approved";
+        userObj.digitalIdDataInfo.student.HighestEducation = registerStudentRecoord.HighestEducation;
+        userObj.digitalIdDataInfo.student.CourseToPursue = registerStudentRecoord.CourseToPursue;
+        userObj.digitalIdDataInfo.student.Specialization = registerStudentRecoord.Specialization;
+        userObj.digitalIdDataInfo.student.Type = registerStudentRecoord.Type;
 
- function RegisterStudentInfo(registerStudentRecoord) {
-   //udpate the asset after Student Admin transaction
-   if (registerStudentRecoord.studentInfoStatus = 'Approved') {     
-        registerStudentRecoord.user.universityAdmissionStatus = "Approved";
-     	registerStudentRecoord.user.DigitalIdDataInfo.Student = registerStudentRecoord.student;
-     console.log(" Student Object"+JSON.stringify(registerStudentRecoord.user.DigitalIdDataInfo));
-     
-    } else {         
-     registerStudentInfo.user.universityAdmissionStatus  = "Pending";
-   }       
-   
-   //get asset registry for User, and update on the ledger
-   return getAssetRegistry('org.general.digitalid.User')
-     .then(function (assetRegistry) {
-   return assetRegistry.update(registerStudentRecoord.user);
-   })                
-}
-/**
- function RegisterStudentInfo(registerStudentInfo) {
-   
-   var User = registerStudentInfo.user;
-   // Get the vehicle asset registry.
-   return getAssetRegistry('org.general.digitalid.User')
-   .then(function (userAssetRegistry) {
-    // Get the factory for creating new asset instances.
-     var factory = getFactory();
-    // Modify the properties of the vehicle.
- if (registerStudentInfo.studentInfoStatus = 'Approved') {
-     console.log( "Student Object inside Transaction : " + JSON.stringify(registerStudentInfo.Student));
-     User.Student = registerStudentInfo.Student
-     User.universityAdmissionStatus = "Approved";
+    } else {
+        userObj.universityAdmissionStatus = "Pending";
+
     }
-   else { 
-     console.log("Denied Cond." +registerStudentInfo);
-     User.universityAdmissionStatus = false
-   }
-    // Update the vehicle in the vehicle asset registry.
-    return userAssetRegistry.update(User);
-  }).catch(function (error) {
-    // Add optional error handling here.
-  });
- }
-*/
-   
-/* 
- function RegisterStudentInfo(registerStudentInfo) {
-    var factory = getFactory();
-	var existingUser = getAssetRegistry('org.general.digitalid.User')
-   //udpate the asset after nursery response
-   if (registerStudentInfo.studentInfoStatus = 'Approved') {        
-     	existingUser.Student = registerStudentInfo.student
-        existingUser.universityAdmissionStatus = "Approved";
-     console.log( "If Condition : User Object inside Transaction : " + JSON.stringify(existingUser));
-    } else { 
-        console.log("Denied Cond." +registerStudentInfo);
-     existingUser.universityAdmissionStatus = false
-   }
-     registry.update(existingUser)
-     console.log( "Updated ApplicantInfo" + JSON.stringify(registerStudentInfo.User));
-   
-   
-   //get asset registry for land records, and update on the ledger
-   return getAssetRegistry('org.general.digitalid.User')
-     .then(function (assetRegistry) {
-     //return assetRegistry.update(registerStudentInfo.User);
-     return assetRegistry.update(registerStudentInfo.User);
-   })                
+
+    //get asset registry for User, and update on the ledger
+    return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
+        return assetRegistry.update(registerStudentRecoord.user);
+    })
 }
-*/
+
+/**
+ * 
+ * @param {org.general.digitalid.RegisterEmployeeInfo} registerEmployeeRecoord 
+ * @transaction
+ */
+
+function RegisterEmployeeInfo(registerEmployeeRecoord) {
+    var userObj = registerEmployeeRecoord.user;
+    console.log("user Object : " + JSON.stringify(userObj));
+    console.log("employee Object : " + JSON.stringify(userObj.digitalIdDataInfo.employee));
+    //udpate the asset after Student Admin transaction
+    if (registerEmployeeRecoord.employeeInfoStatus = 'Approved') {
+        userObj.employeeApplicationStatus = "Approved";
+        userObj.digitalIdDataInfo.employee.CurrentEmployer = registerEmployeeRecoord.CurrentEmployer;
+        userObj.digitalIdDataInfo.employee.PreviousEmployer = registerEmployeeRecoord.PreviousEmployer;
+        userObj.digitalIdDataInfo.employee.TotalExperience = registerEmployeeRecoord.TotalExperience;
+        userObj.digitalIdDataInfo.employee.CurrentCTC = registerEmployeeRecoord.CurrentCTC;
+
+    } else {
+        userObj.employeeApplicationStatus = "Pending";
+
+    }
+
+    //get asset registry for User, and update on the ledger
+    return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
+        return assetRegistry.update(registerEmployeeRecoord.user);
+    })
+}
+
+
+/**
+ * 
+ * @param {org.general.digitalid.RegisterVisaInfo} registerVisaRecoord 
+ * @transaction
+ */
+
+function RegisterVisaInfo(registerVisaRecoord) {
+    var userObj = registerVisaRecoord.user;
+    console.log("user Object : " + JSON.stringify(userObj));
+    console.log("visa Object : " + JSON.stringify(userObj.digitalIdDataInfo.visa));
+    //udpate the asset after Student Admin transaction
+    if (registerVisaRecoord.visaInfoStatus = 'Approved') {
+        userObj.visaApplicationStatus = "Approved";
+        userObj.digitalIdDataInfo.visa.Country = registerVisaRecoord.Country;
+        userObj.digitalIdDataInfo.visa.Duration = registerVisaRecoord.Duration;
+        userObj.digitalIdDataInfo.visa.ReasonOfTraveling = registerVisaRecoord.ReasonOfTraveling;
+        userObj.digitalIdDataInfo.visa.Comments = registerVisaRecoord.Comments;
+          userObj.digitalIdDataInfo.visa.Status = registerVisaRecoord.Status;
+
+    } else {
+        userObj.visaApplicationStatus = "Pending";
+
+    }
+
+    //get asset registry for User, and update on the ledger
+    return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
+        return assetRegistry.update(registerVisaRecoord.user);
+    })
+}
