@@ -80,12 +80,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
       }
     
 	$scope.User.user.digitalIdInfo.Age = age;
-	var file = $scope.myFile;
-	$scope.User.user.digitalIdInfo.documentDetails.docName = file.name;
-	$scope.User.user.GovermentId = $scope.User.user.digitalIdInfo.GovermentId;
-	$scope.User.user.message = "Record inserted successfully in Cloudant DB.";
-	console.log($scope.User.user.digitalIdInfo);
-
+	
 	var User={
 	"$class": "org.general.digitalid.RegisterUser",
 	"user": {
@@ -139,7 +134,13 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 		"message": "",
 		"txnMsg": ""
 	}
+		
 }
+	var file = $scope.myFile;
+	User.user.digitalIdInfo.documentDetails = file.name;
+	User.user.message = "Record inserted successfully in Cloudant DB.";
+	console.log($scope.User.user.digitalIdInfo);
+	
 	    var uploadUrl = "/applicantData";
             fileUpload.uploadFileAndFieldsToUrl(file, User, uploadUrl);
                       
