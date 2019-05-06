@@ -118,9 +118,9 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 
             $scope.User.user.digitalIdInfo.Age = age;
             var file = $scope.myFile;
-            $scope.User.digitalIdInfo.documentDetails.docName = file.name;
-            $scope.User.GovermentId = $scope.User.digitalIdInfo.GovermentId;
-            $scope.User.message = "Record inserted successfully in Cloudant DB.";
+            $scope.User.user.digitalIdInfo.documentDetails.docName = file.name;
+            $scope.User.user.GovermentId = $scope.User.digitalIdInfo.GovermentId;
+            $scope.User.user.message = "Record inserted successfully in Cloudant DB.";
             console.log($scope.User.digitalIdInfo);
             var uploadUrl = "/applicantData";
             fileUpload.uploadFileAndFieldsToUrl(file, $scope.User, uploadUrl);
