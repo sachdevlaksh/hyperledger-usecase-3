@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var Cloudant = require('@cloudant/cloudant');
 var upload = multer({ dest: __dirname + '/upload' });
 var type = upload.single('file');
+var axios = require("axios");
 
 app.use('/', express.static(__dirname + '/'));
 app.use('/', express.static(__dirname + '/Images'));
@@ -201,27 +202,67 @@ app.post('/applicantData', type, function(req, res) {
     var applicantData = JSON.parse(JSON.stringify(req.body.data));
     applicantData = JSON.parse(applicantData);
     console.log(applicantData);
+	
+   var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"	
+	
+   var headers = {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    };
+	
+   applicantData(url, applicantData, headers).then(function (data) {
+        if (data.success) {
+	
+	    res.json({
+                success: true,
+                deathRecordDetails: data.response
+            });
+        } else res.json({
+            success: false,
+            message: data
+        });	
+
+	
   
-    fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, response) {
-      insertCloudantData(applicantData).then(function(data) {
-      if(data.success){
-          insertDocInCloudant(response, req.file, applicantData.digitalIdInfo.documentDetails).then(function(data) {
-          if(data.success){
-              fs.unlink(__dirname + '/upload/' + req.file.filename, function(err) {
-                  if(!err)
-                    console.log('File deleted !');
-                  else
-                    console.log('Issue deleting File');
-              });
-              res.json ({success : true, message:'Applicant data and document inserted successfully !'});
-          }else
-              res.json ({success : false, message:'Issue inserting applicant document !'});
-          });
-      }else
-          res.json ({success : false, message:'Issue inserting applicant data !'});
-      });
-    });
+//     fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, response) {
+//       insertCloudantData(applicantData).then(function(data) {
+//       if(data.success){
+//           insertDocInCloudant(response, req.file, applicantData.digitalIdInfo.documentDetails).then(function(data) {
+//           if(data.success){
+//               fs.unlink(__dirname + '/upload/' + req.file.filename, function(err) {
+//                   if(!err)
+//                     console.log('File deleted !');
+//                   else
+//                     console.log('Issue deleting File');
+//               });
+//               res.json ({success : true, message:'Applicant data and document inserted successfully !'});
+//           }else
+//               res.json ({success : false, message:'Issue inserting applicant document !'});
+//           });
+//       }else
+//           res.json ({success : false, message:'Issue inserting applicant data !'});
+//       });
+//     });
   });
+var applicantData = async (url, data, headers) => {
+    
+   try {
+        var deathRecord = await axios.post(url,data);
+        console.log("Data post succesfully");
+        return ({
+            success: true,
+            response: Record.data
+        });
+    } catch(error){
+        return ({
+            success: false,
+            message: error
+        });
+    }
+}	
+
+	
 
   //Get selected _id details from DB
 app.post('/getDigitalIdData', function(req, res) {
