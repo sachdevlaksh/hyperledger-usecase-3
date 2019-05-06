@@ -106,7 +106,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         $scope.submitUserData = function () {
             var file = $scope.myFile;
             console.log(file);
-            var dob = $scope.User.digitalIdInfo.DOB;
+            var dob = $scope.User.user.digitalIdInfo.DOB;
             var year = Number(dob.substr(6, 4));
             var month = Number(dob.substr(3, 2)) - 1;
             var day = Number(dob.substr(0, 2));
