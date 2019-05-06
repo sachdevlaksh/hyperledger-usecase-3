@@ -111,21 +111,29 @@ transaction RegisterUser {
  }
 
 transaction RegisterStudentInfo {
- o User user 
- o Student student
- o String studentInfoStatus
+  --> User user   
+  o String  HighestEducation
+  o String  CourseToPursue
+  o String  Specialization
+  o String  Type
+  o String studentInfoStatus
 }
 
 transaction RegisterEmployeeInfo {
- o User user  
- o Employee employee 
+ --> User user
+  o String CurrentEmployer
+ o String PreviousEmployer
+ o String TotalExperience
+ o String CurrentCTC
  o String employeeInfoStatus
 }
 
 transaction RegisterVisaInfo {
-  o User user 
-  o Visa visa  
+  --> User user
+  o String  Country
+  o String  Duration
+  o String  ReasonOfTraveling
+  o String  Comments
+  o String  Status 
   o String visaInfoStatus
 }
-
-
