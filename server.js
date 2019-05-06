@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var Cloudant = require('@cloudant/cloudant');
 var upload = multer({ dest: __dirname + '/upload' });
 var type = upload.single('file');
+const rp = require('request-promise');
 
 app.use('/', express.static(__dirname + '/'));
 app.use('/', express.static(__dirname + '/Images'));
