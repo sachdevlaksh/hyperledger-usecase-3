@@ -57,105 +57,97 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         digitalId : uniqueId + ''
       }
     
-  
-    var digitalIdData = {
-        digitalId: "D-" + uniqueId,
-        Name: "",
-        DOB: "",
-        Age: "",
-        MobileNumber: "",
-        Gender: "",
-        Email: "",
-        GovermentId: "",
-        Address: "",
-        createTimestamp: uniqueId,
-        dateOfBirth: "",
-        documentDetails: document,
-        employee: Employee, 
-        visa: Visa, 
-        student: Student,
-        txnMsg: ""
-      };
-
-      var User = {
-	 user: {
-	 "$class": "org.general.digitalid.User",
-        _id: uniqueId + '',
-        digitalIdInfo: digitalIdData,
-        digitalIdStatus : 'Pending',
-        universityAdmissionStatus : 'Pending',
-        employeeApplicationStatus: 'Pending',
-        visaApplicationStatus: 'Pending',  
-        GovermentId: "",
-        message: "",
-        txnMsg: ""   
-	 }
-      }
-
-        $scope.User = User;
+       
 
         $scope.$watch('myFile', function (newFileObj) {
             if (newFileObj)
                 $scope.filename = newFileObj.name;
         });
 
-        $scope.gender = ["Male", "Female"];
-         var uniqueId = Date.now();
+	$scope.submitUserData = function () {
+	$scope.gender = ["Male", "Female"];
+	var uniqueId = Date.now();		
+	$scope.User = User;
+	var file = $scope.myFile;
+	console.log(file);
+	var dob = $scope.User.user.digitalIdInfo.DOB;
+	var year = Number(dob.substr(6, 4));
+	var month = Number(dob.substr(3, 2)) - 1;
+	var day = Number(dob.substr(0, 2));
+	var today = new Date();
+	var timestamp = dateTime();
+	var  UserGovUniqueID = $scope.User.user.digitalIdInfo.GovermentId
+	var age = today.getFullYear() - year;
+	if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+	age--;
+	}
 
+	$scope.User.user.digitalIdInfo.Age = age;
+	var file = $scope.myFile;
+	$scope.User.user.digitalIdInfo.documentDetails.docName = file.name;
+	$scope.User.user.GovermentId = $scope.User.user.digitalIdInfo.GovermentId;
+	$scope.User.user.message = "Record inserted successfully in Cloudant DB.";
+	console.log($scope.User.user.digitalIdInfo);
 
-        $scope.submitUserData = function () {
-            var file = $scope.myFile;
-            console.log(file);
-            var dob = $scope.User.user.digitalIdInfo.DOB;
-            var year = Number(dob.substr(6, 4));
-            var month = Number(dob.substr(3, 2)) - 1;
-            var day = Number(dob.substr(0, 2));
-            var today = new Date();
-            var age = today.getFullYear() - year;
-            if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
-                age--;
-            }
-
-            $scope.User.user.digitalIdInfo.Age = age;
-            var file = $scope.myFile;
-            $scope.User.user.digitalIdInfo.documentDetails.docName = file.name;
-            $scope.User.user.GovermentId = $scope.User.user.digitalIdInfo.GovermentId;
-            $scope.User.user.message = "Record inserted successfully in Cloudant DB.";
-            console.log($scope.User.user.digitalIdInfo);
-            var uploadUrl = "/applicantData";
+	var User={
+	"$class": "org.general.digitalid.RegisterUser",
+	"user": {
+		"$class": "org.general.digitalid.User",
+		"id": "",
+		"digitalIdDataInfo": {
+			"$class": "org.general.digitalid.DigitalIdDataInfo",
+			"digitalId": "5555",
+			"Name": "Praful",
+			"DOB": dob ,
+			"Age": age,
+			"MobileNumber": $scope.User.user.MobileNumber,
+			"Gender": $scope.User.user.Gender,
+			"Email": $scope.User.user.Email,
+			"GovermentId": UserGovUniqueID,
+			"Address": $scope.User.user.Address,
+			"createTimestamp": timestamp,
+			"documentDetails": "",
+			"student": {
+				"$class": "org.general.digitalid.Student",
+				"HighestEducation": "",
+				"CourseToPursue": "",
+				"Specialization": "",
+				"Type": "",
+				"GovermentId": UserGovUniqueID
+			},
+			"employee": {
+				"$class": "org.general.digitalid.Employee",
+				"CurrentEmployer": "",
+				"PreviousEmployer": "",
+				"TotalExperience": "",
+				"CurrentCTC": "",
+				"GovermentId": UserGovUniqueID
+			},
+			"visa": {
+				"$class": "org.general.digitalid.Visa",
+				"Country": "",
+				"Duration": "",
+				"ReasonOfTraveling": "",
+				"Comments": "",
+				"Status": "",
+				"GovermentId": UserGovUniqueID
+			},
+			"txnMsg": ""
+		},
+		"digitalIdStatus": "",
+		"universityAdmissionStatus": 'Pending',
+		"employeeApplicationStatus": 'Pending',
+		"visaApplicationStatus": 'Pending',
+		"GovermentId": UserGovUniqueID,
+		"message": "",
+		"txnMsg": ""
+	}
+}
+	    var uploadUrl = "/applicantData";
             fileUpload.uploadFileAndFieldsToUrl(file, $scope.User, uploadUrl);
                       
-        }
-    
-    var timestamp = dateTime();
-
-    var Student = {
-	"$class": "org.general.digitalid.Student",
-         HighestEducation: " ",
-         CourseToPursue: " ",
-         Specialization: " ",
-         Type: " ", 
-	 GovermentId : " "
-        }
-
-    var Employee = {
-	"$class": "org.general.digitalid.Employee",
-         CurrentEmployer: " ",
-         PreviousEmployer: " ",
-         TotalExperience: " ",
-         CurrentCTC: " " , 
-	 GovermentId : " "
-        }
-    var Visa = { 
-	"$class": "org.general.digitalid.Visa",
-        Country: "",
-        Duration: "",
-        ReasonOfTraveling: "",
-        Comments: "",
-        Status: "" , 
-	GovermentId : " "	    
-        }
-
+        }  
+    	   
 }]);
 
 
