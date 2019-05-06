@@ -42,32 +42,10 @@ myApp.service('fileUpload', ['$http', function($http) {
   }]);
 
 myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$window', function ($scope, fileUpload, $http, $filter, $window) {
-
-    var uniqueId = Date.now();
-
-    function dateTime() {
-        var now = new Date();
-        return now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + "T" + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
-    }
- 
-    var document = {
-        _id : uniqueId + '-IdProof',
-        docName : "",
-        docType : "Identification Proof",
-        digitalId : uniqueId + ''
-      }
-    
-       
-
-        $scope.$watch('myFile', function (newFileObj) {
-            if (newFileObj)
-                $scope.filename = newFileObj.name;
-        });
-
+      
 	$scope.submitUserData = function () {
 	$scope.gender = ["Male", "Female"];
 	var uniqueId = Date.now();		
-	$scope.User = User;
 	var file = $scope.myFile;
 	console.log(file);
 	var dob = $scope.User.user.digitalIdInfo.DOB;
@@ -82,6 +60,25 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 	age--;
 	}
 
+	 $scope.$watch('myFile', function (newFileObj) {
+            if (newFileObj)
+                $scope.filename = newFileObj.name;
+        });
+
+	    var uniqueId = Date.now();
+
+    function dateTime() {
+        var now = new Date();
+        return now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + "T" + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    }
+ 
+    var document = {
+        _id : uniqueId + '-IdProof',
+        docName : "",
+        docType : "Identification Proof",
+        digitalId : uniqueId + ''
+      }
+    
 	$scope.User.user.digitalIdInfo.Age = age;
 	var file = $scope.myFile;
 	$scope.User.user.digitalIdInfo.documentDetails.docName = file.name;
@@ -144,7 +141,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 	}
 }
 	    var uploadUrl = "/applicantData";
-            fileUpload.uploadFileAndFieldsToUrl(file, $scope.User, uploadUrl);
+            fileUpload.uploadFileAndFieldsToUrl(file, User, uploadUrl);
                       
         }  
     	   
