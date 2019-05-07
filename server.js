@@ -331,6 +331,7 @@ app.post('/applicantData', type, function(req, res) {
                             });
 
                         });
+						});
 
 });
 
