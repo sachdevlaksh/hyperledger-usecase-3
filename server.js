@@ -331,8 +331,8 @@ app.post('/applicantData', type, function(req, res) {
                             });
 
                         });
-					});
 
+}}
 
                         /*     fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, response) {
                               insertCloudantData(applicantData).then(function(data) {
