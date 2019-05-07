@@ -203,7 +203,7 @@ app.post('/applicantData', type, function(req, res) {
     var applicantData = JSON.parse(JSON.stringify(req.body.data));
     var applicantJSONdata = JSON.parse(applicantData);
     console.log(applicantJSONdata);
-<<<<<<< HEAD
+
 	
 	var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"	
 	
@@ -214,7 +214,7 @@ app.post('/applicantData', type, function(req, res) {
 		};
 	
 	applicantData(url, applicantJSONdata, headers).then(function (data) {
-=======
+
 
         var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"
 
