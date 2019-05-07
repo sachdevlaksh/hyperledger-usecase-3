@@ -200,8 +200,8 @@ console.log("Username :" +username + "Password :" +password);
 app.post('/applicantData', type, function(req, res) {
     console.log('Inside Express api to insert data for applicant');
     var applicantData = JSON.parse(JSON.stringify(req.body.data));
-    ApplicantJSONdata = JSON.parse(applicantData);
-    console.log(ApplicantJSONdata);
+    var applicantJSONdata = JSON.parse(applicantData);
+    console.log(applicantJSONdata);
 	
 	var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"	
 	
@@ -211,7 +211,7 @@ app.post('/applicantData', type, function(req, res) {
         }
 		};
 	
-	applicantData(url, ApplicantJSONdata, headers).then(function (data) {
+	applicantData(url, applicantJSONdata, headers).then(function (data) {
         if (data.success) {
 	
 	    res.json({
@@ -250,13 +250,14 @@ app.post('/applicantData', type, function(req, res) {
   
   
   var applicantData = async (url, data, headers) => {
-    
+	console.log(data);  
+  
    try {
         var deathRecord = await axios.post(url,data);
         console.log("Data post succesfully");
         return ({
             success: true,
-            response: Record.data
+            response: deathRecord.data
         });
     } catch(error){
         return ({
