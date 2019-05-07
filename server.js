@@ -263,14 +263,8 @@ app.post('/applicantData', type, function(req, res) {
   
   
   var applicantData = async (url, data, headers) => {
-<<<<<<< HEAD
 	console.log(data);  
-  
-=======
-        console.log(data);
-
->>>>>>> d780211429c63301283e6705f5cd1cee4d6f7b03
-   try {
+     try {
         var deathRecord = await axios.post(url,data);
         console.log("Data post succesfully");
         return ({
