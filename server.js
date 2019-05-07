@@ -201,33 +201,32 @@ console.log("Username :" +username + "Password :" +password);
 app.post('/applicantData', type, function(req, res) {
     console.log('Inside Express api to insert data for applicant');
     var applicantData = JSON.parse(JSON.stringify(req.body.data));
-    ApplicantJSONdata = JSON.parse(applicantData);
-    console.log(ApplicantJSONdata);
-	
-	var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"	
-	
-	var headers = {
+    var applicantJSONdata = JSON.parse(applicantData);
+    console.log(applicantJSONdata);
+
+        var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"
+
+        var headers = {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
-		};
-	
-	applicantData(url, ApplicantJSONdata, headers).then(function (data) {
+                };
+
+        applicantData(url, applicantJSONdata, headers).then(function (data) {
         if (data.success) {
-	
-	    res.json({
+
+            res.json({
                 success: true,
                 deathRecordDetails: data.response
             });
         } else res.json({
             success: false,
             message: data
-	
+
   });
- 
+
  });
-  
- });
+
   
 /*     fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, response) {
       insertCloudantData(applicantData).then(function(data) {
@@ -251,13 +250,14 @@ app.post('/applicantData', type, function(req, res) {
   
   
   var applicantData = async (url, data, headers) => {
-    
+        console.log(data);
+
    try {
         var deathRecord = await axios.post(url,data);
         console.log("Data post succesfully");
         return ({
             success: true,
-            response: Record.data
+            response: deathRecord.data
         });
     } catch(error){
         return ({
@@ -266,6 +266,7 @@ app.post('/applicantData', type, function(req, res) {
         });
     }
 }
+
 
   //Get selected _id details from DB
 app.post('/getDigitalIdData', function(req, res) {
