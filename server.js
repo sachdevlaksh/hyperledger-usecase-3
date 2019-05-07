@@ -225,7 +225,7 @@ app.post('/applicantData', type, function(req, res) {
                 };
 
         applicantData(url, applicantJSONdata, headers).then(function (data) {
->>>>>>> d780211429c63301283e6705f5cd1cee4d6f7b03
+
         if (data.success) {
 
             res.json({
