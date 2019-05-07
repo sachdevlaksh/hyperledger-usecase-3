@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var Cloudant = require('@cloudant/cloudant');
 var upload = multer({ dest: __dirname + '/upload' });
 var type = upload.single('file');
+const rp = require('request-promise');
 
 app.use('/', express.static(__dirname + '/'));
 app.use('/', express.static(__dirname + '/Images'));
@@ -202,6 +203,7 @@ app.post('/applicantData', type, function(req, res) {
     var applicantData = JSON.parse(JSON.stringify(req.body.data));
     var applicantJSONdata = JSON.parse(applicantData);
     console.log(applicantJSONdata);
+<<<<<<< HEAD
 	
 	var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"	
 	
@@ -212,21 +214,32 @@ app.post('/applicantData', type, function(req, res) {
 		};
 	
 	applicantData(url, applicantJSONdata, headers).then(function (data) {
+=======
+
+        var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"
+
+        var headers = {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+                };
+
+        applicantData(url, applicantJSONdata, headers).then(function (data) {
+>>>>>>> d780211429c63301283e6705f5cd1cee4d6f7b03
         if (data.success) {
-	
-	    res.json({
+
+            res.json({
                 success: true,
                 deathRecordDetails: data.response
             });
         } else res.json({
             success: false,
             message: data
-	
+
   });
- 
+
  });
-  
- });
+
   
 /*     fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, response) {
       insertCloudantData(applicantData).then(function(data) {
@@ -250,8 +263,13 @@ app.post('/applicantData', type, function(req, res) {
   
   
   var applicantData = async (url, data, headers) => {
+<<<<<<< HEAD
 	console.log(data);  
   
+=======
+        console.log(data);
+
+>>>>>>> d780211429c63301283e6705f5cd1cee4d6f7b03
    try {
         var deathRecord = await axios.post(url,data);
         console.log("Data post succesfully");
@@ -266,6 +284,7 @@ app.post('/applicantData', type, function(req, res) {
         });
     }
 }
+
 
   //Get selected _id details from DB
 app.post('/getDigitalIdData', function(req, res) {
