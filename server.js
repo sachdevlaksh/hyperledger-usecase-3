@@ -193,7 +193,7 @@ app.get('/getEmployeeApplicantRequests', function(req, res) {
 app.post('/applicantData', type, function(req, res) {
     console.log('Inside Express api to insert data for applicant');
     var applicantDataNew = JSON.parse(JSON.stringify(req.body.data));
-    var applicantJSONdata = JSON.parse(applicantDataNew);
+    var applicantJSONdata = JSON.stringify(applicantDataNew);
     console.log(applicantJSONdata);
 
     var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User";
@@ -385,20 +385,19 @@ var verifyCredentialsFromCloudant = async(username, password) => {
 
 //Post Call
 var applicantData = async(url, data, headers) => {
-    console.log(data);
+    console.log(JSON.parse(data));
     try {
-        var deathRecord = await axios.post(url, data);
-        console.log("Data post succesfully");
+        var deathRecord = await axios.post(url, JSON.parse(data));
+        console.log("Data post succesfully" + deathRecord);
         return ({
             success: true,
             response: deathRecord.data
         });
     } catch (error) {
 	    console.log("Error is  :  " + error);
-	    console.log("message is  :  " + JSON.stringify(error));
         return ({
 	    success: false,
-            message: JSON.stringify(error)	  
+            message: error	  
         });
     }
 }
