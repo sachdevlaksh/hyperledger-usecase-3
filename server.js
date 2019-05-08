@@ -387,7 +387,7 @@ var verifyCredentialsFromCloudant = async(username, password) => {
 var applicantData = async(url, data, headers) => {
     console.log(JSON.parse(data));
     try {
-        var deathRecord = await axios.post(url, JSON.parse(data,headers));
+        var deathRecord = await axios.post(url, JSON.parse(data));
         console.log("Data post succesfully" + deathRecord);
         return ({
             success: true,
