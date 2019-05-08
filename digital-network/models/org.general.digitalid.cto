@@ -60,7 +60,6 @@ participant VisaAdmin identified by VisaAdminId {
        o String GovermentId
        o String Address
        o String createTimestamp
-       o String dateOfBirth
        o String documentDetails
        o Student student
        o Employee employee 
