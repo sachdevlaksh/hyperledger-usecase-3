@@ -394,7 +394,7 @@ var applicantData = async(url, data, headers) => {
             response: deathRecord.data
         });
     } catch (error) {
-	    console.log("Error is  :  " + error);
+	    console.log("Error is  :  " + JSON.parse(error.response));
         return ({
 	    success: false,
             message: error	  
