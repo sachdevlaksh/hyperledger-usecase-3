@@ -395,9 +395,9 @@ var applicantData = async(url, data, headers) => {
         });
     } catch (error) {
 	    console.log("Error is  :  " + error);
-        return ({
 	    console.log("message is  :  " + JSON.stringify(error));
-            success: false,
+        return ({
+	    success: false,
             message: JSON.stringify(error)	  
         });
     }
