@@ -196,7 +196,7 @@ app.post('/applicantData', type, function(req, res) {
     var applicantJSONdata = JSON.stringify(applicantDataNew);
     console.log(applicantJSONdata);
 
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3000/api/org.general.digitalid.RegisterUser";
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3000/api/RegisterUser";
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
 	applicantData(url, applicantJSONdata, headers).then(function(data) {
