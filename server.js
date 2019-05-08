@@ -192,8 +192,8 @@ app.get('/getEmployeeApplicantRequests', function(req, res) {
 
 app.post('/applicantData', type, function(req, res) {
     console.log('Inside Express api to insert data for applicant');
-    var applicantData = JSON.parse(JSON.stringify(req.body.data));
-    var applicantJSONdata = JSON.parse(applicantData);
+    var applicantDataNew = JSON.parse(JSON.stringify(req.body.data));
+    var applicantJSONdata = JSON.parse(applicantDataNew);
     console.log(applicantJSONdata);
 
     var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User";
