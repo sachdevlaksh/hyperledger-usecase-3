@@ -58,44 +58,6 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.post('/loginData', function(req, res) {
-    console.log("Got a POST request for LoginPage.html page");
-    console.log(req.body);
-    var userId = req.body.username;
-    var password = req.body.password;
-    dbForLogin.find({
-        selector: {
-            userId: userId
-        }
-    }, function(err, body) {
-        console.log(body);
-        if (!err) {
-            var dbPassword = body.docs[0].password;
-            console.log("dbPassword: " + dbPassword);
-            console.log("password: " + password);
-            if (dbPassword === password) {
-                var response = {
-                    status: 200,
-                    message: 'Success'
-                }
-                res.send(JSON.stringify(response));
-            } else {
-                var response = {
-                    status: 300,
-                    message: 'Username and Password does not match'
-                }
-                res.send(JSON.stringify(response));
-            }
-        } else {
-            var response = {
-                status: 400,
-                message: 'Username does not exists'
-            }
-            res.send(JSON.stringify(response));
-        }
-    });
-});
-
 // Check Login Details
 app.post('/verifyLogin', function(req, res) {
     console.log('Inside Express api check for login');
@@ -228,10 +190,141 @@ app.get('/getEmployeeApplicantRequests', function(req, res) {
     });
 });
 
+app.post('/applicantData', type, function(req, res) {
+    console.log('Inside Express api to insert data for applicant');
+    var applicantData = JSON.parse(JSON.stringify(req.body.data));
+    var applicantJSONdata = JSON.parse(applicantData);
+    console.log(applicantJSONdata);
 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User";
+    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+
+	applicantData(url, applicantJSONdata, headers).then(function(data) {
+		if (data.success) {
+			res.json({
+				success: true,
+				deathRecordDetails: data.response
+			});
+		} else res.json({
+			success: false,
+			message: data
+		});
+	});
+});
+
+//Get selected _id details from DB
+app.post('/getDigitalIdData', function(req, res) {
+    console.log('Inside Express api check to get digital Id data : ' + req.body._id);
+    getDigitalIdData(req.body._id).then(function(data) {
+        if (data.success) {
+            res.json({
+                success: true,
+                message: 'Applicant data found successfully ! ',
+                result: data.response.docs
+            });
+        } else
+            res.json({
+                success: false,
+                message: 'Cloudant db connectivity issue !'
+            });
+    });
+});
+
+//Update digital Id applicant details to DB
+app.post('/updateDigitalIdData', function(req, res) {
+    console.log('Inside Express api check to update digital Id data ! ');
+    var applicantData = JSON.parse(JSON.stringify(req.body));
+    updateCloudantData(applicantData).then(function(data) {
+        if (data.success) {
+            res.json({
+                success: true,
+                message: 'Applicant data updated successfully ! '
+            });
+        } else
+            res.json({
+                success: false,
+                message: 'Applicant data updation issue !'
+            });
+    });
+});
+
+
+app.post('/employeeData', function(req, res) {
+    var response = "";
+    console.log("Got a POST request for apply_for_digital_id.html page");
+    var applicantData = JSON.parse(JSON.stringify(req.body));
+    dbForApplicantData.insert(applicantData, function(err, body) {
+        if (!err) {
+            response = {
+                status: 200,
+                message: 'Data inserted successfully in applicant data table.',
+                id: body.id,
+                revid: body.rev
+            }
+        } else {
+            response = {
+                status: 300,
+                message: 'Data not inserted successfully in applicant data table.'
+            }
+        }
+        res.send(JSON.stringify(response));
+    });
+});
+app.post('/userData', function(req, res) {
+    var response = "";
+    console.log("Got a POST request for StudentDetails.html page");
+    var applicantData = JSON.parse(JSON.stringify(req.body));
+    dbForApplicantData.insert(applicantData, function(err, body) {
+        if (!err) {
+            response = {
+                status: 200,
+                message: 'Data inserted successfully in applicant data table.',
+                id: body.id,
+                revid: body.rev
+            }
+        } else {
+            response = {
+                status: 300,
+                message: 'Data not inserted successfully in applicant data table.'
+            }
+        }
+        res.send(JSON.stringify(response));
+    });
+});
+
+app.post('/applicantDoc', type, function(req, res) {
+    console.log("File :" + JSON.stringify(req.body));
+    fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, data) {
+        if (!err) {
+            dbForApplicantData.attachment.insert(req.body.id, req.file.originalname, data, req.file.mimetype, {
+                rev: req.body.rev
+            }, function(err, body) {
+                if (!err) {
+                    fs.unlink(__dirname + '/upload/' + req.file.filename, function(err) {
+                        if (!err)
+                            console.log('File deleted!');
+                        else
+                            console.log(err);
+                    });
+                    var response = {
+                        status: 200,
+                        message: 'Document uploaded successfully in applicant data table.'
+                    }
+                    res.send(JSON.stringify(response));
+                } else {
+                    var response = {
+                        status: 300,
+                        message: 'Document not uploaded successfully in applicant data table.'
+                    }
+                    res.send(JSON.stringify(response));
+                }
+            });
+        }
+    });
+});
 
 // Fetch all digital Ids with pending digitalId status from cloudant DB
-var digitalIdWithPendingStatus = async () => {
+var digitalIdWithPendingStatus = async() => {
     try {
         var response = await dbForApplicantData.find({
             selector: {
@@ -262,7 +355,7 @@ var digitalIdWithPendingStatus = async () => {
 }
 
 // Verify admin login credentials from cloudant DB
-var verifyCredentialsFromCloudant = async (username, password) => {
+var verifyCredentialsFromCloudant = async(username, password) => {
     console.log("Username :" + username + "Password :" + password);
     try {
         var response = await dbForLogin.get(username);
@@ -290,297 +383,119 @@ var verifyCredentialsFromCloudant = async (username, password) => {
     }
 }
 
-app.post('/applicantData', type, function(req, res) {
-            console.log('Inside Express api to insert data for applicant');
-            var applicantData = JSON.parse(JSON.stringify(req.body.data));
-            var applicantJSONdata = JSON.parse(applicantData);
-            console.log(applicantJSONdata);
+//Post Call
+var applicantData = async(url, data, headers) => {
+    console.log(data);
+    try {
+        var deathRecord = await axios.post(url, data);
+        console.log("Data post succesfully");
+        return ({
+            success: true,
+            response: deathRecord.data
+        });
+    } catch (error) {
+        return ({
+            success: false,
+            message: error
+        });
+    }
+}
 
+//Fetch specific digitalId record from cloudant DB
+var getDigitalIdData = async(digitalId) => {
+    try {
+        var response = await dbForApplicantData.find({
+            selector: {
+                _id: digitalId
+            }
+        });
+        console.log('Applicant data found successfully ! ');
+        return ({
+            success: true,
+            message: 'Applicant data found successfully ! ',
+            response: response
+        });
+    } catch (err) {
+        console.log('Applicant data not present/DB issue ! ' + err);
+        return ({
+            success: false,
+            message: 'Applicant data not present/DB issue !'
+        });
+    }
+}
 
-            var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"
+// Update existence record in cloudant DB
+var updateCloudantData = async(data) => {
+    try {
+        var response = await dbForApplicantData.insert(data);
+        console.log('Applicant data updated successfully ! ');
+        return ({
+            success: true,
+            message: 'Applicant data updated successfully ! '
+        });
+    } catch (err) {
+        console.log('Applicant data updation issue ! ' + err);
+        return ({
+            success: false,
+            message: 'Applicant data updation issue !'
+        });
+    }
+}
 
-            var headers = {
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
-            };
+// Insert Document in cloudant DB
+var insertDocInCloudant = async(data, file, docData) => {
+        console.log(data);
+        console.log(file);
+        try {
+            var response = await dbForApplicantDocs.insert(docData);
+            console.log('Document related data inserted successfully !');
+            var body = await dbForApplicantDocs.attachment.insert(response.id, file.originalname, data, file.mimetype, {
+                rev: response.rev
+            });
+            console.log('Document inserted successfully !');
+            return ({
+                success: true,
+                message: 'Document uploaded successfully !'
+            });
+        } catch (err) {
+            console.log('Document related data insertion issue ! ' + err);
+            return ({
+                success: false,
+                message: 'Document related data insertion issue !'
+            });
+        }
+    }
+	
+// Insert data/record in cloudant DB
+var insertCloudantData = async(data) => {
+    try {
+        var response = await dbForApplicantData.find({
+            selector: {
+                GovermentId: data.GovermentId
+            }
+        });
+        if (response && response.docs && response.docs.length > 0) {
+            console.log('GovermentId already exists in DB !');
+            return ({
+                success: false,
+                message: 'GovermentId already exists in DB !'
+            });
+        } else {
+            console.log('GovermentId does not exists in DB !');
+            var data = await dbForApplicantData.insert(data);
+            console.log('Applicant Data Inserted !');
+            return ({
+                success: true,
+                message: 'Applicant Data Inserted Successfully !'
+            });
+        }
+    } catch (err) {
+        console.log('Issue fetching/inserting data from DB ! ' + err);
+        return ({
+            success: false,
+            message: 'Issue fetching/inserting data from DB !'
+        });
+    }
+}
 
-            applicantData(url, applicantJSONdata, headers).then(function(data) {
-
-
-                        var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"
-
-                        var headers = {
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded'
-                            }
-                        };
-
-                        applicantData(url, applicantJSONdata, headers).then(function(data) {
-
-                            if (data.success) {
-
-                                res.json({
-                                    success: true,
-                                    deathRecordDetails: data.response
-                                });
-                            } else res.json({
-                                success: false,
-                                message: data
-
-                            });
-
-                        });
-						});
-
-});
-
-                        /*     fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, response) {
-                              insertCloudantData(applicantData).then(function(data) {
-                              if(data.success){
-                                  insertDocInCloudant(response, req.file, applicantData.digitalIdInfo.documentDetails).then(function(data) {
-                                  if(data.success){
-                                      fs.unlink(__dirname + '/upload/' + req.file.filename, function(err) {
-                                          if(!err)
-                                            console.log('File deleted !');
-                                          else
-                                            console.log('Issue deleting File');
-                                      });
-                                      res.json ({success : true, message:'Applicant data and document inserted successfully !'});
-                                  }else
-                                      res.json ({success : false, message:'Issue inserting applicant document !'});
-                                  });
-                              }else
-                                  res.json ({success : false, message:'Issue inserting applicant data !'});
-                              });
-                            }); */
-
-
-                        var applicantData = async (url, data, headers) => {
-                            console.log(data);
-                            try {
-                                var deathRecord = await axios.post(url, data);
-                                console.log("Data post succesfully");
-                                return ({
-                                    success: true,
-                                    response: deathRecord.data
-                                });
-                            } catch (error) {
-                                return ({
-                                    success: false,
-                                    message: error
-                                });
-                            }
-                        }
-
-
-                        //Get selected _id details from DB
-                        app.post('/getDigitalIdData', function(req, res) {
-                            console.log('Inside Express api check to get digital Id data : ' + req.body._id);
-                            getDigitalIdData(req.body._id).then(function(data) {
-                                if (data.success) {
-                                    res.json({
-                                        success: true,
-                                        message: 'Applicant data found successfully ! ',
-                                        result: data.response.docs
-                                    });
-                                } else
-                                    res.json({
-                                        success: false,
-                                        message: 'Cloudant db connectivity issue !'
-                                    });
-                            });
-                        });
-
-                        //Update digital Id applicant details to DB
-                        app.post('/updateDigitalIdData', function(req, res) {
-                            console.log('Inside Express api check to update digital Id data ! ');
-                            var applicantData = JSON.parse(JSON.stringify(req.body));
-                            updateCloudantData(applicantData).then(function(data) {
-                                if (data.success) {
-                                    res.json({
-                                        success: true,
-                                        message: 'Applicant data updated successfully ! '
-                                    });
-                                } else
-                                    res.json({
-                                        success: false,
-                                        message: 'Applicant data updation issue !'
-                                    });
-                            });
-                        });
-
-
-
-                        //Fetch specific digitalId record from cloudant DB
-                        var getDigitalIdData = async (digitalId) => {
-                            try {
-                                var response = await dbForApplicantData.find({
-                                    selector: {
-                                        _id: digitalId
-                                    }
-                                });
-                                console.log('Applicant data found successfully ! ');
-                                return ({
-                                    success: true,
-                                    message: 'Applicant data found successfully ! ',
-                                    response: response
-                                });
-                            } catch (err) {
-                                console.log('Applicant data not present/DB issue ! ' + err);
-                                return ({
-                                    success: false,
-                                    message: 'Applicant data not present/DB issue !'
-                                });
-                            }
-                        }
-
-                        // Update existence record in cloudant DB
-                        var updateCloudantData = async (data) => {
-                            try {
-                                var response = await dbForApplicantData.insert(data);
-                                console.log('Applicant data updated successfully ! ');
-                                return ({
-                                    success: true,
-                                    message: 'Applicant data updated successfully ! '
-                                });
-                            } catch (err) {
-                                console.log('Applicant data updation issue ! ' + err);
-                                return ({
-                                    success: false,
-                                    message: 'Applicant data updation issue !'
-                                });
-                            }
-                        }
-
-                        app.post('/employeeData', function(req, res) {
-                            var response = "";
-                            console.log("Got a POST request for apply_for_digital_id.html page");
-                            var applicantData = JSON.parse(JSON.stringify(req.body));
-                            dbForApplicantData.insert(applicantData, function(err, body) {
-                                if (!err) {
-                                    response = {
-                                        status: 200,
-                                        message: 'Data inserted successfully in applicant data table.',
-                                        id: body.id,
-                                        revid: body.rev
-                                    }
-                                } else {
-                                    response = {
-                                        status: 300,
-                                        message: 'Data not inserted successfully in applicant data table.'
-                                    }
-                                }
-                                res.send(JSON.stringify(response));
-                            });
-                        });
-                        app.post('/userData', function(req, res) {
-                            var response = "";
-                            console.log("Got a POST request for StudentDetails.html page");
-                            var applicantData = JSON.parse(JSON.stringify(req.body));
-                            dbForApplicantData.insert(applicantData, function(err, body) {
-                                if (!err) {
-                                    response = {
-                                        status: 200,
-                                        message: 'Data inserted successfully in applicant data table.',
-                                        id: body.id,
-                                        revid: body.rev
-                                    }
-                                } else {
-                                    response = {
-                                        status: 300,
-                                        message: 'Data not inserted successfully in applicant data table.'
-                                    }
-                                }
-                                res.send(JSON.stringify(response));
-                            });
-                        });
-
-                        app.post('/applicantDoc', type, function(req, res) {
-                            console.log("File :" + JSON.stringify(req.body));
-                            fs.readFile(__dirname + '/upload/' + req.file.filename, function(err, data) {
-                                if (!err) {
-                                    dbForApplicantData.attachment.insert(req.body.id, req.file.originalname, data, req.file.mimetype, {
-                                        rev: req.body.rev
-                                    }, function(err, body) {
-                                        if (!err) {
-                                            fs.unlink(__dirname + '/upload/' + req.file.filename, function(err) {
-                                                if (!err)
-                                                    console.log('File deleted!');
-                                                else
-                                                    console.log(err);
-                                            });
-                                            var response = {
-                                                status: 200,
-                                                message: 'Document uploaded successfully in applicant data table.'
-                                            }
-                                            res.send(JSON.stringify(response));
-                                        } else {
-                                            var response = {
-                                                status: 300,
-                                                message: 'Document not uploaded successfully in applicant data table.'
-                                            }
-                                            res.send(JSON.stringify(response));
-                                        }
-                                    });
-                                }
-                            });
-                        });
-
-
-                        // Insert Document in cloudant DB
-                        var insertDocInCloudant = async (data, file, docData) => {
-                            console.log(data);
-                            console.log(file);
-                            try {
-                                var response = await dbForApplicantDocs.insert(docData);
-                                console.log('Document related data inserted successfully !');
-                                var body = await dbForApplicantDocs.attachment.insert(response.id, file.originalname, data, file.mimetype, {
-                                    rev: response.rev
-                                });
-                                console.log('Document inserted successfully !');
-                                return ({
-                                    success: true,
-                                    message: 'Document uploaded successfully !'
-                                });
-                            } catch (err) {
-                                console.log('Document related data insertion issue ! ' + err);
-                                return ({
-                                    success: false,
-                                    message: 'Document related data insertion issue !'
-                                });
-                            }
-                        }
-                        // Insert data/record in cloudant DB
-                        var insertCloudantData = async (data) => {
-                            try {
-                                var response = await dbForApplicantData.find({
-                                    selector: {
-                                        GovermentId: data.GovermentId
-                                    }
-                                });
-                                if (response && response.docs && response.docs.length > 0) {
-                                    console.log('GovermentId already exists in DB !');
-                                    return ({
-                                        success: false,
-                                        message: 'GovermentId already exists in DB !'
-                                    });
-                                } else {
-                                    console.log('GovermentId does not exists in DB !');
-                                    var data = await dbForApplicantData.insert(data);
-                                    console.log('Applicant Data Inserted !');
-                                    return ({
-                                        success: true,
-                                        message: 'Applicant Data Inserted Successfully !'
-                                    });
-                                }
-                            } catch (err) {
-                                console.log('Issue fetching/inserting data from DB ! ' + err);
-                                return ({
-                                    success: false,
-                                    message: 'Issue fetching/inserting data from DB !'
-                                });
-                            }
-                        }
-
-                        app.listen(port);
+app.listen(port);
