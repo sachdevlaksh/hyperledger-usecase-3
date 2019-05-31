@@ -1,0 +1,18 @@
+Discovering types from business network definition ...
+Discovering the Returning Transactions..
+Discovered types from business network definition
+Generating schemas for all types in business network definition ...
+Generated schemas for all types in business network definition
+Adding schemas for all types to Loopback ...
+Swagger: skipping unknown type "Student".
+Swagger: skipping unknown type "Employee".
+Swagger: skipping unknown type "Visa".
+Swagger: skipping unknown type "Student".
+Swagger: skipping unknown type "Employee".
+Swagger: skipping unknown type "Visa".
+Swagger: skipping unknown type "Employee".
+Swagger: skipping unknown type "Visa".
+Swagger: skipping unknown type "Visa".
+Added schemas for all types to Loopback
+Web server listening at: http://localhost:3000
+Browse your REST API at http://localhost:3000/explorer

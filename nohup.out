@@ -1,0 +1,414 @@
+Discovering types from business network definition ...
+Discovering the Returning Transactions..
+Discovered types from business network definition
+Generating schemas for all types in business network definition ...
+Generated schemas for all types in business network definition
+Adding schemas for all types to Loopback ...
+Swagger: skipping unknown type "org_general_digitalid_Student".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Student".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Added schemas for all types to Loopback
+Web server listening at: http://localhost:8080
+Browse your REST API at http://localhost:8080/explorer
+Discovering types from business network definition ...
+Discovering the Returning Transactions..
+Discovered types from business network definition
+Generating schemas for all types in business network definition ...
+Generated schemas for all types in business network definition
+Adding schemas for all types to Loopback ...
+Swagger: skipping unknown type "org_general_digitalid_Student".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Student".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Added schemas for all types to Loopback
+Web server listening at: http://localhost:3001
+Browse your REST API at http://localhost:3001/explorer
+Unhandled error for request GET /verifyAndUpdateNoOfSeedSurvived: Error: Cannot GET /verifyAndUpdateNoOfSeedSurvived
+    at raiseUrlNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/server/middleware/url-not-found.js:21:17)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at urlencodedParser (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/body-parser/lib/types/urlencoded.js:91:7)
+Unhandled error for request POST /api/RegisterUser: Error: There is no method to handle POST /RegisterUser
+    at restUrlNotFound (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:425:17)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at jsonParser (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/body-parser/lib/types/json.js:94:7)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at urlencodedParser (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/body-parser/lib/types/urlencoded.js:82:7)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: ValidationError: The `org_general_digitalid_RegisterUser` instance is not valid. Details: `user` can't be blank (value: undefined).
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:400:12
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:578:11)
+    at org_general_digitalid_RegisterUser.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:93:12)
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:575:23)
+    at org_general_digitalid_RegisterUser.trigger (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:83:12)
+    at org_general_digitalid_RegisterUser.Validatable.isValid (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:541:8)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:396:9
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:178:5)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: Error: Property names containing dot(s) are not supported. Model: org_general_digitalid_RegisterUser, dynamic property: {"$class":"org.general.digitalid.RegisterUser","user":{"$class":"org.general.digitalid.User","id":1558358759473,"digitalIdDataInfo":{"$class":"org.general.digitalid.DigitalIdDataInfo","digitalId":"5555","Name":"Praful","DOB":"13458654185","Age":-3400,"MobileNumber":"13458654185","Gender":"13458654185","Email":"13458654185","GovermentId":"13458654185","Address":"13458654185","createTimestamp":"2019-5-20T18:55:59","documentDetails":" ","student":{"$class":"org.general.digitalid.Student","HighestEducation":" ","CourseToPursue":" ","Specialization":" ","Type":" ","GovermentId":"13458654185"},"employee":{"$class":"org.general.digitalid.Employee","CurrentEmployer":" ","PreviousEmployer":" ","TotalExperience":" ","CurrentCTC":" ","GovermentId":"13458654185"},"visa":{"$class":"org.general.digitalid.Visa","Country":" ","Duration":" ","ReasonOfTraveling":" ","Comments":" ","Status":" ","GovermentId":"13458654185"},"txnMsg":" "},"digitalIdStatus":" ","universityAdmissionStatus":"Pending","employeeApplicationStatus":"Pending","visaApplicationStatus":"Pending","GovermentId":"13458654185","message":" ","txnMsg":" "}}
+    at org_general_digitalid_RegisterUser.ModelBaseClass._initProperties (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model.js:249:17)
+    at org_general_digitalid_RegisterUser.ModelBaseClass (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model.js:60:8)
+    at org_general_digitalid_RegisterUser.Model (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at org_general_digitalid_RegisterUser.PersistedModel (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at new org_general_digitalid_RegisterUser (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at Function.DataAccessObject.create (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:361:13)
+    at SharedMethod.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/shared-method.js:270:25)
+    at HttpContext.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/http-context.js:297:12)
+    at phaseInvoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:695:9)
+    at runHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:135:5)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3110:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1016:9
+    at eachLimit$1 (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3196:24)
+    at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1046:16)
+    at runHandlers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:144:13)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: Error: Property names containing dot(s) are not supported. Model: org_general_digitalid_RegisterUser, dynamic property: {"$class":"org.general.digitalid.RegisterUser","user":{"$class":"org.general.digitalid.User","id":1558358818939,"digitalIdDataInfo":{"$class":"org.general.digitalid.DigitalIdDataInfo","digitalId":"5555","Name":"Praful","DOB":"13458654185","Age":-3400,"MobileNumber":"13458654185","Gender":"13458654185","Email":"13458654185","GovermentId":"13458654185","Address":"13458654185","createTimestamp":"2019-5-20T18:56:58","documentDetails":" ","student":{"$class":"org.general.digitalid.Student","HighestEducation":" ","CourseToPursue":" ","Specialization":" ","Type":" ","GovermentId":"13458654185"},"employee":{"$class":"org.general.digitalid.Employee","CurrentEmployer":" ","PreviousEmployer":" ","TotalExperience":" ","CurrentCTC":" ","GovermentId":"13458654185"},"visa":{"$class":"org.general.digitalid.Visa","Country":" ","Duration":" ","ReasonOfTraveling":" ","Comments":" ","Status":" ","GovermentId":"13458654185"},"txnMsg":" "},"digitalIdStatus":" ","universityAdmissionStatus":"Pending","employeeApplicationStatus":"Pending","visaApplicationStatus":"Pending","GovermentId":"13458654185","message":" ","txnMsg":" "}}
+    at org_general_digitalid_RegisterUser.ModelBaseClass._initProperties (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model.js:249:17)
+    at org_general_digitalid_RegisterUser.ModelBaseClass (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model.js:60:8)
+    at org_general_digitalid_RegisterUser.Model (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at org_general_digitalid_RegisterUser.PersistedModel (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at new org_general_digitalid_RegisterUser (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at Function.DataAccessObject.create (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:361:13)
+    at SharedMethod.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/shared-method.js:270:25)
+    at HttpContext.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/http-context.js:297:12)
+    at phaseInvoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:695:9)
+    at runHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:135:5)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3110:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1016:9
+    at eachLimit$1 (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3196:24)
+    at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1046:16)
+    at runHandlers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:144:13)
+Discovering types from business network definition ...
+Discovering the Returning Transactions..
+Discovered types from business network definition
+Generating schemas for all types in business network definition ...
+Generated schemas for all types in business network definition
+Adding schemas for all types to Loopback ...
+Swagger: skipping unknown type "org_general_digitalid_Student".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Student".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Added schemas for all types to Loopback
+Web server listening at: http://localhost:3001
+Browse your REST API at http://localhost:3001/explorer
+Discovering types from business network definition ...
+Discovering the Returning Transactions..
+Discovered types from business network definition
+Generating schemas for all types in business network definition ...
+Generated schemas for all types in business network definition
+Adding schemas for all types to Loopback ...
+Swagger: skipping unknown type "org_general_digitalid_Student".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Student".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Added schemas for all types to Loopback
+Web server listening at: http://localhost:3001
+Browse your REST API at http://localhost:3001/explorer
+Unhandled error for request GET /api/org.general.digitalid.RegisterUser/1558421021180: Error: Unknown "org_general_digitalid_RegisterUser" id "1558421021180".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /api/org.general.digitalid.RegisterUser/1558421021180: Error: Unknown "org_general_digitalid_RegisterUser" id "1558421021180".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /api/org.general.digitalid.RegisterUser/1558421021180: Error: Unknown "org_general_digitalid_RegisterUser" id "1558421021180".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /api/org.general.digitalid.RegisterUser/1558421021180: Error: Unknown "org_general_digitalid_RegisterUser" id "1558421021180".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /api/org.general.digitalid.RegisterUser/11111: Error: Unknown "org_general_digitalid_RegisterUser" id "11111".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /api/org.general.digitalid.RegisterUser/87878: Error: Unknown "org_general_digitalid_RegisterUser" id "87878".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /api/org.general.digitalid.RegisterUser/87878: Error: Unknown "org_general_digitalid_RegisterUser" id "87878".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /api/org.general.digitalid.User/1558421021180: Error: Unknown "org_general_digitalid_User" id "1558421021180".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /api/org.general.digitalid.User/1558421021180: Error: Unknown "org_general_digitalid_User" id "1558421021180".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /api/org.general.digitalid.User/1558421021180: Error: Unknown "org_general_digitalid_User" id "1558421021180".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /api/org.general.digitalid.User/1559024680643: Error: Unknown "org_general_digitalid_User" id "1559024680643".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /api/org.general.digitalid.User/1558358875841: Error: Unknown "org_general_digitalid_User" id "1558358875841".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request POST /api/org.general.digitalid.User?filter[where][id]=1558421021180: ValidationError: The `org_general_digitalid_User` instance is not valid. Details: `id` can't be blank (value: undefined); `digitalIdDataInfo` can't be blank (value: undefined); `digitalIdStatus` can't be blank (value: undefined); `universityAdmissionStatus` can't be blank (value: undefined); `employeeApplicationStatus` can't be blank (value: undefined); `visaApplicationStatus` can't be blank (value: undefined); `GovermentId` can't be blank (value: undefined); `message` can't be blank (value: undefined); `txnMsg` can't be blank (value: undefined).
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:400:12
+    at org_general_digitalid_User.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:578:11)
+    at org_general_digitalid_User.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:93:12)
+    at org_general_digitalid_User.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:575:23)
+    at org_general_digitalid_User.trigger (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:83:12)
+    at org_general_digitalid_User.Validatable.isValid (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:541:8)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:396:9
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:178:5)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+Unhandled error for request GET /verifyAndUpdateNoOfSeedSurvived: Error: Cannot GET /verifyAndUpdateNoOfSeedSurvived
+    at raiseUrlNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/server/middleware/url-not-found.js:21:17)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at urlencodedParser (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/body-parser/lib/types/urlencoded.js:91:7)
+Unhandled error for request PUT /api/org.general.digitalid.User/989897: Error: id property (GovermentId) cannot be updated from 989897 to 989897
+    at Function.DataAccessObject.replaceById (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:3033:11)
+    at SharedMethod.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/shared-method.js:270:25)
+    at HttpContext.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/http-context.js:297:12)
+    at phaseInvoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:695:9)
+    at runHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:135:5)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3110:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1016:9
+    at eachLimit$1 (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3196:24)
+    at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1046:16)
+    at runHandlers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:144:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3110:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1016:9
+    at eachLimit$1 (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3196:24)
+    at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1046:16)
+WARNING: id property cannot be changed from 989897 to 989897 for model:org_general_digitalid_User in 'before save' operation hook
+WARNING: id property cannot be changed from 989897 to 989897 for model:org_general_digitalid_User in 'loaded' operation hook

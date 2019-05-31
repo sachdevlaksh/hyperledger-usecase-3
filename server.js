@@ -192,14 +192,14 @@ app.get('/getEmployeeApplicantRequests', function(req, res) {
 
 app.post('/applicantData', type, function(req, res) {
     console.log('Inside Express api to insert data for applicant');
-    var applicantDataNew = JSON.parse(JSON.stringify(req.body.data));
-    var applicantJSONdata = JSON.stringify(applicantDataNew);
+    var applicantDataNew = req.body.data;
+    var applicantJSONdata = JSON.parse(applicantDataNew);
     console.log(applicantJSONdata);
 
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3000/api/RegisterUser";
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterUser"; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
-	applicantData(url, applicantJSONdata, headers).then(function(data) {
+	applicantData(url,applicantJSONdata , headers).then(function(data) {
 		if (data.success) {
 			res.json({
 				success: true,
@@ -215,12 +215,16 @@ app.post('/applicantData', type, function(req, res) {
 //Get selected _id details from DB
 app.post('/getDigitalIdData', function(req, res) {
     console.log('Inside Express api check to get digital Id data : ' + req.body._id);
-    getDigitalIdData(req.body._id).then(function(data) {
+
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User?filter[where][id]="+req.body._id;
+    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+
+    getDigitalIdData(url,headers).then(function(data) {
         if (data.success) {
             res.json({
                 success: true,
                 message: 'Applicant data found successfully ! ',
-                result: data.response.docs
+                result: data.response
             });
         } else
             res.json({
@@ -229,6 +233,8 @@ app.post('/getDigitalIdData', function(req, res) {
             });
     });
 });
+
+
 
 //Update digital Id applicant details to DB
 app.post('/updateDigitalIdData', function(req, res) {
@@ -385,16 +391,17 @@ var verifyCredentialsFromCloudant = async(username, password) => {
 
 //Post Call
 var applicantData = async(url, data, headers) => {
-    console.log(JSON.parse(data));
+    //var data = JSON.stringify(data);
+    console.log(data);
     try {
-        var deathRecord = await axios.post(url, JSON.parse(data));
+        var deathRecord = await axios.post(url,data);
         console.log("Data post succesfully" + deathRecord);
         return ({
             success: true,
             response: deathRecord.data
         });
     } catch (error) {
-	    console.log("Error is  :  " + error.response);
+	    console.log("Error is  :  " + error);
         return ({
 	    success: false,
             message: error	  
@@ -403,26 +410,24 @@ var applicantData = async(url, data, headers) => {
 }
 
 //Fetch specific digitalId record from cloudant DB
-var getDigitalIdData = async(digitalId) => {
-    try {
-        var response = await dbForApplicantData.find({
-            selector: {
-                _id: digitalId
-            }
-        });
-        console.log('Applicant data found successfully ! ');
+var getDigitalIdData = async(url,headers) => {
+   console.log(url);
+   try {
+        var Record = await axios.get(url,headers);
+        console.log("Data post succesfully" + Record.data);
         return ({
             success: true,
-            message: 'Applicant data found successfully ! ',
-            response: response
+            response: Record.data
         });
-    } catch (err) {
-        console.log('Applicant data not present/DB issue ! ' + err);
+    } catch (error) {
+            console.log("Error is  :  " + error);
         return ({
             success: false,
-            message: 'Applicant data not present/DB issue !'
+            message: error
         });
     }
+
+
 }
 
 // Update existence record in cloudant DB

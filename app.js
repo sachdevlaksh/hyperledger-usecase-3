@@ -85,7 +85,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 	"$class": "org.general.digitalid.RegisterUser",
 	"user": {
 		"$class": "org.general.digitalid.User",
-		"id": "",
+		"id": uniqueId,
 		"digitalIdDataInfo": {
 			"$class": "org.general.digitalid.DigitalIdDataInfo",
 			"digitalId": "5555",
@@ -98,41 +98,41 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 			"GovermentId": UserGovUniqueID,
 			"Address": $scope.User.user.digitalIdInfo.Address,
 			"createTimestamp": timestamp,
-			"documentDetails": "",
+			"documentDetails": " ",
 			"student": {
 				"$class": "org.general.digitalid.Student",
-				"HighestEducation": "",
-				"CourseToPursue": "",
-				"Specialization": "",
-				"Type": "",
+				"HighestEducation": " ",
+				"CourseToPursue": " ",
+				"Specialization": " ",
+				"Type": " ",
 				"GovermentId": UserGovUniqueID
 			},
 			"employee": {
 				"$class": "org.general.digitalid.Employee",
-				"CurrentEmployer": "",
-				"PreviousEmployer": "",
-				"TotalExperience": "",
-				"CurrentCTC": "",
+				"CurrentEmployer": " ",
+				"PreviousEmployer": " ",
+				"TotalExperience": " ",
+				"CurrentCTC": " ",
 				"GovermentId": UserGovUniqueID
 			},
 			"visa": {
 				"$class": "org.general.digitalid.Visa",
-				"Country": "",
-				"Duration": "",
-				"ReasonOfTraveling": "",
-				"Comments": "",
-				"Status": "",
+				"Country": " ",
+				"Duration": " ",
+				"ReasonOfTraveling": " ",
+				"Comments": " ",
+				"Status": " ",
 				"GovermentId": UserGovUniqueID
 			},
-			"txnMsg": ""
+			"txnMsg": " "
 		},
-		"digitalIdStatus": "",
+		"digitalIdStatus": " ",
 		"universityAdmissionStatus": 'Pending',
 		"employeeApplicationStatus": 'Pending',
 		"visaApplicationStatus": 'Pending',
 		"GovermentId": UserGovUniqueID,
-		"message": "",
-		"txnMsg": ""
+		"message": " ",
+		"txnMsg": " "
 	}
 		
 }
