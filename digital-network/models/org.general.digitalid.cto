@@ -46,11 +46,9 @@ participant VisaAdmin identified by VisaAdminId {
       o  String id 
       o  String docName 
       o  String docType 
-      o  String digitalId 
       }
 
- asset DigitalIdDataInfo identified by digitalId {
-       o String digitalId
+ asset DigitalIdDataInfo identified by GovermentId {
        o String Name
        o String DOB
        o String Age
@@ -68,7 +66,6 @@ participant VisaAdmin identified by VisaAdminId {
       }
 
 asset User identified by GovermentId {
-   o String id
    o DigitalIdDataInfo digitalIdDataInfo
    o String  digitalIdStatus 
    o String universityAdmissionStatus 

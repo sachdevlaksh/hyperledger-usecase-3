@@ -76,8 +76,8 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
         _id : uniqueId + '-IdProof',
         docName : "",
         docType : "Identification Proof",
-        digitalId : uniqueId + ''
-      }
+
+    }
     
 	$scope.User.user.digitalIdInfo.Age = age;
 	
@@ -85,11 +85,10 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 	"$class": "org.general.digitalid.RegisterUser",
 	"user": {
 		"$class": "org.general.digitalid.User",
-		"id": uniqueId,
+		"id": UserGovUniqueID,
 		"digitalIdDataInfo": {
 			"$class": "org.general.digitalid.DigitalIdDataInfo",
-			"digitalId": "5555",
-			"Name": "Praful",
+			"Name":  $scope.User.user.digitalIdInfo.Name,
 			"DOB": dob ,
 			"Age": age,
 			"MobileNumber": $scope.User.user.digitalIdInfo.MobileNumber,
@@ -178,7 +177,7 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
 
   $scope.loadDigitalIdData = function() {
         var data = {
-          _id : $scope.digitalId
+          _id : $scope.id
         }
 
     $http({
@@ -308,6 +307,10 @@ myApp.controller('applyEmployee', ['$scope', 'fileUpload', '$http', '$filter', '
 
 // Digital ID Admin Controller
 myApp.controller('digitalIdAdminLogin', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+
+ $scope.closeTab = function() {
+  window.close();
+ }
 
   $scope.verifyLogin = function() {
 

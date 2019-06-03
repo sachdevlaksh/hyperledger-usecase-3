@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Student Digital ID</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">	
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="../jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="../jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="../jQueryAssets/jquery.ui.tabs.min.css" rel="stylesheet" type="text/css">
+<link href="https://unpkg.com/ng-table@3.0.1/bundles/ng-table.min.css">
+<script src="../jQueryAssets/jquery-1.11.1.min.js"></script>
+<script src="../jQueryAssets/jquery.ui-1.10.4.tabs.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://unpkg.com/ng-table@3.0.1/bundles/ng-table.min.js"></script>
+<script src="../app.js"></script>
+
 	</head>
 
-	<body>
+	<body ng-app="myModule" ng-controller="digitalIdAdminLogin" >
+	
+	<div class="container-fluid">
 	
 	<div class="container-fluid">
 	
@@ -50,7 +61,7 @@
 				<div class="student_success_message">
 					<h3>SUCCESS</h3>
 					<p>You have successfully applied. Digital Identification Number will be mailed to you once it is approved</p>
-					<a class="cmn_student_id_btn" href="#">Ok</a>
+					<a class="cmn_student_id_btn" href="#" ng-click="closeTab()">Ok</a>
 				</div>
 			</div>
 		</div>
