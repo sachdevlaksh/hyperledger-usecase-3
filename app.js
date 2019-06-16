@@ -85,7 +85,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 	"$class": "org.general.digitalid.RegisterUser",
 	"user": {
 		"$class": "org.general.digitalid.User",
-		"id": UserGovUniqueID,
+	//	"id": UserGovUniqueID,
 		"digitalIdDataInfo": {
 			"$class": "org.general.digitalid.DigitalIdDataInfo",
 			"Name":  $scope.User.user.digitalIdInfo.Name,
@@ -177,17 +177,17 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
 
   $scope.loadDigitalIdData = function() {
         var data = {
-          _id : $scope.id
+          _id : $scope.digitalId
         }
 
     $http({
       method: 'POST',
       url: '/getDigitalIdData',
       data: data
-    }).then(function successCallback(response) {
-      if(response.data.success == true  && response.data.result[0].digitalIdStatus == 'Approved') {
-		$scope.digitalIdData = response.data.result[0];
-		$scope.dob = new Date(response.data.result[0].digitalIdInfo.DOB);
+    }).then(function successCallback(response) { // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      if(response.data.success == true  && response.data.result.digitalIdStatus == ' ') {
+		$scope.digitalIdData = response.data.result;
+		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
 		$scope.off();
       } else {
         alert(response.data.message);

@@ -192,14 +192,15 @@ app.get('/getEmployeeApplicantRequests', function(req, res) {
 
 app.post('/applicantData', type, function(req, res) {
     console.log('Inside Express api to insert data for applicant');
-    var applicantDataNew = req.body.data;
-    var applicantJSONdata = JSON.parse(applicantDataNew);
-    console.log(applicantJSONdata);
+
+    var reqdata = JSON.parse(req.body.data); 
+
+    console.log(reqdata);
 
     var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterUser"; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
-	applicantData(url,applicantJSONdata , headers).then(function(data) {
+	applicantData(url,reqdata, headers).then(function(data) {
 		if (data.success) {
 			res.json({
 				success: true,
@@ -216,7 +217,7 @@ app.post('/applicantData', type, function(req, res) {
 app.post('/getDigitalIdData', function(req, res) {
     console.log('Inside Express api check to get digital Id data : ' + req.body._id);
 
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User?filter[where][id]="+req.body._id;
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User/"+req.body._id;
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
     getDigitalIdData(url,headers).then(function(data) {
@@ -391,8 +392,6 @@ var verifyCredentialsFromCloudant = async(username, password) => {
 
 //Post Call
 var applicantData = async(url, data, headers) => {
-    //var data = JSON.stringify(data);
-    console.log(data);
     try {
         var deathRecord = await axios.post(url,data);
         console.log("Data post succesfully" + deathRecord);
@@ -401,7 +400,7 @@ var applicantData = async(url, data, headers) => {
             response: deathRecord.data
         });
     } catch (error) {
-	    console.log("Error is  :  " + error);
+	    console.log("Error is:" + error);
         return ({
 	    success: false,
             message: error	  

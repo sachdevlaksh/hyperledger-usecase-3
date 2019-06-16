@@ -412,3 +412,555 @@ Unhandled error for request PUT /api/org.general.digitalid.User/989897: Error: i
     at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1046:16)
 WARNING: id property cannot be changed from 989897 to 989897 for model:org_general_digitalid_User in 'before save' operation hook
 WARNING: id property cannot be changed from 989897 to 989897 for model:org_general_digitalid_User in 'loaded' operation hook
+Unhandled error for request GET /api/org.general.digitalid.RegisterUser: Error: transaction returned with failure: Error: The current identity, with the name 'admin' and the identifier '01899e04161a3a6d64670504fa122e55818295352929b6a616333a3739fde3f2', must be activated (ACTIVATION_REQUIRED)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/fabric-client/lib/Peer.js:114:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/grpc/src/client.js:586:7
+Unhandled error for request GET /api/org.general.digitalid.User: Error: transaction returned with failure: Error: The current identity, with the name 'admin' and the identifier '01899e04161a3a6d64670504fa122e55818295352929b6a616333a3739fde3f2', must be activated (ACTIVATION_REQUIRED)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/fabric-client/lib/Peer.js:114:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/grpc/src/client.js:586:7
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: Error: Invalid or missing identifier for Type DigitalIdDataInfo in namespace org.general.digitalid
+    at Factory.newResource (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/factory.js:88:19)
+    at JSONPopulator.convertItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:186:50)
+    at JSONPopulator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:153:27)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:104:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:128:51)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at AssetDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.convertItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:198:30)
+    at JSONPopulator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:153:27)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:104:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:128:51)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at TransactionDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at Serializer.fromJSON (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer.js:203:26)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: Error: Invalid or missing identifier for Type DigitalIdDataInfo in namespace org.general.digitalid
+    at Factory.newResource (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/factory.js:88:19)
+    at JSONPopulator.convertItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:186:50)
+    at JSONPopulator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:153:27)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:104:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:128:51)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at AssetDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.convertItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:198:30)
+    at JSONPopulator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:153:27)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:104:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:128:51)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at TransactionDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at Serializer.fromJSON (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer.js:203:26)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: Error: Invalid or missing identifier for Type DigitalIdDataInfo in namespace org.general.digitalid
+    at Factory.newResource (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/factory.js:88:19)
+    at JSONPopulator.convertItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:186:50)
+    at JSONPopulator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:153:27)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:104:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:128:51)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at AssetDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.convertItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:198:30)
+    at JSONPopulator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:153:27)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:104:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:128:51)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at TransactionDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at Serializer.fromJSON (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer.js:203:26)
+Unhandled error for request POST /api/org.general.digitalid.User: ValidationError: The `org_general_digitalid_User` instance is not valid. Details: `id` can't be blank (value: undefined); `digitalIdDataInfo` can't be blank (value: undefined); `digitalIdStatus` can't be blank (value: undefined); `universityAdmissionStatus` can't be blank (value: undefined); `employeeApplicationStatus` can't be blank (value: undefined); `visaApplicationStatus` can't be blank (value: undefined); `GovermentId` can't be blank (value: undefined); `message` can't be blank (value: undefined); `txnMsg` can't be blank (value: undefined).
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:400:12
+    at org_general_digitalid_User.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:578:11)
+    at org_general_digitalid_User.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:93:12)
+    at org_general_digitalid_User.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:575:23)
+    at org_general_digitalid_User.trigger (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:83:12)
+    at org_general_digitalid_User.Validatable.isValid (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:541:8)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:396:9
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:178:5)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: Error: Invalid or missing identifier for Type DigitalIdDataInfo in namespace org.general.digitalid
+    at Factory.newResource (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/factory.js:88:19)
+    at JSONPopulator.convertItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:186:50)
+    at JSONPopulator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:153:27)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:104:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:128:51)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at AssetDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.convertItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:198:30)
+    at JSONPopulator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:153:27)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:104:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:128:51)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at TransactionDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at Serializer.fromJSON (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer.js:203:26)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: Error: Invalid or missing identifier for Type DigitalIdDataInfo in namespace org.general.digitalid
+    at Factory.newResource (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/factory.js:88:19)
+    at JSONPopulator.convertItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:186:50)
+    at JSONPopulator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:153:27)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:104:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:128:51)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at AssetDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.convertItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:198:30)
+    at JSONPopulator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:153:27)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:104:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:128:51)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at TransactionDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at Serializer.fromJSON (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer.js:203:26)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: ValidationError: The `org_general_digitalid_RegisterUser` instance is not valid. Details: `transactionId` can't be set (value: "string").
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:400:12
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:578:11)
+    at org_general_digitalid_RegisterUser.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:93:12)
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:575:23)
+    at org_general_digitalid_RegisterUser.trigger (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:83:12)
+    at org_general_digitalid_RegisterUser.Validatable.isValid (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:541:8)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:396:9
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:178:5)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: Error: Error trying invoke business network with transaction id 52c38dc06afce52d91989026d8abe55af0350106adbcbe9e9561633dfb70e293. Error: No valid responses from any peers.
+Response from attempted peer comms was an error: Error: transaction returned with failure: Error: The current identity, with the name 'admin' and the identifier '01899e04161a3a6d64670504fa122e55818295352929b6a616333a3739fde3f2', must be activated (ACTIVATION_REQUIRED)
+    at HLFConnection.invokeChainCode (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-connector-hlfv1/lib/hlfconnection.js:1117:30)
+    at <anonymous>
+Discovering types from business network definition ...
+Discovering the Returning Transactions..
+Discovered types from business network definition
+Generating schemas for all types in business network definition ...
+Generated schemas for all types in business network definition
+Adding schemas for all types to Loopback ...
+Swagger: skipping unknown type "org_general_digitalid_Student".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Student".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Employee".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Swagger: skipping unknown type "org_general_digitalid_Visa".
+Added schemas for all types to Loopback
+Web server listening at: http://localhost:3001
+Browse your REST API at http://localhost:3001/explorer
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: ValidationException: Unexpected properties for type org.general.digitalid.User: id
+    at validateProperties (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:64:15)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:122:9)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at AssetDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.convertItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:198:30)
+    at JSONPopulator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:153:27)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:104:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at JSONPopulator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:128:51)
+    at JSONPopulator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/jsonpopulator.js:100:25)
+    at TransactionDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at Serializer.fromJSON (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer.js:203:26)
+    at ensureConnected.then (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-connector-composer/lib/businessnetworkconnector.js:635:43)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: ValidationError: The `org_general_digitalid_RegisterUser` instance is not valid. Details: `user` can't be blank (value: undefined).
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:400:12
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:578:11)
+    at org_general_digitalid_RegisterUser.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:93:12)
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:575:23)
+    at org_general_digitalid_RegisterUser.trigger (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:83:12)
+    at org_general_digitalid_RegisterUser.Validatable.isValid (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:541:8)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:396:9
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:178:5)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: ValidationError: The `org_general_digitalid_RegisterUser` instance is not valid. Details: `user` can't be blank (value: undefined).
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:400:12
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:578:11)
+    at org_general_digitalid_RegisterUser.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:93:12)
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:575:23)
+    at org_general_digitalid_RegisterUser.trigger (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:83:12)
+    at org_general_digitalid_RegisterUser.Validatable.isValid (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:541:8)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:396:9
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:178:5)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: Error: Property names containing dot(s) are not supported. Model: org_general_digitalid_RegisterUser, dynamic property: {"data":"{\"$class\":\"org.general.digitalid.RegisterUser\",\"user\":{\"$class\":\"org.general.digitalid.User\",\"id\":\"12341\",\"digitalIdDataInfo\":{\"$class\":\"org.general.digitalid.DigitalIdDataInfo\",\"Name\":\"sdf\",\"DOB\":\"asdfasd\",\"Age\":null,\"MobileNumber\":\"adsf\",\"Gender\":\"sdf\",\"Email\":\"df\",\"GovermentId\":\"12341\",\"Address\":\"asdf\",\"createTimestamp\":\"2019-6-10T12:4:47\",\"documentDetails\":\" \",\"student\":{\"$class\":\"org.general.digitalid.Student\",\"HighestEducation\":\" \",\"CourseToPursue\":\" \",\"Specialization\":\" \",\"Type\":\" \",\"GovermentId\":\"12341\"},\"employee\":{\"$class\":\"org.general.digitalid.Employee\",\"CurrentEmployer\":\" \",\"PreviousEmployer\":\" \",\"TotalExperience\":\" \",\"CurrentCTC\":\" \",\"GovermentId\":\"12341\"},\"visa\":{\"$class\":\"org.general.digitalid.Visa\",\"Country\":\" \",\"Duration\":\" \",\"ReasonOfTraveling\":\" \",\"Comments\":\" \",\"Status\":\" \",\"GovermentId\":\"12341\"},\"txnMsg\":\" \"},\"digitalIdStatus\":\" \",\"universityAdmissionStatus\":\"Pending\",\"employeeApplicationStatus\":\"Pending\",\"visaApplicationStatus\":\"Pending\",\"GovermentId\":\"12341\",\"message\":\" \",\"txnMsg\":\" \"}}"}
+    at org_general_digitalid_RegisterUser.ModelBaseClass._initProperties (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model.js:249:17)
+    at org_general_digitalid_RegisterUser.ModelBaseClass (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model.js:60:8)
+    at org_general_digitalid_RegisterUser.Model (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at org_general_digitalid_RegisterUser.PersistedModel (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at new org_general_digitalid_RegisterUser (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at Function.DataAccessObject.create (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:361:13)
+    at SharedMethod.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/shared-method.js:270:25)
+    at HttpContext.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/http-context.js:297:12)
+    at phaseInvoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:695:9)
+    at runHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:135:5)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3110:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1016:9
+    at eachLimit$1 (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3196:24)
+    at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1046:16)
+    at runHandlers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:144:13)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: ValidationError: The `org_general_digitalid_RegisterUser` instance is not valid. Details: `user` can't be blank (value: undefined).
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:400:12
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:578:11)
+    at org_general_digitalid_RegisterUser.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:93:12)
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:575:23)
+    at org_general_digitalid_RegisterUser.trigger (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:83:12)
+    at org_general_digitalid_RegisterUser.Validatable.isValid (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:541:8)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:396:9
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:178:5)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: ValidationError: The `org_general_digitalid_RegisterUser` instance is not valid. Details: `user` can't be blank (value: undefined).
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:400:12
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:578:11)
+    at org_general_digitalid_RegisterUser.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:93:12)
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:575:23)
+    at org_general_digitalid_RegisterUser.trigger (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:83:12)
+    at org_general_digitalid_RegisterUser.Validatable.isValid (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:541:8)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:396:9
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:178:5)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: ValidationError: The `org_general_digitalid_RegisterUser` instance is not valid. Details: `user` can't be blank (value: undefined).
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:400:12
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:578:11)
+    at org_general_digitalid_RegisterUser.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:93:12)
+    at org_general_digitalid_RegisterUser.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:575:23)
+    at org_general_digitalid_RegisterUser.trigger (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/hooks.js:83:12)
+    at org_general_digitalid_RegisterUser.Validatable.isValid (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/validations.js:541:8)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:396:9
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at doNotify (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:155:49)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:178:5)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+    at Function.ObserverMixin.notifyObserversOf (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:153:8)
+    at Function.ObserverMixin._notifyBaseObservers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/observer.js:176:15)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: Error: Property names containing dot(s) are not supported. Model: org_general_digitalid_RegisterUser, dynamic property: {"$class":"org.general.digitalid.RegisterUser","user":{"$class":"org.general.digitalid.User","digitalIdDataInfo":{"$class":"org.general.digitalid.DigitalIdDataInfo","Name":"qwerasdf","DOB":"afs","Age":2019,"MobileNumber":"sdfdsf","Gender":"sd","Email":"asdf","GovermentId":"23142","Address":"fasdf","createTimestamp":"2019-6-10T12:13:55","documentDetails":" ","student":{"$class":"org.general.digitalid.Student","HighestEducation":" ","CourseToPursue":" ","Specialization":" ","Type":" ","GovermentId":"23142"},"employee":{"$class":"org.general.digitalid.Employee","CurrentEmployer":" ","PreviousEmployer":" ","TotalExperience":" ","CurrentCTC":" ","GovermentId":"23142"},"visa":{"$class":"org.general.digitalid.Visa","Country":" ","Duration":" ","ReasonOfTraveling":" ","Comments":" ","Status":" ","GovermentId":"23142"},"txnMsg":" "},"digitalIdStatus":" ","universityAdmissionStatus":"Pending","employeeApplicationStatus":"Pending","visaApplicationStatus":"Pending","GovermentId":"23142","message":" ","txnMsg":" "}}
+    at org_general_digitalid_RegisterUser.ModelBaseClass._initProperties (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model.js:249:17)
+    at org_general_digitalid_RegisterUser.ModelBaseClass (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model.js:60:8)
+    at org_general_digitalid_RegisterUser.Model (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at org_general_digitalid_RegisterUser.PersistedModel (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at new org_general_digitalid_RegisterUser (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at Function.DataAccessObject.create (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:361:13)
+    at SharedMethod.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/shared-method.js:270:25)
+    at HttpContext.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/http-context.js:297:12)
+    at phaseInvoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:695:9)
+    at runHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:135:5)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3110:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1016:9
+    at eachLimit$1 (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3196:24)
+    at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1046:16)
+    at runHandlers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:144:13)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: Error: Property names containing dot(s) are not supported. Model: org_general_digitalid_RegisterUser, dynamic property: {"$class":"org.general.digitalid.RegisterUser","user":{"$class":"org.general.digitalid.User","digitalIdDataInfo":{"$class":"org.general.digitalid.DigitalIdDataInfo","Name":"fasfd","DOB":"asdfas","Age":2019,"MobileNumber":"sdf","Gender":"sdf","Email":"sdf","GovermentId":"123421","Address":"asdfa","createTimestamp":"2019-6-10T12:16:52","documentDetails":" ","student":{"$class":"org.general.digitalid.Student","HighestEducation":" ","CourseToPursue":" ","Specialization":" ","Type":" ","GovermentId":"123421"},"employee":{"$class":"org.general.digitalid.Employee","CurrentEmployer":" ","PreviousEmployer":" ","TotalExperience":" ","CurrentCTC":" ","GovermentId":"123421"},"visa":{"$class":"org.general.digitalid.Visa","Country":" ","Duration":" ","ReasonOfTraveling":" ","Comments":" ","Status":" ","GovermentId":"123421"},"txnMsg":" "},"digitalIdStatus":" ","universityAdmissionStatus":"Pending","employeeApplicationStatus":"Pending","visaApplicationStatus":"Pending","GovermentId":"123421","message":" ","txnMsg":" "}}
+    at org_general_digitalid_RegisterUser.ModelBaseClass._initProperties (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model.js:249:17)
+    at org_general_digitalid_RegisterUser.ModelBaseClass (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model.js:60:8)
+    at org_general_digitalid_RegisterUser.Model (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at org_general_digitalid_RegisterUser.PersistedModel (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at new org_general_digitalid_RegisterUser (eval at createModelClassCtor (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/model-builder.js:671:21), <anonymous>:12:24)
+    at Function.DataAccessObject.create (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-datasource-juggler/lib/dao.js:361:13)
+    at SharedMethod.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/shared-method.js:270:25)
+    at HttpContext.invoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/http-context.js:297:12)
+    at phaseInvoke (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:695:9)
+    at runHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:135:5)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3110:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1016:9
+    at eachLimit$1 (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3196:24)
+    at Object.<anonymous> (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1046:16)
+    at runHandlers (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/loopback-phase/lib/phase.js:144:13)
+Unhandled error for request POST /api/org.general.digitalid.RegisterUser: ValidationException: Instance org.general.digitalid.DigitalIdDataInfo#234123 missing required field Age
+    at Function.reportMissingRequiredProperty (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:484:15)
+    at ResourceValidator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:179:39)
+    at ResourceValidator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:74:25)
+    at AssetDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at ResourceValidator.checkItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:346:30)
+    at ResourceValidator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:222:22)
+    at ResourceValidator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:78:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at ResourceValidator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:175:26)
+    at ResourceValidator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:74:25)
+    at AssetDeclaration.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at ResourceValidator.checkItem (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:346:30)
+    at ResourceValidator.visitField (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:222:22)
+    at ResourceValidator.visit (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:78:25)
+    at Field.accept (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/introspect/decorated.js:65:24)
+    at ResourceValidator.visitClassDeclaration (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/serializer/resourcevalidator.js:175:26)
+Unhandled error for request GET /api/org.general.digitalid.User?filter[where][id]=undefined: InvalidQueryException: Invalid WHERE clause in query Dynamic query: Property id does not exist on org.general.digitalid.User File '$dynamic_queries.qry': line 1 column 1, to line 1 column 58. 
+    at Where.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/where.js:96:23)
+    at Select.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/select.js:133:24)
+    at Query.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/query.js:119:21)
+    at BusinessNetworkConnection.buildQuery (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-client/lib/businessnetworkconnection.js:844:20)
+    at ensureConnected.then.then (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-connector-composer/lib/businessnetworkconnector.js:323:57)
+    at <anonymous>
+TypeError: Converting circular structure to JSON
+    at JSON.stringify (<anonymous>)
+    at sendJson (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/send-json.js:9:22)
+    at strongErrorHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/handler.js:60:5)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:71:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:67:12)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at Immediate.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate._onImmediate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15)
+    at runCallback (timers.js:796:20)
+    at tryOnImmediate (timers.js:752:5)
+Unhandled error for request GET /api/org.general.digitalid.User?filter[where][id]=undefined: InvalidQueryException: Invalid WHERE clause in query Dynamic query: Property id does not exist on org.general.digitalid.User File '$dynamic_queries.qry': line 1 column 1, to line 1 column 58. 
+    at Where.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/where.js:96:23)
+    at Select.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/select.js:133:24)
+    at Query.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/query.js:119:21)
+    at BusinessNetworkConnection.buildQuery (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-client/lib/businessnetworkconnection.js:844:20)
+    at ensureConnected.then.then (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-connector-composer/lib/businessnetworkconnector.js:323:57)
+    at <anonymous>
+TypeError: Converting circular structure to JSON
+    at JSON.stringify (<anonymous>)
+    at sendJson (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/send-json.js:9:22)
+    at strongErrorHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/handler.js:60:5)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:71:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:67:12)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at Immediate.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate._onImmediate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15)
+    at runCallback (timers.js:796:20)
+    at tryOnImmediate (timers.js:752:5)
+Unhandled error for request GET /api/org.general.digitalid.User?filter[where][id]=undefined: InvalidQueryException: Invalid WHERE clause in query Dynamic query: Property id does not exist on org.general.digitalid.User File '$dynamic_queries.qry': line 1 column 1, to line 1 column 58. 
+    at Where.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/where.js:96:23)
+    at Select.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/select.js:133:24)
+    at Query.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/query.js:119:21)
+    at BusinessNetworkConnection.buildQuery (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-client/lib/businessnetworkconnection.js:844:20)
+    at ensureConnected.then.then (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-connector-composer/lib/businessnetworkconnector.js:323:57)
+    at <anonymous>
+TypeError: Converting circular structure to JSON
+    at JSON.stringify (<anonymous>)
+    at sendJson (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/send-json.js:9:22)
+    at strongErrorHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/handler.js:60:5)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:71:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:67:12)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at Immediate.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate._onImmediate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15)
+    at runCallback (timers.js:796:20)
+    at tryOnImmediate (timers.js:752:5)
+Unhandled error for request GET /api/org.general.digitalid.User?filter[where][id]=undefined: InvalidQueryException: Invalid WHERE clause in query Dynamic query: Property id does not exist on org.general.digitalid.User File '$dynamic_queries.qry': line 1 column 1, to line 1 column 58. 
+    at Where.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/where.js:96:23)
+    at Select.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/select.js:133:24)
+    at Query.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/query.js:119:21)
+    at BusinessNetworkConnection.buildQuery (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-client/lib/businessnetworkconnection.js:844:20)
+    at ensureConnected.then.then (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-connector-composer/lib/businessnetworkconnector.js:323:57)
+    at <anonymous>
+TypeError: Converting circular structure to JSON
+    at JSON.stringify (<anonymous>)
+    at sendJson (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/send-json.js:9:22)
+    at strongErrorHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/handler.js:60:5)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:71:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:67:12)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at Immediate.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate._onImmediate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15)
+    at runCallback (timers.js:796:20)
+    at tryOnImmediate (timers.js:752:5)
+Unhandled error for request GET /api/org.general.digitalid.User?filter[where][id]=undefined: InvalidQueryException: Invalid WHERE clause in query Dynamic query: Property id does not exist on org.general.digitalid.User File '$dynamic_queries.qry': line 1 column 1, to line 1 column 58. 
+    at Where.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/where.js:96:23)
+    at Select.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/select.js:133:24)
+    at Query.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/query.js:119:21)
+    at BusinessNetworkConnection.buildQuery (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-client/lib/businessnetworkconnection.js:844:20)
+    at ensureConnected.then.then (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-connector-composer/lib/businessnetworkconnector.js:323:57)
+    at <anonymous>
+TypeError: Converting circular structure to JSON
+    at JSON.stringify (<anonymous>)
+    at sendJson (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/send-json.js:9:22)
+    at strongErrorHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/handler.js:60:5)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:71:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:67:12)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at Immediate.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate._onImmediate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15)
+    at runCallback (timers.js:796:20)
+    at tryOnImmediate (timers.js:752:5)
+Unhandled error for request GET /api/org.general.digitalid.User?filter[where][id]=undefined: InvalidQueryException: Invalid WHERE clause in query Dynamic query: Property id does not exist on org.general.digitalid.User File '$dynamic_queries.qry': line 1 column 1, to line 1 column 58. 
+    at Where.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/where.js:96:23)
+    at Select.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/select.js:133:24)
+    at Query.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/query.js:119:21)
+    at BusinessNetworkConnection.buildQuery (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-client/lib/businessnetworkconnection.js:844:20)
+    at ensureConnected.then.then (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-connector-composer/lib/businessnetworkconnector.js:323:57)
+    at <anonymous>
+TypeError: Converting circular structure to JSON
+    at JSON.stringify (<anonymous>)
+    at sendJson (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/send-json.js:9:22)
+    at strongErrorHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/handler.js:60:5)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:71:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:67:12)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at Immediate.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate._onImmediate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15)
+    at runCallback (timers.js:796:20)
+    at tryOnImmediate (timers.js:752:5)
+Unhandled error for request GET /api/org.general.digitalid.User?filter[where][id]=1234: InvalidQueryException: Invalid WHERE clause in query Dynamic query: Property id does not exist on org.general.digitalid.User File '$dynamic_queries.qry': line 1 column 1, to line 1 column 53. 
+    at Where.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/where.js:96:23)
+    at Select.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/select.js:133:24)
+    at Query.validate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-common/lib/query/query.js:119:21)
+    at BusinessNetworkConnection.buildQuery (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-client/lib/businessnetworkconnection.js:844:20)
+    at ensureConnected.then.then (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback-connector-composer/lib/businessnetworkconnector.js:323:57)
+    at <anonymous>
+TypeError: Converting circular structure to JSON
+    at JSON.stringify (<anonymous>)
+    at sendJson (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/send-json.js:9:22)
+    at strongErrorHandler (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-error-handler/lib/handler.js:60:5)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:71:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Layer.handle_error (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:67:12)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:315:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at Immediate.next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at Immediate._onImmediate (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15)
+    at runCallback (timers.js:796:20)
+    at tryOnImmediate (timers.js:752:5)
+Unhandled error for request GET /api/org.general.digitalid.User/undefined: Error: Unknown "org_general_digitalid_User" id "undefined".
+    at Function.convertNullToNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/lib/persisted-model.js:89:17)
+    at invokeRestAfter (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/rest-adapter.js:532:25)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3880:24
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1011:17)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:3885:13
+    at interceptInvocationErrors (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/lib/remote-objects.js:731:22)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:473:16
+    at replenish (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:1006:25)
+    at iterateeCallback (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:995:17)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/strong-remoting/node_modules/async/dist/async.js:969:16
+Unhandled error for request GET /vtigercrm/vtigerservice.php: Error: Cannot GET /vtigercrm/vtigerservice.php
+    at raiseUrlNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/server/middleware/url-not-found.js:21:17)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at urlencodedParser (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/body-parser/lib/types/urlencoded.js:91:7)
+Unhandled error for request GET /a2billing/customer/templates/default/footer.tpl: Error: Cannot GET /a2billing/customer/templates/default/footer.tpl
+    at raiseUrlNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/server/middleware/url-not-found.js:21:17)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at urlencodedParser (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/body-parser/lib/types/urlencoded.js:91:7)
+Unhandled error for request GET /recordings/: Error: Cannot GET /recordings/
+    at raiseUrlNotFoundError (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/loopback/server/middleware/url-not-found.js:21:17)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:635:15
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:317:13)
+    at /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/express/lib/router/index.js:275:10)
+    at urlencodedParser (/home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/body-parser/lib/types/urlencoded.js:91:7)
