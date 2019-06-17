@@ -197,30 +197,20 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
   }
 
   $scope.submitUniversityData = function() {
-	var universityData = { 
-    universityName: $scope.selectedUniversityName,
-    universityAddress: $scope.selectedUniversityAddress,
-    //universityId: $scope.selectedUniversityId,
-    universityId: '0000458698',
-    courseAppliedFor : $scope.CourseToPursue,
-    appliedDegreeType: $scope.Type,
-    appliedSpecialization: $scope.Specialization,
-    appliedCourseToPursue: $scope.CourseToPursue,
-    appliedHighestEducation: $scope.HighestEducation,
-    courseStartDate: Date.now(),
-    courseEndDate: '',
-    degreeCompleteStatus: false,
-    //digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
-    universityDocument: ''
-              };
-	var message = $scope.digitalIdData.message + " The applicant has added his university choices.";
-	$scope.digitalIdData.message = message;
-	$scope.digitalIdData.digitalIdInfo.universityDetails = universityData;
+	var University = {
+  "$class": "org.general.digitalid.RegisterStudentInfo",
+  "user": "resource:org.general.digitalid.User#"+response.data.result.GovermentId,
+  "HighestEducation": $scope.HighestEducation,
+  "CourseToPursue": $scope.CourseToPursue,
+  "Specialization": $scope.Specialization,
+  "Type": $scope.Type,
+  "studentInfoStatus": 'Pending'
+}
 
 	$http({
 	  method: 'POST',
 	  url: '/updateDigitalIdData',
-	  data: $scope.digitalIdData
+	  data: University
 	}).then(function successCallback(response) {
 	  if(response.data.success == true) {
 		$window.location.href = '../success_UniversityIdEntry.html';
