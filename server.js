@@ -240,20 +240,25 @@ app.post('/getDigitalIdData', function(req, res) {
 //Update digital Id applicant details to DB
 app.post('/updateDigitalIdData', function(req, res) {
     console.log('Inside Express api check to update digital Id data ! ');
-    var applicantData = JSON.parse(JSON.stringify(req.body));
-    updateCloudantData(applicantData).then(function(data) {
-        if (data.success) {
-            res.json({
-                success: true,
-                message: 'Applicant data updated successfully ! '
-            });
-        } else
-            res.json({
-                success: false,
-                message: 'Applicant data updation issue !'
-            });
-    });
-});
+        var reqdata = JSON.parse(req.body.data); 
+
+    console.log(reqdata);
+
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterStudentInfo"; 
+    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+
+	applicantData(url,reqdata, headers).then(function(data) {
+		if (data.success) {
+			res.json({
+				success: true,
+				deathRecordDetails: data.response
+			});
+		} else res.json({
+			success: false,
+			message: data
+		});
+	});
+	});
 
 
 app.post('/employeeData', function(req, res) {
