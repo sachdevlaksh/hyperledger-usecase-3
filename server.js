@@ -240,7 +240,7 @@ app.post('/getDigitalIdData', function(req, res) {
 //Update digital Id applicant details to DB
 app.post('/updateDigitalIdData', function(req, res) {
     console.log('Inside Express api check to update digital Id data ! ');
-	console.log("Req.body : "+req.body);
+	console.log("Req.body : "+JSON.stringify(req.body));
         var reqdata = JSON.parse(req.body.data); 
 
     console.log(reqdata);
