@@ -210,7 +210,7 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
     courseStartDate: Date.now(),
     courseEndDate: '',
     degreeCompleteStatus: false,
-    digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
+    //digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
     universityDocument: ''
               };
 	var message = $scope.digitalIdData.message + " The applicant has added his university choices.";
