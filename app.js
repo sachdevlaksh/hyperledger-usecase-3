@@ -260,31 +260,21 @@ myApp.controller('applyEmployee', ['$scope', 'fileUpload', '$http', '$filter', '
     });
   }
 
-  $scope.submitEmployeeData = function() {
-	var universityData = { 
-    universityName: $scope.selectedUniversityName,
-    universityAddress: $scope.selectedUniversityAddress,
-    //universityId: $scope.selectedUniversityId,
-    universityId: '0000458698',
-    courseAppliedFor : $scope.CourseToPursue,
-    appliedDegreeType: $scope.Type,
-    appliedSpecialization: $scope.Specialization,
-    appliedCourseToPursue: $scope.CourseToPursue,
-    appliedHighestEducation: $scope.HighestEducation,
-    courseStartDate: Date,
-    courseEndDate: '',
-    degreeCompleteStatus: false,
-    digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
-    universityDocument: ''
-              };
-	var message = $scope.digitalIdData.message + " The applicant has added his university choices.";
-	$scope.digitalIdData.message = message;
-	$scope.digitalIdData.digitalIdInfo.universityDetails = universityData;
+ $scope.submitEmployeeData = function() {
+	var Employee = {
+  "$class": "org.general.digitalid.RegisterEmployeeInfo",
+  "user": "resource:org.general.digitalid.User#"+$scope.digitalIdData.GovermentId,
+  "CurrentEmployer":  $scope.CurrentEmployer,
+  "PreviousEmployer":  $scope.PreviousEmployer,
+  "TotalExperience":  $scope.TotalExperience,
+  "CurrentCTC":  $scope.CurrentCTC,
+  "employeeInfoStatus":  'Pending'
+}
 
 	$http({
 	  method: 'POST',
-	  url: '/updateDigitalIdData',
-	  data: $scope.digitalIdData
+	  url: '/updateEmployeeDigitalIdData',
+	  data: Employee
 	}).then(function successCallback(response) {
 	  if(response.data.success == true) {
 		$window.location.href = '../success_UniversityIdEntry.html';
@@ -687,26 +677,24 @@ myApp.controller('applyVisa', ['$scope', 'fileUpload', '$http', '$filter', '$win
   }
 
   $scope.submitVisaData = function() {
-	var VisaData = { 
-    VisaCountry: $scope.VisaCountry,
-    Duration: $scope.Duration,
-    ReasonOfTraveling: $scope.ReasonOfTraveling,
-    VisaType : $scope.VisaType,
-    VisaApplyMode: $scope.VisaApplyMode,
-    digitalId: $scope.digitalIdData.digitalIdInfo.digitalId,
-    universityDocument: ''
-              };
-	var message = $scope.digitalIdData.message + " The applicant has added his visa choices.";
-	$scope.digitalIdData.message = message;
-	$scope.digitalIdData.digitalIdInfo.visaDetails = VisaData;
+	var Visa = { 
+  "$class": "org.general.digitalid.RegisterVisaInfo",
+  "user": "resource:org.general.digitalid.User#3122",
+  "Country": $scope.VisaCountry,
+  "Duration": $scope.Duration,
+  "ReasonOfTraveling":  $scope.ReasonOfTraveling,
+  "Comments": $scope.VisaApplyMode,
+  "Status": $scope.VisaType,
+  "visaInfoStatus": 'Pending'
+}
 
 	$http({
 	  method: 'POST',
-	  url: '/updateDigitalIdData',
-	  data: $scope.digitalIdData
+	  url: '/updateUniversityDigitalIdData',
+	  data: Visa
 	}).then(function successCallback(response) {
 	  if(response.data.success == true) {
-		$window.location.href = '../success_VisaIdEntry.html';
+		$window.location.href = '../success_UniversityIdEntry.html';
 	  } else {
 		alert(response.data.message);
 	  }
