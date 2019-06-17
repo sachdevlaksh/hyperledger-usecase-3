@@ -199,7 +199,7 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
   $scope.submitUniversityData = function() {
 	var University = {
   "$class": "org.general.digitalid.RegisterStudentInfo",
-  "user": "resource:org.general.digitalid.User#"+response.data.result.GovermentId,
+  "user": "resource:org.general.digitalid.User#"+$scope.digitalIdData.GovermentId,
   "HighestEducation": $scope.HighestEducation,
   "CourseToPursue": $scope.CourseToPursue,
   "Specialization": $scope.Specialization,
