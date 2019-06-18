@@ -321,7 +321,7 @@ myApp.controller('applyVisa', ['$scope', 'fileUpload', '$http', '$filter', '$win
     }).then(function successCallback(response) {
       if(response.data.success == true) {//  && response.data.result.employeeApplicationStatus == 'Approved') {
 		$scope.digitalIdData = response.data.result;
-		$scope.dob = new Date(response.data.result.digitalIdInfo.DOB);
+		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
 		$scope.off();
       } else {
         alert(response.data.message);
