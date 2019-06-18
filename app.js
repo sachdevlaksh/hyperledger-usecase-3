@@ -333,7 +333,7 @@ myApp.controller('applyVisa', ['$scope', 'fileUpload', '$http', '$filter', '$win
   $scope.submitVisaData = function() {
 	var Visa = { 
   "$class": "org.general.digitalid.RegisterVisaInfo",
-  "user": "resource:org.general.digitalid.User#3122",
+   "user": "resource:org.general.digitalid.User#"+$scope.digitalIdData.GovermentId,
   "Country": $scope.VisaCountry,
   "Duration": $scope.Duration,
   "ReasonOfTraveling":  $scope.ReasonOfTraveling,
