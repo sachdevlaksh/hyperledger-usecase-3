@@ -249,7 +249,7 @@ myApp.controller('applyEmployee', ['$scope', 'fileUpload', '$http', '$filter', '
       url: '/getDigitalIdData',
       data: data
     }).then(function successCallback(response) {
-      if(response.data.success == true  && response.data.result[0].universityAdmissionStatus == 'Approved') {
+      if(response.data.success == true ){// && response.data.result[0].universityAdmissionStatus == 'Approved') {
 		$scope.digitalIdData = response.data.result[0];
 		$scope.dob = new Date(response.data.result[0].digitalIdInfo.DOB);
 		$scope.off();
