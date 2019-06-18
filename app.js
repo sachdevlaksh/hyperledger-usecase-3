@@ -277,7 +277,7 @@ myApp.controller('applyEmployee', ['$scope', 'fileUpload', '$http', '$filter', '
 	  data: Employee
 	}).then(function successCallback(response) {
 	  if(response.data.success == true) {
-		$window.location.href = '../success_UniversityIdEntry.html';
+		$window.location.href = '../success_EmployeeIdEntry.html';
 	  } else {
 		alert(response.data.message);
 	  }
@@ -285,6 +285,76 @@ myApp.controller('applyEmployee', ['$scope', 'fileUpload', '$http', '$filter', '
   }
 }]);
 
+/* Apply For Visa Controller */
+myApp.controller('applyVisa', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
+  
+  $scope.DurationSelect = ["Less than 2 months", "2 -12 Months", "More than 1 year"];
+
+  $scope.ReasonOfTravelingSelect = ["Personal", "Corporate"];
+
+  $scope.VisaTypeSelect = ["Single", "Family"];
+
+  $scope.ModeSelect = ["Normal", "Fast track"];
+
+
+  $scope.Back = function () {
+        $window.location.href = '/student_portal.html';
+  }
+
+  $scope.on = function () {
+        document.getElementById("overlay").style.display = "block";
+  }
+
+  $scope.off = function () {
+        document.getElementById("overlay").style.display = "none";
+  }
+
+  $scope.loadDigitalIdData = function() {
+        var data = {
+          _id : $scope.digitalId
+        }
+
+    $http({
+      method: 'POST',
+      url: '/getDigitalIdData',
+      data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {//  && response.data.result.employeeApplicationStatus == 'Approved') {
+		$scope.digitalIdData = response.data.result;
+		$scope.dob = new Date(response.data.result.digitalIdInfo.DOB);
+		$scope.off();
+      } else {
+        alert(response.data.message);
+                window.close();
+      }
+    });
+  }
+
+  $scope.submitVisaData = function() {
+	var Visa = { 
+  "$class": "org.general.digitalid.RegisterVisaInfo",
+  "user": "resource:org.general.digitalid.User#3122",
+  "Country": $scope.VisaCountry,
+  "Duration": $scope.Duration,
+  "ReasonOfTraveling":  $scope.ReasonOfTraveling,
+  "Comments": $scope.VisaApplyMode,
+  "Status": $scope.VisaType,
+  "visaInfoStatus": 'Pending'
+}
+
+	$http({
+	  method: 'POST',
+	  url: '/updateVisaDigitalIdData',
+	  data: Visa
+	}).then(function successCallback(response) {
+	  if(response.data.success == true) {
+		$window.location.href = '../success_VisaIdEntry.html';
+	  } else {
+		alert(response.data.message);
+	  }
+	});	
+  }
+}]);
 // Digital ID Admin Controller
 myApp.controller('digitalIdAdminLogin', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
 
@@ -631,76 +701,7 @@ myApp.controller('employeeAdmin', ['$scope', '$http', '$window', 'NgTableParams'
 }]);
 
 
-/* Apply For Visa Controller */
-myApp.controller('applyVisa', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
-  
-  $scope.DurationSelect = ["Less than 2 months", "2 -12 Months", "More than 1 year"];
 
-  $scope.ReasonOfTravelingSelect = ["Personal", "Corporate"];
-
-  $scope.VisaTypeSelect = ["Single", "Family"];
-
-  $scope.ModeSelect = ["Normal", "Fast track"];
-
-
-  $scope.Back = function () {
-        $window.location.href = '/student_portal.html';
-  }
-
-  $scope.on = function () {
-        document.getElementById("overlay").style.display = "block";
-  }
-
-  $scope.off = function () {
-        document.getElementById("overlay").style.display = "none";
-  }
-
-  $scope.loadDigitalIdData = function() {
-        var data = {
-          _id : $scope.digitalId
-        }
-
-    $http({
-      method: 'POST',
-      url: '/getDigitalIdData',
-      data: data
-    }).then(function successCallback(response) {
-      if(response.data.success == true  && response.data.result[0].employeeApplicationStatus == 'Approved') {
-		$scope.digitalIdData = response.data.result[0];
-		$scope.dob = new Date(response.data.result[0].digitalIdInfo.DOB);
-		$scope.off();
-      } else {
-        alert(response.data.message);
-                window.close();
-      }
-    });
-  }
-
-  $scope.submitVisaData = function() {
-	var Visa = { 
-  "$class": "org.general.digitalid.RegisterVisaInfo",
-  "user": "resource:org.general.digitalid.User#3122",
-  "Country": $scope.VisaCountry,
-  "Duration": $scope.Duration,
-  "ReasonOfTraveling":  $scope.ReasonOfTraveling,
-  "Comments": $scope.VisaApplyMode,
-  "Status": $scope.VisaType,
-  "visaInfoStatus": 'Pending'
-}
-
-	$http({
-	  method: 'POST',
-	  url: '/updateUniversityDigitalIdData',
-	  data: Visa
-	}).then(function successCallback(response) {
-	  if(response.data.success == true) {
-		$window.location.href = '../success_UniversityIdEntry.html';
-	  } else {
-		alert(response.data.message);
-	  }
-	});	
-  }
-}]);
 
 /* Visa Admin Login Controller */
 myApp.controller('visaAdminLogin', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {

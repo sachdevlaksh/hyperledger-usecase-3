@@ -286,6 +286,29 @@ app.post('/updateEmployeeDigitalIdData', function(req, res) {
 	});
 	});
 
+//Update digital Id applicant details to DB
+app.post('/updateVisaDigitalIdData', function(req, res) {
+    console.log('Inside Express api check to update digital Id data ! ');
+	console.log("Req.body : "+JSON.stringify(req.body));
+        var reqdata = req.body; 
+
+    console.log(reqdata);
+
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterVisaInfo"; 
+    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+
+	applicantData(url,reqdata, headers).then(function(data) {
+		if (data.success) {
+			res.json({
+				success: true,
+				deathRecordDetails: data.response
+			});
+		} else res.json({
+			success: false,
+			message: data
+		});
+	});
+	});
 
 app.post('/employeeData', function(req, res) {
     var response = "";
