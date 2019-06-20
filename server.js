@@ -79,7 +79,9 @@ app.post('/verifyLogin', function(req, res) {
 //Get all digital Ids with digital Id status as 'PENDING'
 app.get('/getDigitalIdRequests', function(req, res) {
     console.log('Inside Express api check to get all applicants details for digital Id');
-    digitalIdWithPendingStatus().then(function(data) {
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterUser"; 
+    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+    getData(headers, url).then(function(data) {
         if (data.success) {
             res.json({
                 success: true,
@@ -157,6 +159,41 @@ app.get('/getVisaApplicantRequests', function(req, res) {
         }
     });
 });
+
+
+var submitTxn = async (txnDetails, headers, url) => {
+  
+  if(txnDetails){
+	try{
+	var response = await axios.post(url, txnDetails, headers);
+	console.log("Record inserted successfully");
+	return ({success : true, message:"Record inserted successfully", response:response.data});
+	} catch (error){
+		console.log("Issue inserting record into ledger");
+		return ({success : false, message:"Issue inserting record into ledger"});
+	}
+  }else{
+	console.log("Issue while txn");
+	return ({success : false, message:"Issue while txn"});	  
+  }
+}
+
+var getData = async (headers, url) => {
+  
+  if(url){
+	try{
+	var response = await axios.get(url, headers);
+	console.log("Record fetched successfully");
+	return ({success : true, message:"Record fetched successfully", response:response.data});
+	} catch (error){
+		console.log("Issue fetching records ");
+		return ({success : false, message:"Issue fetching record "});
+	}
+  }else{
+	console.log("Issue in URL");
+	return ({success : false, message:"Issue in URL"});	  
+  }
+}
 
 //Get all digital Ids with employee application status  as 'PENDING'
 app.get('/getEmployeeApplicantRequests', function(req, res) {
