@@ -82,16 +82,17 @@ app.get('/getDigitalIdRequests', function(req, res) {
     var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterUser"; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
     getData(headers, url).then(function(data) {
+		console.log("LData is : " + JSON.stringify(data.response));
         if (data.success) {
             res.json({
                 success: true,
                 message: 'Data found successfully ! ',
-                result: data.result.docs
+                result: data.response
             });
         } else
             res.json({
                 success: false,
-                message: 'Cloudant db connectivity issue !'
+                message: 'Blockchain connectivity issue !'
             });
     });
 });

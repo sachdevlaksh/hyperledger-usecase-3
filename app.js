@@ -391,20 +391,23 @@ myApp.controller('digitalIdReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fi
           _id : $window.sessionStorage.getItem("_id")
     }
   
-    $scope.loadDigitalIdData = function() {
-      $http({
-        method: 'POST',
-        url: '/getDigitalIdData',
-            data: data
-      }).then(function successCallback(response) {
-        if(response.data.success == true) {
-                  $scope.digitalIdData = response.data.result[0];
-                  $scope.dob = new Date(response.data.result[0].digitalIdInfo.dateOfBirth);
-        } else {
-          alert(response.data.message);
-        }
-      });
-    }
+  $scope.loadDigitalIdData = function() {
+
+    $http({
+      method: 'POST',
+      url: '/getDigitalIdData',
+      data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true ){// && response.data.result[0].universityAdmissionStatus == 'Approved') {
+		$scope.digitalIdData = response.data.result;
+		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
+		$scope.off();
+      } else {
+        alert(response.data.message);
+                window.close();
+      }
+    });
+  }
   
     $scope.updateDigitalIdData = function (buttonValue) {
           var message = $scope.digitalIdData.message + " The digital id request has been " + buttonValue + ".";
@@ -448,16 +451,22 @@ myApp.controller('universityReadOnlyForm', ['$scope', 'fileUpload', '$http', '$f
   }
 
   $scope.loadDigitalIdData = function() {
+        var data = {
+          _id : $scope.digitalId
+        }
+
     $http({
       method: 'POST',
       url: '/getDigitalIdData',
-          data: data
+      data: data
     }).then(function successCallback(response) {
-      if(response.data.success == true) {
-                $scope.digitalIdData = response.data.result[0];
-                $scope.dob = new Date(response.data.result[0].digitalIdInfo.dateOfBirth);
+      if(response.data.success == true ){// && response.data.result[0].universityAdmissionStatus == 'Approved') {
+		$scope.digitalIdData = response.data.result;
+		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
+		$scope.off();
       } else {
         alert(response.data.message);
+                window.close();
       }
     });
   }
@@ -500,16 +509,22 @@ myApp.controller('employeeReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fil
   }
 
   $scope.loadDigitalIdData = function() {
+        var data = {
+          _id : $scope.digitalId
+        }
+
     $http({
       method: 'POST',
       url: '/getDigitalIdData',
-          data: data
+      data: data
     }).then(function successCallback(response) {
-      if(response.data.success == true) {
-                $scope.digitalIdData = response.data.result[0];
-                $scope.dob = new Date(response.data.result[0].digitalIdInfo.dateOfBirth);
+      if(response.data.success == true ){// && response.data.result[0].universityAdmissionStatus == 'Approved') {
+		$scope.digitalIdData = response.data.result;
+		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
+		$scope.off();
       } else {
         alert(response.data.message);
+                window.close();
       }
     });
   }
@@ -569,6 +584,7 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
       if(response.data.success == true) {
         
                 $scope.tableData = response.data.result;
+				console.log(JSON.stringify(response.data.result));
                 /*$scope.tableParams = new NgTableParams({
                         count: 4
                 }, {
