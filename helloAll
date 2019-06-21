@@ -1,84 +1,414 @@
-/*
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/**
- * Sample business network definition.
- */
-namespace org.example.basic
-
-asset applicantInfo identified by digitalId {
-  o String digitalId
-  o String Name
-  o String Email
-  o String Address
-  o String createTimestamp
-  o String Age
-  o String MobileNumber
-  o String Gender
-  o String GovermentId
-  o String DOB
-  --> ApplicantAdmin applicantadmin
-  }
-
-asset studentInfo
-identified by digitalId {
-  o String digitalId
-  o String Name
-  o String Email
-  o String Address
-  o String createTimestamp
-  o String Age
-  o String MobileNumber
-  o String Gender
-  o String GovermentId
-  o String DOB
-  --> ApplicantAdmin applicantadmin
-  }
-
-participant ApplicantAdmin identified by ApplicantAdminId {
-  o String ApplicantAdminId
-  o String firstName
-  o String lastName
-}
-
-participant StudentAdmin identified by StudentAdminId {
-  o String StudentAdminId
-  o String firstName
-  o String lastName
-}
-
-participant EmployeeAdmin identified by EmployeeAdminId {
-  o String EmployeeAdminId
-  o String firstName
-  o String lastName
-}
-
-participant VisaAdmin identified by VisaAdminId {
-  o String VisaAdminId
-  o String firstName
-  o String lastName
-}
-
-transaction SampleTransaction {
-  --> SampleAsset asset
-  o String newValue
-}
-
-event SampleEvent {
-  --> SampleAsset asset
-  o String oldValue
-  o String newValue
-}
 
 
+ssh -i "March New Pair.pem" ubuntu@ec2-13-127-182-50.ap-south-1.compute.amazonaws.com
+ssh -i "BhanusKey.pem" ubuntu@ec2-34-228-168-117.compute-1.amazonaws.com 
+
+--Start Connection From Here.
+ubuntu@34.231.43.57
+
+cd pemkeys && sudo ssh -i "ShubhamsInstance.pem" ubuntu@ec2-3-87-238-243.compute-1.amazonaws.com
+Prem Instance:- cd pemkeys && sudo ssh -i "ShubhamsInstance.pem"  ubuntu@ec2-52-91-179-226.compute-1.amazonaws.com 
+ubuntu@ec2-52-90-144-179.compute-1.amazonaws.com
+http://ec2-52-90-144-179.compute-1.amazonaws.com:8080
+Prem:- http://ec2-52-91-179-226.compute-1.amazonaws.com:8080
+http://ec2-52-90-144-179.compute-1.amazonaws.com:3000/explorer
+http://ec2-52-90-144-179.compute-1.amazonaws.com:8059/
+
+sudo -s 
+
+./stopFabric.sh
+./teardownFabric.sh
+./startFabric.sh
+./createPeerAdminCard.sh
+
+curl -s -X POST http://localhost:4000/users -H "content-type: application/x-www-form-urlencoded" -d 'username=sampleUser&orgName=farmer'
+curl -s -X POST http://localhost:4000/users -H "content-type: application/x-www-form-urlencoded" -d 'username=Vijay&orgName=gok'
+curl -s -X POST http://localhost:4000/users -H "content-type: application/x-www-form-urlencoded" -d 'username=chandrakala&orgName=farmer'
+
+curl -s -X POST \
+  http://localhost:4000/channels \
+  -H "authorization: Bearer <put JSON Web Token here>" \
+  -H "content-type: application/json" \
+  -d '{
+	"channelName":"mychannel",
+	"channelConfigPath":"../artifacts/channel/mychannel.tx"
+}'
+
+curl -s -X POST \
+  http://localhost:4000/chaincodes \
+  -H "authorization: Bearer <put JSON Web Token here>" \
+  -H "content-type: application/json" \
+  -d '{
+	"peers": ["peer0.farmer.kapy.com","peer1.farmer.kapy.com"],
+	"chaincodeName":"mycc",
+	"chaincodePath":"github.com/kapy_cc/go",
+	"chaincodeType": "golang",
+	"chaincodeVersion":"v0"
+}'
+
+
+curl -s -X POST \
+  http://localhost:4000/channels/mychannel/chaincodes \
+  -H "authorization: Bearer <put JSON Web Token here>" \
+  -H "content-type: application/json" \
+  -d '{
+	"peers": ["peer0.farmer.kapy.com","peer1.farmer.kapy.com"],
+	"chaincodeName":"mycc",
+	"chaincodeVersion":"v0",
+	"chaincodeType": "golang",
+	"args":["a","100","b","200"]
+}'
+
+
+curl -s -X POST \
+  http://localhost:4000/channels/mychannel/chaincodes/mycc \
+  -H "authorization: Bearer <put JSON Web Token here>" \
+  -H "content-type: application/json" \
+  -d '{
+	"peers": ["peer0.farmer.kapy.com","peer1.farmer.kapy.com"],
+	"fcn":"move",
+	"args":["a","b","10"]
+}'
+
+
+
+docker network prune 
+docker rm -f $(docker ps -aq) 
+docker rm -f $(docker ps -aq)
+docker rmi -f $(docker images -q)
+curl -sSL https://goo.gl/6wtTN5 | bash -s 1.1.0
+curl -sSL https://goo.gl/6wtTN5 | bash -s 1.2.0
+
+https://github.com/grpc/grpc.git
+from grpc root:-
+npm install --build-from-source
+docker-compose up -d
+docker-compose -f docker-compose.yaml up -d
+docker-compose -f docker-compose.yml down --remove-orphans 
+docker-compose -f docker-compose.yaml up | tee output2.txt
+docker-compose -f docker-compose.yaml up
+docker-compose -f docker-compose.yaml down --volumes
+docker ps
+
+docker start cli
+
+docker exec -it cli bash
+export CHANNEL_NAME=mychannel
+
+peer channel create -o orderer.kapy.com:7050 -c $CHANNEL_NAME -f ./channel/mychannel.tx --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/kapy.com/orderers/orderer.kapy.com/msp/tlscacerts/tlsca.kapy.com-cert.pem
+
+peer channel join -b mychannel.block
+
+sudo find / -composer-cli -type d
+find ~/ -type f -name "/composer-cli/cli.js"
+export PATH=/home/ubuntu/chandrakala/Payment-System/bin:$PATH 
+
+git config --global user.email "sachdevlaksh@gmail.com"
+git config --global user.name "sachdevlaksh"
+  
+sudo find / -name composer-cli -type d
+sudo find ~/ -name cryptogen -type d
+sudo find / -name orderer.iscr.com -type d
+sudo find ~/ -name orderer.iscr.com -type d
+sudo find ~/ -name orderer.iscr.com -type d
+orderer.iscr.com
+
+Updated Docker-Compose.yaml
+
+find . -name "cli.js"
+find . -name "server.key"
+
+docker pull hyperledger/fabric-ca:x86_64-1.1.0-preview
+docker tag hyperledger/fabric-ca:x86_64-1.1.0-preview hyperledger/fabric-ca:latest
+docker images
+
+cp -a /home/ubuntu/Payment-System/artifacts/channel/channel/. /home/ubuntu/Payment-System/artifacts/channel/
+cp -a /home/ubuntu/chandrakala/Payment-System/node_modules /home/ubuntu/hyperledger-student/
+cp -a /home/ubuntu/IBPS/. /home/ubuntu/IBPS2
+cp -a /home/ubuntu/IBPS2/crypto-config  /home/ubuntu/IBPS2/artifacts/channel/
+cp -a /home/ubuntu/Payment-System/node_modules /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/generator-hyperledger-composer/
+
+cp -a /home/ubuntu/IBPS2/. /home/ubuntu/IBPS/
+
+cp -a /home/ubuntu/IBPS/node_modules /home/ubuntu/chandrakala/Payment-System
+cp -a /home/ubuntu/Payment-System/artifacts/network-config.json  /home/ubuntu/IBPS2/artifacts
+cp -a /home/ubuntu/hyperledger-student/node_modules /home/ubuntu/chandrakala/Payment-System/
+cp -a /home/ubuntu/hyperledger-student/node_modules /home/ubuntu/chandrakala/Payment-System/ 
+cp -a /home/ubuntu/newEx/node_modules /home/ubuntu/newStudent/hyperledger-student/
+
+
+
+ curl -sSL http://bit.ly/2ysbOFE | bash -s 1.2.0-rc1 1.2.0-rc1 0.4.8
+ curl -sSL http://bit.ly/2ysbOFE | bash -s 1.1.0-rc1 1.1.0-rc1 0.4.8
+
+ ************************************IBPS Commands**************************************
+			../bin/cryptogen generate --config=./artifacts/channel/cryptogen.yaml
+
+../../bin/cryptogen generate --config= ./channel/cryptogen.yaml
+../../bin/cryptogen generate --config= ./cryptogen.yaml
+../../bin/cryptogen generate --config=cryptogen.yaml
+export FABRIC_CFG_PATH=$PWD
+directory(Artifcats)//
+			../../bin/configtxgen -profile ThreeOrgsOrdererGenesis -outputBlock ./channel/genesis.block
+../../bin/configtxgen -profile ThreeOrgsOrdererGenesis -outputBlock genesis.block
+../../bin/configtxgen -profile ThreeOrgsChannel -outputCreateChannelTx mychannel.tx -channelID $CHANNEL_NAME
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate FarmerMSPanchors.tx -channelID $CHANNEL_NAME -asOrg FarmerMSP
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate GOKMSPanchors.tx -channelID $CHANNEL_NAME -asOrg GOKMSP
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate TrsryMSPanchors.tx -channelID $CHANNEL_NAME -asOrg TrsryMSP
+Creating Chanel
+export CHANNEL_NAME=mychannel
+
+../../bin/configtxgen -profile ThreeOrgsChannel -outputCreateChannelTx ./channel/mychannel.tx -channelID $CHANNEL_NAME
+
+../../bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel/AgentMSPanchors.tx -channelID $CHANNEL_NAME -asOrg AgentMSP
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate ./channel/FarmerMSPanchors.tx -channelID $CHANNEL_NAME -asOrg FarmerMSP
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate FarmerMSPanchors.tx -channelID $CHANNEL_NAME -asOrg FarmerMSP
+
+../../bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel/IllinoisMSPanchors.tx -channelID $CHANNEL_NAME -asOrg IllinoisMSP
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate ./channel/GOKMSPanchors.tx -channelID $CHANNEL_NAME -asOrg GOKMSP
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate GOKMSPanchors.tx -channelID $CHANNEL_NAME -asOrg GOKMSP
+
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate ./channel/TrsryMSPanchors.tx -channelID $CHANNEL_NAME -asOrg TrsryMSP
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate TrsryMSPanchors.tx -channelID $CHANNEL_NAME -asOrg TrsryMSP
+
+-***********************************************END **********************************************************
+ 
+ ************************************Student Reference**************************************
+ export PATH=$PATH:/home/ubuntu/hyperledger-student/bin
+./bin/cryptogen generate --config=./artifacts/channel/cryptogen.yaml
+cryptogen generate --config=./crypto-config.yaml
+
+export FABRIC_CFG_PATH=$PWD ./bin/configtxgen -profile TwoOrgsOrdererGenesis -outputBlock ./channel/genesis.block
+configtxgen -profile ComposerOrdererGenesis -outputBlock ./composer-genesis.block
+configtxgen -profile ComposerChannel -outputCreateChannelTx ./composer-channel.tx -channelID composerchannel
+Creating Chanel export CHANNEL_NAME=mychannel
+
+../bin/configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel/mychannel.tx -channelID $CHANNEL_NAME
+
+../bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel/AgentMSPanchors.tx -channelID $CHANNEL_NAME -asOrg AgentMSP
+
+../bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel/IllinoisMSPanchors.tx -channelID $CHANNEL_NAME -asOrg IllinoisMSP
+
+-***********************************************END **********************************************************
+
+
+export FABRIC_CFG_PATH=$PWD
+../../bin/configtxgen -profile ThreeOrgsOrdererGenesis -outputBlock genesis.block
+
+export CHANNEL_NAME=InterCom  && ../../bin/configtxgen -profile ThreeOrgsChannel -outputCreateChannelTx InterCom.tx -channelID $CHANNEL_NAME
+
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate Org1MSPFarmer.tx -channelID $CHANNEL_NAME -asOrg FarmerMSP
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate Org2MSPGOK.tx -channelID $CHANNEL_NAME -asOrg GOKMSP
+../../bin/configtxgen -profile ThreeOrgsChannel -outputAnchorPeersUpdate Org3MSPTrsry.tx -channelID $CHANNEL_NAME -asOrg TrsryMSP
+
+CHANNEL_NAME=InterCom TIMEOUT=500 docker-compose -f artifacts/docker-compose.yaml up
+
+x86_64-1.1.0
+
+mkdir /home/ubuntu/Payment-System/node_modules/pkcs11js/build
+
+npm install log4js --save
+npm install cookie-parser --save
+npm install body-parser --save
+npm install cors --save
+npm install express --save
+npm install express-bearer-token --save
+npm install express-jwt --save
+npm install express-session --save
+npm install fabric-ca-client --save
+sudo npm install -g fabric-client --unsafe-perm=true --allow-root
+npm install fs-extra --save
+npm install jsonwebtoken --save
+
+docker pull hyperledger/fabric-orderer:x86_64-1.1.0-preview
+docker tag hyperledger/fabric-orderer:x86_64-1.1.0-preview hyperledger/fabric-orderer:latest
+docker images
+
+docker pull hyperledger/fabric-peer:x86_64-1.1.0-preview
+docker tag hyperledger/fabric-peer:x86_64-1.1.0-preview hyperledger/fabric-peer:latest
+
+
+curl -s -X POST http://localhost:4000/users -H "content-type: application/x-www-form-urlencoded" -d 'username=Jim&orgName=farmer'
+
+npm config set proxy http://559488:March_2018@proxy.cognizant.com:6050
+npm config set https-proxy http://559488:March_2018@proxy.cognizant.com:6050
+npm set strict-ssl false  
+
+npm config set proxy http://559488:March%952018@10.238.54.135:6050
+npm config set https-proxy http://559488:March#952018@10.238.54.135:6050
+http://559488:March_2018@10.238.54.135:6050
+
+
+C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Common Files\Microsoft Shared\Microsoft Online Services;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files\Borland\StarTeam SDK 9.3\Lib;C:\Program Files\Borland\StarTeam SDK 9.3\Bin;C:\Go\bin;C:\Program Files\nodejs\;C:\Users\559488\AppData\Roaming\npm\node_modules\@angular\cli\bin
+
+Paths
+
+
+GIT LFS
+
+sudo apt-get install software-properties-common
+sudo curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install git-lfs
+git lfs install
+Select the file types you'd like Git LFS to manage (or directly edit your .gitattributes). You can configure additional file extensions at anytime.
+
+git lfs track "*.zip"
+Make sure .gitattributes is tracked
+
+git add .gitattributes
+There is no step three. Just commit and push to GitHub as you normally would.
+
+git add file.psd
+git commit -m "Add design file"
+git push origin master
+
+echo "# HyperLedger-Composer" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/sachdevlaksh/HyperLedger-Composer.git
+git push -u origin master
+
+  sudo chown -R $USER /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules
+  sudo chown -R $USER ../lib/node_modules/composer-cli/cli.js
+  sudo chown -R $USER  /home/ubuntu/.nvm/versions/node/v8.11.1/bin/composer
+  sudo chown -R $USER  /home/ubuntu/.nvm/versions/node/v8.11.1/bin
+  sudo chown -R $USER  /usr/local/sbin
+  sudo chown -R $USER  /usr/local/bin
+  sudo chown -R $USER  /usr/sbin
+  sudo chown -R $USER  /usr/bin:/sbin
+  sudo chown -R $USER  /bin:/usr/games
+  sudo chown -R $USER  /usr/local/games
+  sudo chown -R $USER  admin@digipay-system 
+  sudo chown -R $USER  PeerAdmin@hlfv1
+  sudo chown -R $USER  /snap/bin
+  sudo chown -R $USER  /home/ubuntu/npm/bin
+  sudo chown -R $USER  /usr/local/bin
+  sudo chown -R $USER /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/grpc/
+  sudo chown -R $USER /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/composer-connector-hlfv1/lib/hlfconnection.js
+   sudo chown -R $USER metadata.json
+  sudo -s
+  :1,$d
+  npm install -g composer-rest-server@0.20
+ ------------------Composer-----
+ 
+npm install -g composer-cli
+npm install -g composer-rest-server
+npm install -g generator-hyperledger-composer
+npm install -g yo
+npm install -g composer-playground@latest
+
+mkdir ~/fabric-dev-servers && cd ~/fabric-dev-servers
+
+curl -O https://raw.githubusercontent.com/hyperledger/composer-tools/master/packages/fabric-dev-servers/fabric-dev-servers.tar.gz
+tar -xvf fabric-dev-servers.tar.gz
+
+cd ~/fabric-dev-servers
+./downloadFabric.sh
+
+cd ~/fabric-dev-servers
+./startFabric.sh	
+./createPeerAdminCard.sh
+
+composer-playground
+:1,$d
+
+
+~/fabric-dev-servers/stopFabric.sh
+~/fabric-dev-servers/startFabric.sh
+
+
+~/fabric-dev-servers/stopFabric.sh
+~/fabric-dev-servers/teardownFabric.sh
+~/fabric-dev-servers/startFabric.sh
+./createPeerAdminCard.sh
+
+/stopFabric.sh
+./startFabric.sh
+
+./stopFabric.sh
+./teardownFabric.sh
+./startFabric.sh
+./createPeerAdminCard.sh
+
+
+export PATH=$PATH:/home/ubuntu/hyperledger-student/bin
+
+
+yo hyperledger-composer:businessnetwork
+composer archive create -t dir -n .
+composer network install --card PeerAdmin@hlfv1 --archiveFile digipay-system@0.0.1.bna
+
+composer network start --networkName digipay-system --networkVersion 0.0.1 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
+
+composer card import --file networkadmin.card
+
+composer network ping --card admin@digipay-system
+
+ yo hyperledger-composer:angular
+ng serve --proxy-config proxy.conf.js --host ec2-52-90-144-179.compute-1.amazonaws.com
+ ng serve --proxy-config proxy.conf.js --host localhost
+ /home/ubuntu/Payment-System/node_modules/grpc
+/home/ubuntu/GitComposer/node_modules/
+cp -a /home/ubuntu/Payment-System/node_modules/grpc /home/ubuntu/GitComposer/node_modules/
+cp -a /home/ubuntu/Payment-System/node_modules/grpc /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/
+cp -a /home/ubuntu/Payment-System/node_modules /home/ubuntu/HyperledgerFabric/
+sudo chown -R $USER /home/ubuntu/.nvm/versions/node/v8.11.1/lib/node_modules/composer-rest-server/node_modules/
+sudo chown -R $USER /home/ubuntu/.nvm/alias/default
+cd /home/ubuntu/GitComposer/tutorial-network
+
+
+To ReRun The rest Server
+nohup composer-rest-server -c admin@digital-network -n never -w true -p 3001
+nohup composer-rest-server -c admin@digital-network -p 8080
+composer-rest-server -c admin@ddigital-network -p 3001
+
+http://ec2-52-90-144-179.compute-1.amazonaws.com:3001/api/LandRecord?filter[where][eid]=12345
+Database:-
+
+
+
+
+Upgrade BNA:-
+composer archive create -t dir -n .
+composer network install -a  digital-network@0.0.1.bna -c PeerAdmin@hlfv1
+composer network upgrade -c PeerAdmin@hlfv1 -n digital-network -V 0.0.1
+
+composer network install -a  digital-network@0.0.1.bna -c PeerAdmin@hlfv1
+composer network start --networkName digital-network --networkVersion 0.0.1 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
+composer card import --file networkadmin.card
+composer network ping --card admin@digital-network
+
+composer-rest-server -c admin@digital-network -p 3001
+
+composer archive create -t dir -n .
+composer network install -a  digital-network@0.0.1.bna -c PeerAdmin@hlfv1
+composer network upgrade -c PeerAdmin@hlfv1 -n digital-network -V 0.0.1
+
+
+G2,Sight No 3, Sri Rama Nilaya Building, Ayee Mata Temple road,Roopena agrahara -68
+
+composer network install --card PeerAdmin@hlfv1 --archiveFile digipay-system@0.0.3.bna
+
+composer network start --networkName digipay-system --networkVersion 0.0.3 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
+
+
+
+initdb -D C:\Users\559488\pgdata -U postgres -W -E UTF8 -A md5
+pg_ctl -D C:\Users\559488\pgdata start
+pg_ctl -D C:\Users\559488\pgdata stop
+https://github.com/prem09jun
+
+
+chandu2416  -- username
+*Nani24   -- pwd 
+
+sudo netstat -lpn |grep :3001
+sudo kill -9 23134
+
+git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+
+export CLOUDANT_DB_URL=https://adfc60ec-fa4a-46a9-bcf9-e554de84b30b-bluemix:0f130af356c2fcfc117f121fa37673bf41c604165888b98399dfd6bcf62dacaa@adfc60ec-fa4a-46a9-bcf9-e554de84b30b-bluemix.cloudant.com
+export KAPY_DB=farmerrecords
+export VERIFYRECORD_DB=registeredfarmerrecords
+export LOGIN_DB=logindb 
