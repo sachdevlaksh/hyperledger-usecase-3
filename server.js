@@ -275,8 +275,33 @@ app.post('/getDigitalIdData', function(req, res) {
 
 
 
-//Update digital Id applicant details to DB
+
+
+//Update digital Id from Read only page details to DB
 app.post('/updateDigitalIdData', function(req, res) {
+    console.log('Inside Express api check to update digital Id data ! ');
+	console.log("Req.body : "+JSON.stringify(req.body));
+        var reqdata = req.body; 
+
+    console.log(reqdata);
+
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterUser"; 
+    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+
+	applicantData(url,reqdata, headers).then(function(data) {
+		if (data.success) {
+			res.json({
+				success: true,
+				deathRecordDetails: data.response
+			});
+		} else res.json({
+			success: false,
+			message: data
+		});
+	});
+	});
+//Update digital Id applicant Student details to DB
+app.post('/updateReadOnlyDigitalIdData', function(req, res) {
     console.log('Inside Express api check to update digital Id data ! ');
 	console.log("Req.body : "+JSON.stringify(req.body));
         var reqdata = req.body; 
