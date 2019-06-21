@@ -133,3 +133,23 @@ transaction RegisterVisaInfo {
   o String  Status 
   o String visaInfoStatus
 }
+
+transaction digitalIdStatus {
+  --> User user
+  o String  status
+}
+
+transaction universityAdmissionStatus {
+  --> User user
+  o String  status
+}
+
+transaction employeeApplicationStatus {
+  --> User user
+  o String  status
+}
+
+transaction visaApplicationStatus {
+  --> User user
+  o String  status
+}
