@@ -414,15 +414,15 @@ myApp.controller('digitalIdReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fi
           $scope.digitalIdData.message = message;
   
           if(buttonValue == "Approved")
-              $scope.digitalIdData.digitalIdStatus = "Approved";
+              $scope.digitalIdDataInfo.digitalIdStatus = "Approved";
           
           if(buttonValue == "Rejected")
-              $scope.digitalIdData.digitalIdStatus = "Rejected";
+              $scope.digitalIdDataInfo.digitalIdStatus = "Rejected";
   
       $http({
         method: 'POST',
         url: '/updateDigitalIdData',
-            data: $scope.digitalIdData
+            data: $scope.digitalIdDataInfo
       }).then(function successCallback(response) {
         if(response.data.success == true) {
               $window.location.href = '../AdminPages/digital_id_admin.html';
