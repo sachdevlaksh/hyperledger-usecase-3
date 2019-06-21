@@ -32,6 +32,22 @@ function RegisterUser(UserDetails) {
 
 /**
  * 
+ * @param {org.general.digitalid.digitalIdStatus} digitalStatus 
+ * @transaction
+ */
+
+function digitalIdStatus(digitalStatus) {
+    var userObj = digitalStatus.user;
+  	userObj.digitalIdStatus = digitalStatus.status;
+  
+      //get asset registry for User, and update on the ledger
+    return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
+        return assetRegistry.update(userObj);
+    })
+}
+
+/**
+ * 
  * @param {org.general.digitalid.RegisterStudentInfo} registerStudentRecoord 
  * @transaction
  */
@@ -55,10 +71,25 @@ function RegisterStudentInfo(registerStudentRecoord) {
 
     //get asset registry for User, and update on the ledger
     return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
-        return assetRegistry.update(registerStudentRecoord.user);
+        return assetRegistry.update(userObj);
     })
 }
 
+/**
+ * 
+ * @param {org.general.digitalid.universityAdmissionStatus} studentStatus 
+ * @transaction
+ */
+
+function universityAdmissionStatus(studentStatus) {
+    var userObj = studentStatus.user;
+  	userObj.universityAdmissionStatus = studentStatus.status;
+  
+      //get asset registry for User, and update on the ledger
+    return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
+        return assetRegistry.update(userObj);
+    })
+}
 /**
  * 
  * @param {org.general.digitalid.RegisterEmployeeInfo} registerEmployeeRecoord 
@@ -84,11 +115,25 @@ function RegisterEmployeeInfo(registerEmployeeRecoord) {
 
     //get asset registry for User, and update on the ledger
     return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
-        return assetRegistry.update(registerEmployeeRecoord.user);
+        return assetRegistry.update(userObj);
     })
 }
 
+/**
+ * 
+ * @param {org.general.digitalid.employeeApplicationStatus} employeeStatus 
+ * @transaction
+ */
 
+function employeeApplicationStatus(employeeStatus) {
+    var userObj = employeeStatus.user;
+  	userObj.employeeApplicationStatus = employeeStatus.status;
+  
+      //get asset registry for User, and update on the ledger
+    return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
+        return assetRegistry.update(userObj);
+    })
+}
 /**
  * 
  * @param {org.general.digitalid.RegisterVisaInfo} registerVisaRecoord 
@@ -115,6 +160,22 @@ function RegisterVisaInfo(registerVisaRecoord) {
 
     //get asset registry for User, and update on the ledger
     return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
-        return assetRegistry.update(registerVisaRecoord.user);
+        return assetRegistry.update(userObj);
+    })
+}
+
+/**
+ * 
+ * @param {org.general.digitalid.visaApplicationStatus} visaStatus 
+ * @transaction
+ */
+
+function visaApplicationStatus(visaStatus) {
+    var userObj = visaStatus.user;
+  	userObj.visaApplicationStatus = visaStatus.status;
+  
+      //get asset registry for User, and update on the ledger
+    return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
+        return assetRegistry.update(userObj);
     })
 }
