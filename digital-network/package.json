@@ -3,7 +3,7 @@
     "composer": "^0.20.0"
   },
   "name": "digital-network",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "description": "UC",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/digital-network.bna",
