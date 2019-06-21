@@ -378,6 +378,7 @@ app.post('/employeeData', function(req, res) {
     console.log("Got a POST request for apply_for_digital_id.html page");
     var applicantData = JSON.parse(JSON.stringify(req.body));
     dbForApplicantData.insert(applicantData, function(err, body) {
+		
         if (!err) {
             response = {
                 status: 200,
@@ -510,6 +511,7 @@ var verifyCredentialsFromCloudant = async(username, password) => {
 //Post Call
 var applicantData = async(url, data, headers) => {
     try {
+		console.log("Data is:" + data);
         var deathRecord = await axios.post(url,data);
         console.log("Data post succesfully" + deathRecord);
         return ({
