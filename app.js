@@ -421,7 +421,7 @@ myApp.controller('digitalIdReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fi
   
       $http({
         method: 'POST',
-        url: '/updateDigitalIdData',
+        url: '/updateReadOnlyDigitalIdData',
             data: $scope.digitalIdData
       }).then(function successCallback(response) {
         if(response.data.success == true) {
