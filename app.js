@@ -410,19 +410,31 @@ myApp.controller('digitalIdReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fi
   }
   
     $scope.updateDigitalIdData = function (buttonValue) {
-          var message = $scope.digitalIdData.message + " The digital id request has been " + buttonValue + ".";
-          $scope.digitalIdData.message = message;
+           {
+		  "$class": "org.general.digitalid.digitalIdStatus",
+		  "user": "resource:org.general.digitalid.User#5309",
+		  "status": ""
+}
+
+		  
+			var updateDigitalIdData = {
+		   "$class": "org.general.digitalid.digitalIdStatus",
+			"user": "resource:org.general.digitalid.User#"+$scope.digitalIdData.GovermentId,
+			"status": buttonValue
+			}
+		 // var message = $scope.digitalIdData.message + " The digital id request has been " + buttonValue + ".";
+         // $scope.digitalIdData.message = message;
   
-          if(buttonValue == "Approved")
-              $scope.digitalIdData.digitalIdStatus = "Approved";
+         // if(buttonValue == "Approved")
+          //    $scope.digitalIdData.digitalIdStatus = "Approved";
           
-          if(buttonValue == "Rejected")
-              $scope.digitalIdData.digitalIdStatus = "Rejected";
+         // if(buttonValue == "Rejected")
+          //    $scope.digitalIdData.digitalIdStatus = "Rejected";
   
       $http({
         method: 'POST',
         url: '/updateReadOnlyDigitalIdData',
-            data: $scope.digitalIdData
+            data: updateDigitalIdData //$scope.digitalIdData
       }).then(function successCallback(response) {
         if(response.data.success == true) {
               $window.location.href = '../AdminPages/digital_id_admin.html';
