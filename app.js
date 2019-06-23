@@ -125,7 +125,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 			},
 			"txnMsg": " "
 		},
-		"digitalIdStatus": " ",
+		"digitalIdStatus": 'Pending',
 		"universityAdmissionStatus": 'Pending',
 		"employeeApplicationStatus": 'Pending',
 		"visaApplicationStatus": 'Pending',
@@ -185,7 +185,7 @@ myApp.controller('applyUniversity', ['$scope', 'fileUpload', '$http', '$filter',
       url: '/getDigitalIdData',
       data: data
     }).then(function successCallback(response) { // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-      if(response.data.success == true  && response.data.result.digitalIdStatus == ' ') {
+      if(response.data.success == true  && response.data.result.digitalIdStatus == 'Approved') {
 		$scope.digitalIdData = response.data.result;
 		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
 		$scope.off();
@@ -249,7 +249,7 @@ myApp.controller('applyEmployee', ['$scope', 'fileUpload', '$http', '$filter', '
       url: '/getDigitalIdData',
       data: data
     }).then(function successCallback(response) {
-      if(response.data.success == true ){// && response.data.result[0].universityAdmissionStatus == 'Approved') {
+      if(response.data.success == true  && response.data.result.universityAdmissionStatus == 'Approved') {
 		$scope.digitalIdData = response.data.result;
 		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
 		$scope.off();
@@ -319,7 +319,7 @@ myApp.controller('applyVisa', ['$scope', 'fileUpload', '$http', '$filter', '$win
       url: '/getDigitalIdData',
       data: data
     }).then(function successCallback(response) {
-      if(response.data.success == true) {//  && response.data.result.employeeApplicationStatus == 'Approved') {
+      if(response.data.success == true  && response.data.result.employeeApplicationStatus == 'Approved') {
 		$scope.digitalIdData = response.data.result;
 		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
 		$scope.off();
@@ -384,21 +384,86 @@ myApp.controller('digitalIdAdminLogin', ['$scope', 'fileUpload', '$http', '$filt
 
 }]);
 
+/* Digital Admin  Requests Form Controller */
+myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams', function($scope, $http, $window, NgTableParams) {
+
+  $scope.getDigitalIdRequests = function() {
+    $http({
+      method: 'GET',
+      url: '/getDigitalIdRequests'
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+        
+                $scope.tableData = response.data.result;
+				console.log(JSON.stringify(response.data.result));
+                /*$scope.tableParams = new NgTableParams({
+                        count: 4
+                }, {
+                        counts: [],
+                        dataset: $scope.tableData
+                });*/
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.selectedDigitalId = function(digitalId) {
+        $window.sessionStorage.setItem("_id", digitalId);
+        $window.location.href = '../ReadOnlyPages/digitalId_read_only.html';
+  }
+
+  $scope.Logout = function () {
+        window.close();
+  }
+
+}]);
+
+/* University Success Controller */
+myApp.controller('universityAdmin', ['$scope', '$http', '$window', 'NgTableParams', function($scope, $http, $window, NgTableParams) {
+
+  $scope.getUniversityApplicantRequests = function() {
+    $http({
+      method: 'GET',
+      url: '/getDigitalIdRequests '        //'/getUniversityApplicantRequests'
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $scope.tableData = response.data.result;
+				console.log( "University Server Data" + JSON.stringify(response.data.result));
+/*                 $scope.tableParams = new NgTableParams({
+                        count: 4
+                }, {
+                        counts: [],
+                        dataset: $scope.tableData
+                }); */
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.selectedDigitalId = function(digitalId) {
+        $window.sessionStorage.setItem("_id", digitalId);
+        $window.location.href = '../ReadOnlyPages/university_read_only.html';
+  }
+
+}]);
+
 /* Digital Id Read Only Form Controller */
 myApp.controller('digitalIdReadOnlyForm', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
 
     var data = {
           _id : $window.sessionStorage.getItem("_id")
     }
-  
-  $scope.loadDigitalIdData = function() {
+   
+   $scope.loadDigitalIdData = function() {
 
     $http({
       method: 'POST',
       url: '/getDigitalIdData',
       data: data
     }).then(function successCallback(response) {
-      if(response.data.success == true ){// && response.data.result[0].universityAdmissionStatus == 'Approved') {
+      if(response.data.success == true  && response.data.result.digitalIdStatus == 'Pending') {
 		$scope.digitalIdData = response.data.result;
 		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
 		$scope.off();
@@ -410,19 +475,25 @@ myApp.controller('digitalIdReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fi
   }
   
     $scope.updateDigitalIdData = function (buttonValue) {
-          var message = $scope.digitalIdData.message + " The digital id request has been " + buttonValue + ".";
-          $scope.digitalIdData.message = message;
+ 		  
+			var updateDigitalIdData = {
+		   "$class": "org.general.digitalid.digitalIdStatus",
+			"user": "resource:org.general.digitalid.User#"+$scope.digitalIdData.GovermentId,
+			"status": buttonValue
+			}
+		 // var message = $scope.digitalIdData.message + " The digital id request has been " + buttonValue + ".";
+         // $scope.digitalIdData.message = message;
   
-          if(buttonValue == "Approved")
-              $scope.digitalIdData.digitalIdStatus = "Approved";
+         // if(buttonValue == "Approved")
+          //    $scope.digitalIdData.digitalIdStatus = "Approved";
           
-          if(buttonValue == "Rejected")
-              $scope.digitalIdData.digitalIdStatus = "Rejected";
+         // if(buttonValue == "Rejected")
+          //    $scope.digitalIdData.digitalIdStatus = "Rejected";
   
       $http({
         method: 'POST',
         url: '/updateReadOnlyDigitalIdData',
-            data: $scope.digitalIdData
+            data: updateDigitalIdData //$scope.digitalIdData
       }).then(function successCallback(response) {
         if(response.data.success == true) {
               $window.location.href = '../AdminPages/digital_id_admin.html';
@@ -446,21 +517,19 @@ myApp.controller('digitalIdReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fi
   /* University Read Only Form Controller */
 myApp.controller('universityReadOnlyForm', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
 
-  var data = {
+	var data = {
         _id : $window.sessionStorage.getItem("_id")
-  }
+	}
 
-  $scope.loadDigitalIdData = function() {
-        var data = {
-          _id : $scope.digitalId
-        }
-
+	$scope.loadDigitalIdData = function() {
     $http({
       method: 'POST',
       url: '/getDigitalIdData',
       data: data
     }).then(function successCallback(response) {
-      if(response.data.success == true ){// && response.data.result[0].universityAdmissionStatus == 'Approved') {
+		console.log("Response received in app.js: " + JSON.stringify(JSON.parse(response)));
+		
+      if(response.data.success == true  && response.data.result.universityAdmissionStatus == 'Pending') {
 		$scope.digitalIdData = response.data.result;
 		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
 		$scope.off();
@@ -472,16 +541,17 @@ myApp.controller('universityReadOnlyForm', ['$scope', 'fileUpload', '$http', '$f
   }
 
   $scope.updateUniversityData = function (buttonValue) {
-        var message = $scope.digitalIdData.message + " The university admission request has been " + buttonValue + ".";
-        $scope.digitalIdData.message = message;
-
-        if(buttonValue == "Approved")
-                $scope.digitalIdData.universityAdmissionStatus = "Approved";
+	  
+        var updateUniversityData = {
+			"$class": "org.general.digitalid.universityAdmissionStatus",
+			"user": "resource:org.general.digitalid.User#"+$scope.digitalIdData.GovermentId,
+			"status": buttonValue
+			}
 
     $http({
       method: 'POST',
-      url: '/updateDigitalIdData',
-          data: $scope.digitalIdData
+      url: '/updateReadOnlyUniversityData',
+          data: updateUniversityData
     }).then(function successCallback(response) {
       if(response.data.success == true) {
                 $window.location.href = '../AdminPages/university_id_admin.html';
@@ -518,7 +588,7 @@ myApp.controller('employeeReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fil
       url: '/getDigitalIdData',
       data: data
     }).then(function successCallback(response) {
-      if(response.data.success == true ){// && response.data.result[0].universityAdmissionStatus == 'Approved') {
+      if(response.data.success == true  && response.data.result.employeeApplicationStatus == 'Pending') {
 		$scope.digitalIdData = response.data.result;
 		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
 		$scope.off();
@@ -530,16 +600,16 @@ myApp.controller('employeeReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fil
   }
 
   $scope.updateEmployeeData = function (buttonValue) {
-        var message = $scope.digitalIdData.message + " The employee admission request has been " + buttonValue + ".";
-        $scope.digitalIdData.message = message;
-
-        if(buttonValue == "Approved")
-                $scope.digitalIdData.employeeApplicationStatus = "Approved";
+        var updateEmployeeData = {
+			"$class": "org.general.digitalid.employeeApplicationStatus",
+			"user": "resource:org.general.digitalid.User#"+$scope.digitalIdData.GovermentId,
+			"status": buttonValue
+			}
 
     $http({
       method: 'POST',
-      url: '/updateDigitalIdData',
-          data: $scope.digitalIdData
+      url: '/updateReadOnlyEmployeeData',
+          data: updateEmployeeData
     }).then(function successCallback(response) {
       if(response.data.success == true) {
                 $window.location.href = '../AdminPages/employee_id_admin.html';
@@ -559,7 +629,57 @@ myApp.controller('employeeReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fil
 
 }]);
 
+  /* Visa Read Only Form Controller */
+myApp.controller('visaReadOnlyForm', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
 
+  var data = {
+        _id : $window.sessionStorage.getItem("_id")
+  }
+
+  $scope.loadDigitalIdData = function() {
+    $http({
+      method: 'POST',
+      url: '/getDigitalIdData',
+          data: data
+    }).then(function successCallback(response) {
+      if(response.data.success == true && response.data.result.visaApplicationStatus == 'Pending')  {
+                $scope.digitalIdData = response.data.result[0];
+                $scope.dob = new Date(response.data.result[0].digitalIdInfo.dateOfBirth);
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.updateVisaData = function (buttonValue) {
+        var updateVisaData = {
+			"$class": "org.general.digitalid.visaApplicationStatus",
+			"user": "resource:org.general.digitalid.User#"+$scope.digitalIdData.GovermentId,
+			"status": buttonValue
+			}
+
+    $http({
+      method: 'POST',
+      url: '/updateReadOnlyVisaData',
+          data: updateVisaData
+    }).then(function successCallback(response) {
+      if(response.data.success == true) {
+                $window.location.href = '../AdminPages/visa_id_admin.html';
+      } else {
+        alert(response.data.message);
+      }
+    });
+  }
+
+  $scope.Back = function () {
+        $window.location.href = '../AdminPages/visa_id_admin.html';
+  }
+
+  $scope.Logout = function () {
+        window.close();
+  }
+
+}]);
 
 
 //Fetch specific digitalId record from cloudant DB
@@ -573,40 +693,6 @@ var getDigitalIdData = async (digitalId) => {
         return({ success: false, message: 'Applicant data not present/DB issue !' });
     }		
 }
-/* Digital Admin  Requests Form Controller */
-myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams', function($scope, $http, $window, NgTableParams) {
-
-  $scope.getDigitalIdRequests = function() {
-    $http({
-      method: 'GET',
-      url: '/getDigitalIdRequests'
-    }).then(function successCallback(response) {
-      if(response.data.success == true) {
-        
-                $scope.tableData = response.data.result;
-				console.log(JSON.stringify(response.data.result));
-                /*$scope.tableParams = new NgTableParams({
-                        count: 4
-                }, {
-                        counts: [],
-                        dataset: $scope.tableData
-                });*/
-      } else {
-        alert(response.data.message);
-      }
-    });
-  }
-
-  $scope.selectedDigitalId = function(digitalId) {
-        $window.sessionStorage.setItem("_id", digitalId);
-        $window.location.href = '../ReadOnlyPages/digitalId_read_only.html';
-  }
-
-  $scope.Logout = function () {
-        window.close();
-  }
-
-}]);
 
 /* University Admin Login Controller */
 myApp.controller('universityAdminLogin', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
@@ -633,34 +719,7 @@ myApp.controller('universityAdminLogin', ['$scope', 'fileUpload', '$http', '$fil
 
 }]);
 
-/* University Success Controller */
-myApp.controller('universityAdmin', ['$scope', '$http', '$window', 'NgTableParams', function($scope, $http, $window, NgTableParams) {
 
-  $scope.getUniversityApplicantRequests = function() {
-    $http({
-      method: 'GET',
-      url: '/getUniversityApplicantRequests'
-    }).then(function successCallback(response) {
-      if(response.data.success == true) {
-                $scope.tableData = response.data.result;
-/*                 $scope.tableParams = new NgTableParams({
-                        count: 4
-                }, {
-                        counts: [],
-                        dataset: $scope.tableData
-                }); */
-      } else {
-        alert(response.data.message);
-      }
-    });
-  }
-
-  $scope.selectedDigitalId = function(digitalId) {
-        $window.sessionStorage.setItem("_id", digitalId);
-        $window.location.href = '../ReadOnlyPages/university_read_only.html';
-  }
-
-}]);
 
 
 /* Employee Admin Login Controller */
@@ -773,55 +832,5 @@ myApp.controller('visaAdmin', ['$scope', '$http', '$window', 'NgTableParams', fu
 
 }]);
 
-  /* Visa Read Only Form Controller */
-myApp.controller('visaReadOnlyForm', ['$scope', 'fileUpload', '$http', '$filter', '$window', function($scope, fileUpload, $http, $filter, $window) {
 
-  var data = {
-        _id : $window.sessionStorage.getItem("_id")
-  }
-
-  $scope.loadDigitalIdData = function() {
-    $http({
-      method: 'POST',
-      url: '/getDigitalIdData',
-          data: data
-    }).then(function successCallback(response) {
-      if(response.data.success == true) {
-                $scope.digitalIdData = response.data.result[0];
-                $scope.dob = new Date(response.data.result[0].digitalIdInfo.dateOfBirth);
-      } else {
-        alert(response.data.message);
-      }
-    });
-  }
-
-  $scope.updateVisaData = function (buttonValue) {
-        var message = $scope.digitalIdData.message + " The Visa admission request has been " + buttonValue + ".";
-        $scope.digitalIdData.message = message;
-
-        if(buttonValue == "Approved")
-                $scope.digitalIdData.visaApplicationStatus = "Approved";
-
-    $http({
-      method: 'POST',
-      url: '/updateDigitalIdData',
-          data: $scope.digitalIdData
-    }).then(function successCallback(response) {
-      if(response.data.success == true) {
-                $window.location.href = '../AdminPages/visa_id_admin.html';
-      } else {
-        alert(response.data.message);
-      }
-    });
-  }
-
-  $scope.Back = function () {
-        $window.location.href = '../AdminPages/visa_id_admin.html';
-  }
-
-  $scope.Logout = function () {
-        window.close();
-  }
-
-}]);
 

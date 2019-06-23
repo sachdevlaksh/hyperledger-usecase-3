@@ -61,12 +61,12 @@
               <th>Course Completion Date</th>
 					  </tr>
 					  <tr ng-repeat="x in tableData">
-						<td ng-click="selectedDigitalId(x._id)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
-						<td>{{ x.digitalIdInfo.digitalId }}</td>
-						<td>{{ x.digitalIdInfo.universityDetails.universityName }}</td>
+						<td ng-click="selectedDigitalId(x.digitalIdDataInfo.GovermentId)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
+						<td>{{ x.digitalIdDataInfo.GovermentId }}</td>
+						<td>{{ x.digitalIdInfo.student.CourseToPursue }}</td>
 						<td>{{ x.digitalIdInfo.Name }}</td>
-						<td>{{ x.digitalIdInfo.universityDetails.courseAppliedFor }}</td>
-						<td>{{ x.digitalIdInfo.universityDetails.appliedDegreeType }}</td>
+						<td>{{ x.digitalIdInfo.student.HighestEducation }}</td>
+						<td>{{ x.digitalIdInfo.student.Specialization }}</td>
 					  </tr>
 				  </table>
 				</span>

@@ -79,7 +79,7 @@ app.post('/verifyLogin', function(req, res) {
 //Get all digital Ids with digital Id status as 'PENDING'
 app.get('/getDigitalIdRequests', function(req, res) {
     console.log('Inside Express api check to get all applicants details for digital Id');
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterUser"; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
     getData(headers, url).then(function(data) {
 		console.log("LData is : " + JSON.stringify(data.response));
@@ -252,25 +252,24 @@ app.post('/applicantData', type, function(req, res) {
 });
 
 //Get selected _id details from DB
+
 app.post('/getDigitalIdData', function(req, res) {
-    console.log('Inside Express api check to get digital Id data : ' + req.body._id);
-
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User/"+req.body._id;
-    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
-
-    getDigitalIdData(url,headers).then(function(data) {
-        if (data.success) {
-            res.json({
-                success: true,
-                message: 'Applicant data found successfully ! ',
-                result: data.response
-            });
-        } else
-            res.json({
-                success: false,
-                message: 'Cloudant db connectivity issue !'
-            });
-    });
+	console.log('Inside Express api check to get digital Id data : ' + req.body._id);
+	var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User/"+req.body._id;
+	var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+	getDigitalIdData(url,headers).then(function(data) {
+		if (data.success) {
+			res.json({
+				success: true,
+				message: 'Applicant data found successfully ! ',
+				result: data.response
+			});
+		} else
+			res.json({
+				success: false,
+				message: 'Cloudant db connectivity issue !'
+			});
+	});
 });
 
 
@@ -281,30 +280,7 @@ app.post('/getDigitalIdData', function(req, res) {
 app.post('/updateDigitalIdData', function(req, res) {
     console.log('Inside Express api check to update digital Id data ! ');
 	console.log("Req.body : "+JSON.stringify(req.body));
-         var reqdata = JSON.parse(req.body.data); 
-
-    console.log(reqdata);
-
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterUser"; 
-    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
-
-	applicantData(url,reqdata, headers).then(function(data) {
-		if (data.success) {
-			res.json({
-				success: true,
-				deathRecordDetails: data.response
-			});
-		} else res.json({
-			success: false,
-			message: data
-		});
-	});
-	});
-//Update digital Id applicant Student details to DB
-app.post('/updateReadOnlyDigitalIdData', function(req, res) {
-    console.log('Inside Express api check to update digital Id data ! ');
-	console.log("Req.body : "+JSON.stringify(req.body));
-        var reqdata = req.body; 
+         var reqdata = req.body; 
 
     console.log(reqdata);
 
@@ -323,7 +299,102 @@ app.post('/updateReadOnlyDigitalIdData', function(req, res) {
 		});
 	});
 	});
+//Update digital Id applicant digitaal id status to User asset
+app.post('/updateReadOnlyDigitalIdData', function(req, res) {
+    console.log('Inside Express api check to update digital Id data ! ');
+	console.log("Req.body : "+JSON.stringify(req.body));
+        var reqdata = req.body; //JSON.stringify(req.body);
+
+    console.log(reqdata);
+
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.digitalIdStatus"; 
+    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+
+	applicantData(url,reqdata, headers).then(function(data) {
+		if (data.success) {
+			res.json({
+				success: true,
+				deathRecordDetails: data.response
+			});
+		} else res.json({
+			success: false,
+			message: data
+		});
+	});
+	});
+
+//Update university admission status to User asset
+app.post('/updateReadOnlyUniversityData', function(req, res) {
+    console.log('Inside updateReadOnlyUniversityData Express api check to update digital Id data ! ');
+	console.log("Req.body : "+JSON.stringify(req.body));
+        var reqdata = req.body; //JSON.stringify(req.body);
+
+    console.log(reqdata);
+
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.universityAdmissionStatus"; 
+    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+
+	applicantData(url,reqdata, headers).then(function(data) {
+		if (data.success) {
+			res.json({
+				success: true,
+				deathRecordDetails: data.response
+			});
+		} else res.json({
+			success: false,
+			message: data
+		});
+	});
+	});	
 	
+
+//Update Employee Application status to User asset
+app.post('/updateReadOnlyEmployeeData', function(req, res) {
+    console.log('Inside Express api check to update digital Id data ! ');
+	console.log("Req.body : "+JSON.stringify(req.body));
+        var reqdata = req.body; //JSON.stringify(req.body);
+
+    console.log(reqdata);
+
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.employeeApplicationStatus"; 
+    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+
+	applicantData(url,reqdata, headers).then(function(data) {
+		if (data.success) {
+			res.json({
+				success: true,
+				deathRecordDetails: data.response
+			});
+		} else res.json({
+			success: false,
+			message: data
+		});
+	});
+	});	
+	
+//Update Visa application status to User asset
+app.post('/updateReadOnlyVisaData', function(req, res) {
+    console.log('Inside Express api check to update digital Id data ! ');
+	console.log("Req.body : "+JSON.stringify(req.body));
+        var reqdata = req.body; //JSON.stringify(req.body);
+
+    console.log(reqdata);
+
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.visaApplicationStatus"; 
+    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+
+	applicantData(url,reqdata, headers).then(function(data) {
+		if (data.success) {
+			res.json({
+				success: true,
+				deathRecordDetails: data.response
+			});
+		} else res.json({
+			success: false,
+			message: data
+		});
+	});
+	});	
 	
 //Update digital Id applicant details to DB
 app.post('/updateEmployeeDigitalIdData', function(req, res) {
