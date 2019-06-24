@@ -80,17 +80,17 @@
 
                         <div class="fields_design col-md-4">
                             <label>Legal Name:</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.Name" readonly/>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.Name" readonly/>
                         </div>
 
                         <div class="fields_design col-md-2">
                             <label>Goverment Id:</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.GovermentId" readonly/>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.GovermentId" readonly/>
                         </div>
 
                         <div class="fields_design col-md-4">
                             <label>Date of Birth (mm/dd/yyyy)</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.DOB" readonly/>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.DOB" readonly/>
                         </div>
 
                     </div>
@@ -100,13 +100,13 @@
 
                         <div class="fields_design col-md-4">
                             <label>Gender</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.Gender" readonly/>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.Gender" readonly/>
                         </div>
 
 
                         <div class="fields_design col-md-4">
                             <label>Address:</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.Address" readonly/>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.Address" readonly/>
                         </div>
 
                     </div>
@@ -115,46 +115,36 @@
 
                         <div class="fields_design col-md-2">
                             <label>Email:</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.Email" readonly/>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.Email" readonly/>
                         </div>
 
                         <div class="fields_design col-md-2">
                             <label>Phone Number:</label>
-                            <input type="text" ng-model = "digitalIdData.digitalIdInfo.MobileNumber" readonly/>
+                            <input type="text" ng-model = "digitalIdData.digitalIdDataInfo.MobileNumber" readonly/>
                         </div>
 
                     </div>
                         
                     <div class="clearfix"></div>
-			<h2>Document Details</h2>
-			<span class="fields_design col-md-4">
-			<label>Identification Proof</label>
-			<div class="student_bottom_button">
-				<input class="cmn_admin_approve_btn" type="button" value="Download" ng-click="updateStatus('Approved')">
-			</div>	
-			</span>
-			<div class="clearfix"></div></br>
+			
 			<h2>Visa Details</h2>
 			 <span class="fields_design col-md-4">
 			<label>Visa Country:</label>
-			<input type="text" ng-model="digitalIdData.digitalIdInfo.visaDetails.VisaCountry" readonly/>
+			<input type="text" ng-model="digitalIdData.digitalIdDataInfo.visa.Country" readonly/>
 			</span> 
 			<span class="fields_design col-md-4">
 			<label>Duration:<</label>
-			<input type="text"  ng-model="digitalIdData.digitalIdInfo.visaDetails.Duration" readonly/>
+			<input type="text"  ng-model="digitalIdData.digitalIdDataInfo.visa.Duration" readonly/>
 			</span> 
             <span class="fields_design col-md-4">
 			<label>ReasonOfTraveling</label>
-			<input type="text"  ng-model="digitalIdData.digitalIdInfo.visaDetails.ReasonOfTraveling" readonly/>
+			<input type="text"  ng-model="digitalIdData.digitalIdDataInfo.visa.ReasonOfTraveling" readonly/>
 			</span> 
 			<span class="fields_design col-md-4">
 			<label>Visa Type:</label>
-			<input type="text"  ng-model="digitalIdData.digitalIdInfo.visaDetails.VisaType" readonly/>
+			<input type="text"  ng-model="digitalIdData.digitalIdDataInfo.visa.Comments" readonly/>
 			</span>
-			<span class="fields_design col-md-4">
-			<label>Mode:</label>
-			<input type="text"  ng-model="digitalIdData.digitalIdInfo.visaDetails.VisaApplyMode" readonly/>
-			</span>
+			
 			<div class="clearfix"></div></br>
 			<span class="fields_design col-md-4">
 			</span>
