@@ -57,19 +57,13 @@ function RegisterStudentInfo(registerStudentRecoord) {
     console.log("user Object : " + JSON.stringify(userObj));
     console.log("student Object : " + JSON.stringify(userObj.digitalIdDataInfo.student));
     //udpate the asset after Student Admin transaction
-    if (registerStudentRecoord.StudentInfoStatus = 'Approved') {
-        userObj.universityAdmissionStatus = "Approved";
-        userObj.digitalIdDataInfo.student.HighestEducation = registerStudentRecoord.HighestEducation;
-        userObj.digitalIdDataInfo.student.CourseToPursue = registerStudentRecoord.CourseToPursue;
-        userObj.digitalIdDataInfo.student.Specialization = registerStudentRecoord.Specialization;
-        userObj.digitalIdDataInfo.student.Type = registerStudentRecoord.Type;
+   	userObj.digitalIdDataInfo.student.HighestEducation = registerStudentRecoord.HighestEducation;
+    userObj.digitalIdDataInfo.student.CourseToPursue = registerStudentRecoord.CourseToPursue;
+    userObj.digitalIdDataInfo.student.Specialization = registerStudentRecoord.Specialization;
+    userObj.digitalIdDataInfo.student.Type = registerStudentRecoord.Type;
+    userObj.universityAdmissionStatus = "Pending";    
 
-    } else {
-        userObj.universityAdmissionStatus = "Pending";
-
-    }
-
-    //get asset registry for User, and update on the ledger
+   	//get asset registry for User, and update on the ledger
     return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
         return assetRegistry.update(userObj);
     })
@@ -101,17 +95,15 @@ function RegisterEmployeeInfo(registerEmployeeRecoord) {
     console.log("user Object : " + JSON.stringify(userObj));
     console.log("employee Object : " + JSON.stringify(userObj.digitalIdDataInfo.employee));
     //udpate the asset after Student Admin transaction
-    if (registerEmployeeRecoord.employeeInfoStatus = 'Approved') {
-        userObj.employeeApplicationStatus = "Approved";
-        userObj.digitalIdDataInfo.employee.CurrentEmployer = registerEmployeeRecoord.CurrentEmployer;
-        userObj.digitalIdDataInfo.employee.PreviousEmployer = registerEmployeeRecoord.PreviousEmployer;
-        userObj.digitalIdDataInfo.employee.TotalExperience = registerEmployeeRecoord.TotalExperience;
-        userObj.digitalIdDataInfo.employee.CurrentCTC = registerEmployeeRecoord.CurrentCTC;
+    
+     userObj.employeeApplicationStatus = "Approved";
+     userObj.digitalIdDataInfo.employee.CurrentEmployer = registerEmployeeRecoord.CurrentEmployer;
+     userObj.digitalIdDataInfo.employee.PreviousEmployer = registerEmployeeRecoord.PreviousEmployer;
+     userObj.digitalIdDataInfo.employee.TotalExperience = registerEmployeeRecoord.TotalExperience;
+     userObj.digitalIdDataInfo.employee.CurrentCTC = registerEmployeeRecoord.CurrentCTC;
+     userObj.employeeApplicationStatus = "Pending";
 
-    } else {
-        userObj.employeeApplicationStatus = "Pending";
-
-    }
+    
 
     //get asset registry for User, and update on the ledger
     return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
@@ -145,22 +137,16 @@ function RegisterVisaInfo(registerVisaRecoord) {
     console.log("user Object : " + JSON.stringify(userObj));
     console.log("visa Object : " + JSON.stringify(userObj.digitalIdDataInfo.visa));
     //udpate the asset after Student Admin transaction
-    if (registerVisaRecoord.visaInfoStatus = 'Approved') {
-        userObj.visaApplicationStatus = "Approved";
-        userObj.digitalIdDataInfo.visa.Country = registerVisaRecoord.Country;
-        userObj.digitalIdDataInfo.visa.Duration = registerVisaRecoord.Duration;
-        userObj.digitalIdDataInfo.visa.ReasonOfTraveling = registerVisaRecoord.ReasonOfTraveling;
-        userObj.digitalIdDataInfo.visa.Comments = registerVisaRecoord.Comments;
-          userObj.digitalIdDataInfo.visa.Status = registerVisaRecoord.Status;
+    userObj.digitalIdDataInfo.visa.Country = registerVisaRecoord.Country;
+    userObj.digitalIdDataInfo.visa.Duration = registerVisaRecoord.Duration;
+    userObj.digitalIdDataInfo.visa.ReasonOfTraveling = registerVisaRecoord.ReasonOfTraveling;
+    userObj.digitalIdDataInfo.visa.Comments = registerVisaRecoord.Comments;
+    userObj.digitalIdDataInfo.visa.Status = registerVisaRecoord.Status;
+    userObj.visaApplicationStatus = "Pending";
 
-    } else {
-        userObj.visaApplicationStatus = "Pending";
-
-    }
-
-    //get asset registry for User, and update on the ledger
+   //get asset registry for User, and update on the ledger
     return getAssetRegistry('org.general.digitalid.User').then(function (assetRegistry) {
-        return assetRegistry.update(userObj);
+    return assetRegistry.update(userObj);
     })
 }
 
