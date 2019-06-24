@@ -57,16 +57,16 @@
               <th>SSN</th>
               <th>Visa Country</th>
               <th>Duration</th>
-              <th>ReasonOfTraveling</th>
+              <th>Reason Of Traveling</th>
               <th>Visa Type</th>
 					  </tr>
 					  <tr ng-repeat="x in tableData">
-						<td ng-click="selectedDigitalId(x._id)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
-						<td>{{ x.digitalIdInfo.digitalId }}</td>
-						<td>{{ x.digitalIdInfo.visaDetails.VisaCountry }}</td>
-						<td>{{ x.digitalIdInfo.visaDetails.Duration }}</td>
-						<td>{{ x.digitalIdInfo.visaDetails.ReasonOfTraveling }}</td>
-						<td>{{ x.digitalIdInfo.visaDetails.VisaType }}</td>
+						<td ng-click="selectedDigitalId(x.digitalIdDataInfo.GovermentId)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
+						<td>{{ x.digitalIdDataInfo.digitalId }}</td>
+						<td>{{ x.digitalIdDataInfo.visa.Country }}</td>
+						<td>{{ x.digitalIdDataInfo.visa.Duration }}</td>
+						<td>{{ x.digitalIdDataInfo.visa.ReasonOfTraveling }}</td>
+						<td>{{ x.digitalIdDataInfo.visa.VisaType }}</td>
 					  </tr>
 				  </table>
 				</span>
