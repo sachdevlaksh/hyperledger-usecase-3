@@ -51,25 +51,25 @@
           <div id="Tabs1">
             <div id="tabs-1">
 				<span class="col-md-12 fields_design">
-				  <table>
-					  <tr>
+	  <table>
+		  <tr>
               <th>Digital ID</th>
               <th>SSN</th>
               <th>Visa Country</th>
               <th>Duration</th>
               <th>Reason Of Traveling</th>
               <th>Visa Type</th>
-					  </tr>
-					  <tr ng-repeat="x in tableData">
-						<td ng-click="selectedDigitalId(x.digitalIdDataInfo.GovermentId)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
-						<td>{{ x.digitalIdDataInfo.digitalId }}</td>
-						<td>{{ x.digitalIdDataInfo.visa.Country }}</td>
-						<td>{{ x.digitalIdDataInfo.visa.Duration }}</td>
-						<td>{{ x.digitalIdDataInfo.visa.ReasonOfTraveling }}</td>
-						<td>{{ x.digitalIdDataInfo.visa.VisaType }}</td>
-					  </tr>
-				  </table>
-				</span>
+		  </tr>
+		  <tr ng-repeat="x in tableData">
+			<td ng-click="selectedDigitalId(x.digitalIdDataInfo.GovermentId)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
+			<td>{{ x.digitalIdDataInfo.digitalId }}</td>
+			<td>{{ x.digitalIdDataInfo.visa.Country }}</td>
+			<td>{{ x.digitalIdDataInfo.visa.Duration }}</td>
+			<td>{{ x.digitalIdDataInfo.visa.ReasonOfTraveling }}</td>
+			<td>{{ x.digitalIdDataInfo.visa.VisaType }}</td>
+		  </tr>
+	 </table>
+		</span>
             </div>
           </div>
         </div>
