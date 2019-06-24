@@ -476,18 +476,11 @@ myApp.controller('digitalIdReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fi
   
     $scope.updateDigitalIdData = function (buttonValue) {
 
-
-           {
-		  "$class": "org.general.digitalid.digitalIdStatus",
-		  "user": "resource:org.general.digitalid.User#5309",
-		  "status": ""
-}
-
-			var updateDigitalIdData = {
+	var updateDigitalIdData = {
 		   "$class": "org.general.digitalid.digitalIdStatus",
-			"user": "resource:org.general.digitalid.User#"+$scope.digitalIdData.GovermentId,
+		    "user": "resource:org.general.digitalid.User#"+$scope.digitalIdData.GovermentId,
 			"status": buttonValue
-			}
+		}
 		 // var message = $scope.digitalIdData.message + " The digital id request has been " + buttonValue + ".";
          // $scope.digitalIdData.message = message;
   
