@@ -392,7 +392,7 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
       method: 'GET',
       url: '/getDigitalIdRequests'
     }).then(function successCallback(response) {
-      if(response.data.success == true) {
+      if(response.data.success == true && response.data.result.digitalIdDataInfo.digitalIdStatus == 'Pending') {
         
                 $scope.tableData = response.data.result;
 				console.log(JSON.stringify(response.data.result));
