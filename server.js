@@ -79,7 +79,7 @@ app.post('/verifyLogin', function(req, res) {
 //Get all digital Ids with digital Id status as 'PENDING'
 app.get('/getDigitalIdRequests', function(req, res) {
     console.log('Inside Express api check to get all applicants details for digital Id');
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User?filter[where][digitalIdStatus]=Pending" ; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/User?filter[where][digitalIdStatus]=Pending" ; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
     getData(headers, url).then(function(data) {
 		console.log("Data is : " + JSON.stringify(data.response));
@@ -100,7 +100,7 @@ app.get('/getDigitalIdRequests', function(req, res) {
 //Get all digital Ids with university application status  as 'PENDING'
 app.get('/getUniversityApplicantRequests', function(req, res) {
         console.log('Inside Express api check to get all applicants details for digital Id');
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User?filter[where][universityAdmissionStatus]=Pending" ; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/User?filter[where][universityAdmissionStatus]=Pending" ; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
     getData(headers, url).then(function(data) {
 		console.log("Data is : " + JSON.stringify(data.response));
@@ -224,7 +224,8 @@ app.post('/applicantData', type, function(req, res) {
 
     console.log(reqdata);
 
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterUser"; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/RegisterUser"; 		    	
+			
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
 	applicantData(url,reqdata, headers).then(function(data) {
@@ -244,7 +245,7 @@ app.post('/applicantData', type, function(req, res) {
 
 app.post('/getDigitalIdData', function(req, res) {
 	console.log('Inside Express api check to get digital Id data : ' + req.body._id);
-	var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User/"+req.body._id;
+	var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/User/"+req.body._id;
 	var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 	getDigitalIdData(url,headers).then(function(data) {
 		if (data.success) {
@@ -273,7 +274,7 @@ app.post('/updateDigitalIdData', function(req, res) {
 
     console.log(reqdata);
 
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterStudentInfo"; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/RegisterStudentInfo"; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
 	applicantData(url,reqdata, headers).then(function(data) {
@@ -296,7 +297,7 @@ app.post('/updateReadOnlyDigitalIdData', function(req, res) {
 
     console.log(reqdata);
 
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.digitalIdStatus"; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/digitalIdStatus"; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
 	applicantData(url,reqdata, headers).then(function(data) {
@@ -320,7 +321,7 @@ app.post('/updateReadOnlyUniversityData', function(req, res) {
 
     console.log(reqdata);
 
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.universityAdmissionStatus"; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/universityAdmissionStatus"; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
 	applicantData(url,reqdata, headers).then(function(data) {
@@ -345,7 +346,7 @@ app.post('/updateReadOnlyEmployeeData', function(req, res) {
 
     console.log(reqdata);
 
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.employeeApplicationStatus"; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/employeeApplicationStatus"; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
 	applicantData(url,reqdata, headers).then(function(data) {
@@ -369,7 +370,7 @@ app.post('/updateReadOnlyVisaData', function(req, res) {
 
     console.log(reqdata);
 
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.visaApplicationStatus"; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/visaApplicationStatus"; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
 	applicantData(url,reqdata, headers).then(function(data) {
@@ -393,7 +394,7 @@ app.post('/updateEmployeeDigitalIdData', function(req, res) {
 
     console.log(reqdata);
 
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterEmployeeInfo"; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/RegisterEmployeeInfo"; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
 	applicantData(url,reqdata, headers).then(function(data) {
@@ -417,7 +418,7 @@ app.post('/updateVisaDigitalIdData', function(req, res) {
 
     console.log(reqdata);
 
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.RegisterVisaInfo"; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/RegisterVisaInfo"; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
 
 	applicantData(url,reqdata, headers).then(function(data) {
