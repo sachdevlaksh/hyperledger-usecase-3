@@ -528,8 +528,7 @@ myApp.controller('universityReadOnlyForm', ['$scope', 'fileUpload', '$http', '$f
       url: '/getDigitalIdData',
       data: data
     }).then(function successCallback(response) {
-		console.log("Response received in app.js: " + JSON.stringify(JSON.parse(response)));
-		
+				
       if(response.data.success == true  && response.data.result.universityAdmissionStatus == 'Pending') {
 		$scope.digitalIdData = response.data.result;
 		$scope.dob = new Date(response.data.result.digitalIdDataInfo.DOB);
