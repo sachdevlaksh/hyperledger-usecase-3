@@ -394,9 +394,10 @@ myApp.controller('digitalIdAdmin', ['$scope', '$http', '$window', 'NgTableParams
     }).then(function successCallback(response) {
 	if(response.data.success == true ){//&& response.data.result.digitalIdDataInfo.digitalIdStatus == 'Pending') {
 				var responseLen = response.data.result.length;
-				for(i=0; i<responseLen;i++){
-                $scope.tableData = response.data.result.item[i];
-				console.log(JSON.stringify(response.data.result));
+				for(i=0; i<responseLen; i++){
+				if(response.data.result[i].digitalIdDataInfo.digitalIdStatus == 'Approved')
+                $scope.tableData = response.data.result[i];
+				console.log(JSON.stringify(response.data.result[i]));
 				}
                 /*$scope.tableParams = new NgTableParams({
                         count: 4
