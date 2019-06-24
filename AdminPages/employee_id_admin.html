@@ -61,7 +61,7 @@
               <th>Current CTC</th>
 					  </tr>
 					  <tr ng-repeat="x in tableData">
-						<td ng-click="selectedDigitalId(x._id)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
+						<td ng-click="selectedDigitalId(x.digitalIdDataInfo.GovermentId)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
 						<td>{{ x.digitalIdDataInfo.digitalId }}</td>
 						<td>{{ x.digitalIdDataInfo.employee.CurrentEmployer }}</td>
 						<td>{{ x.digitalIdDataInfo.employee.PreviousEmployer }}</td>
