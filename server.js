@@ -79,10 +79,10 @@ app.post('/verifyLogin', function(req, res) {
 //Get all digital Ids with digital Id status as 'PENDING'
 app.get('/getDigitalIdRequests', function(req, res) {
     console.log('Inside Express api check to get all applicants details for digital Id');
-    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User"; 
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User?filter[where][digitalIdStatus]=Pending" ; 
     var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
     getData(headers, url).then(function(data) {
-		console.log("LData is : " + JSON.stringify(data.response));
+		console.log("Data is : " + JSON.stringify(data.response));
         if (data.success) {
             res.json({
                 success: true,
@@ -99,33 +99,22 @@ app.get('/getDigitalIdRequests', function(req, res) {
 
 //Get all digital Ids with university application status  as 'PENDING'
 app.get('/getUniversityApplicantRequests', function(req, res) {
-    console.log('Inside Express api check to get all applicants details for university applications');
-    dbForApplicantData.find({
-        selector: {
-            universityAdmissionStatus: 'Pending'
-        }
-    }, function(er, result) {
-        if (er) {
-            console.log('Error finding applicant information from db ' + er);
-            res.json({
-                success: false,
-                message: 'Error : ' + er
-            });
-        }
-        if (result && result.docs && result.docs.length > 0) {
-            console.log('Data found !');
+        console.log('Inside Express api check to get all applicants details for digital Id');
+    var url = "http://ec2-3-87-238-243.compute-1.amazonaws.com:3001/api/org.general.digitalid.User?filter[where][universityAdmissionStatus]=Pending" ; 
+    var headers = { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } };
+    getData(headers, url).then(function(data) {
+		console.log("Data is : " + JSON.stringify(data.response));
+        if (data.success) {
             res.json({
                 success: true,
-                message: 'Data found !',
-                result: result.docs
+                message: 'Data found successfully ! ',
+                result: data.response
             });
-        } else {
-            console.log('Data not found !');
+        } else
             res.json({
                 success: false,
-                message: 'Data not found !'
+                message: 'Blockchain connectivity issue !'
             });
-        }
     });
 });
 
