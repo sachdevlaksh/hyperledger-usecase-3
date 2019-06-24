@@ -125,7 +125,7 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 			},
 			"txnMsg": " "
 		},
-		"digitalIdStatus": ' ',
+		"digitalIdStatus": 'Pending',
 		"universityAdmissionStatus": ' ',
 		"employeeApplicationStatus": ' ',
 		"visaApplicationStatus": ' ',
@@ -832,6 +832,5 @@ myApp.controller('visaAdmin', ['$scope', '$http', '$window', 'NgTableParams', fu
   }
 
 }]);
-
 
 
