@@ -125,10 +125,10 @@ myApp.controller('myController', ['$scope', 'fileUpload', '$http', '$filter', '$
 			},
 			"txnMsg": " "
 		},
-		"digitalIdStatus": 'Pending',
-		"universityAdmissionStatus": 'Pending',
-		"employeeApplicationStatus": 'Pending',
-		"visaApplicationStatus": 'Pending',
+		"digitalIdStatus": ' ',
+		"universityAdmissionStatus": ' ',
+		"employeeApplicationStatus": ' ',
+		"visaApplicationStatus": ' ',
 		"GovermentId": UserGovUniqueID,
 		"message": " ",
 		"txnMsg": " "
