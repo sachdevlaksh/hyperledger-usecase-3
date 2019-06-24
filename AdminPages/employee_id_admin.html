@@ -55,18 +55,18 @@
 					  <tr>
               <th>Digital ID</th>
               <th>SSN</th>
-              <th>Applicant Name</th>
-              <th>Course Applied</th>
-              <th>Course Completion Status</th>
-              <th>Course Completion Date</th>
+              <th>Current Employer</th>
+              <th>Previous Employer</th>
+              <th>Total Experience</th>
+              <th>Current CTC</th>
 					  </tr>
 					  <tr ng-repeat="x in tableData">
 						<td ng-click="selectedDigitalId(x._id)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
-						<td>{{ x.digitalIdInfo.digitalId }}</td>
-						<td>{{ x.digitalIdInfo.universityDetails.universityName }}</td>
-						<td>{{ x.digitalIdInfo.Name }}</td>
-						<td>{{ x.digitalIdInfo.universityDetails.courseAppliedFor }}</td>
-						<td>{{ x.digitalIdInfo.universityDetails.appliedDegreeType }}</td>
+						<td>{{ x.digitalIdDataInfo.digitalId }}</td>
+						<td>{{ x.digitalIdDataInfo.employee.CurrentEmployer }}</td>
+						<td>{{ x.digitalIdDataInfo.employee.PreviousEmployer }}</td>
+						<td>{{ x.digitalIdDataInfo.employee.TotalExperience }}</td>
+						<td>{{ x.digitalIdDataInfo.employee.CurrentCTC }}</td>
 					  </tr>
 				  </table>
 				</span>
