@@ -80,17 +80,17 @@
 
                         <div class="fields_design col-md-4">
                             <label>Legal Name:</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.Name" readonly/>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.Name" readonly/>
                         </div>
 
                         <div class="fields_design col-md-2">
                             <label>Goverment Id:</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.GovermentId" readonly/>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.GovermentId" readonly/>
                         </div>
 
                         <div class="fields_design col-md-4">
                             <label>Date of Birth (mm/dd/yyyy)</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.DOB" readonly/>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.DOB" readonly/>
                         </div>
 
                     </div>
@@ -99,14 +99,14 @@
                     <div class="row student_forms_raw">
 
                         <div class="fields_design col-md-4">
-                            <label>Gender</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.Gender" readonly/>
+                            <label>Gender:</label>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.Gender" readonly/>
                         </div>
 
 
                         <div class="fields_design col-md-4">
                             <label>Address:</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.Address" readonly/>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.Address" readonly/>
                         </div>
 
                     </div>
@@ -115,25 +115,18 @@
 
                         <div class="fields_design col-md-2">
                             <label>Email:</label>
-                            <input type="text" ng-model="digitalIdData.digitalIdInfo.Email" readonly/>
+                            <input type="text" ng-model="digitalIdData.digitalIdDataInfo.Email" readonly/>
                         </div>
 
                         <div class="fields_design col-md-2">
                             <label>Phone Number:</label>
-                            <input type="text" ng-model = "digitalIdData.digitalIdInfo.MobileNumber" readonly/>
+                            <input type="text" ng-model = "digitalIdData.digitalIdDataInfo.MobileNumber" readonly/>
                         </div>
 
                     </div>
                         
                     <div class="clearfix"></div>
-			<h2>Document Details</h2>
-			<span class="fields_design col-md-4">
-			<label>Identification Proof</label>
-			<div class="student_bottom_button">
-				<input class="cmn_admin_approve_btn" type="button" value="Download" ng-click="updateStatus('Approved')">
-			</div>	
-			</span>
-			<div class="clearfix"></div></br>
+			
 			<h2>University Details</h2>
 			<!-- <span class="fields_design col-md-4">
 			<label>University Name</label>
@@ -144,23 +137,27 @@
 			<input type="text"  ng-model="digitalIdData.digitalIdInfo.universityDetails.universityId" readonly/>
 			</span> -->
 			<span class="fields_design col-md-4">
-			<label>University Id</label>
-			<input type="text"  ng-model="digitalIdData.digitalIdInfo.universityDetails.universityId" readonly/>
+			<label>Highest Education :</label>
+			<input type="text"  ng-model="digitalIdData.digitalIdDataInfo.student.HighestEducation" readonly/>
 			</span> 
 			<span class="fields_design col-md-4">
-			<label>Course</label>
-			<input type="text"  ng-model="digitalIdData.digitalIdInfo.universityDetails.courseAppliedFor" readonly/>
+			<label>Course Applied :</label>
+			<input type="text"  ng-model="digitalIdData.digitalIdDataInfo.student.CourseToPursue" readonly/>
 			</span>
 			<span class="fields_design col-md-4">
-			<label>Applying For</label>
-			<input type="text"  ng-model="digitalIdData.digitalIdInfo.universityDetails.appliedSpecialization" readonly/>
+			<label>Specialization :</label>
+			<input type="text"  ng-model="digitalIdData.digitalIdDataInfo.student.Specialization" readonly/>
+			</span>
+			<span class="fields_design col-md-4">
+			<label>Type :</label>
+			<input type="text"  ng-model="digitalIdData.digitalIdDataInfo.student.Type" readonly/>
 			</span>
 			<div class="clearfix"></div></br>
 			<span class="fields_design col-md-4">
 			</span>
 			<span class="fields_design col-md-4">
 			<input type="submit" class="light" value="Approve" ng-click="updateUniversityData('Approved')"/>
-			<input type="submit" class="light" value="Reject" ng-click="updateUniversityData('Approved')"/>
+			<input type="submit" class="light" value="Reject" ng-click="updateUniversityData('Rejected')"/>
 			</span>
 		  </form>
         </div>
