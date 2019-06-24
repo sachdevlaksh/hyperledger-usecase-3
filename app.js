@@ -427,7 +427,7 @@ myApp.controller('universityAdmin', ['$scope', '$http', '$window', 'NgTableParam
       method: 'GET',
       url: '/getDigitalIdRequests '        //'/getUniversityApplicantRequests'
     }).then(function successCallback(response) {
-      if(response.data.success == true) {
+      if(response.data.success == true && response.data.result.digitalIdDataInfo.universityAdmissionStatus == 'Pending')) {
                 $scope.tableData = response.data.result;
 				console.log( "University Server Data" + JSON.stringify(response.data.result));
 /*                 $scope.tableParams = new NgTableParams({
