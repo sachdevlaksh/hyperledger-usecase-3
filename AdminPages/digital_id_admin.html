@@ -60,10 +60,10 @@
 					  <th>Application Status</th>
 					  </tr>
 					  <tr ng-repeat="x in tableData">
-						<td ng-click="selectedDigitalId(x.GovermentId)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
-						<td>{{ x.GovermentId }}</td>
-						<td>{{ x.createTimestamp | date:'yyyy-MM-dd' }}</td>
-						<td>{{ x.Name }}</td>
+						<td ng-click="selectedDigitalId(x.digitalIdDataInfo.GovermentId)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
+						<td>{{ x.digitalIdDataInfo.GovermentId }}</td>
+						<td>{{ x.digitalIdDataInfo.createTimestamp | date:'yyyy-MM-dd' }}</td>
+						<td>{{ x.digitalIdDataInfo.Name }}</td>
 						<td>{{ x.digitalIdStatus }}</td>
 					  </tr>
 				  </table>
