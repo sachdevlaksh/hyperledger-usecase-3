@@ -58,7 +58,7 @@
               <th>Applicant Name</th>
               <th>Course Applied</th>
               <th>Highest Education</th>
-              <th>Specialization</th>
+              <th>Application Status</th>
 					  </tr>
 					  <tr ng-repeat="x in tableData">
 						<td ng-click="selectedDigitalId(x.digitalIdDataInfo.GovermentId)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
@@ -66,7 +66,7 @@
 						<td>{{ x.digitalIdDataInfo.Name }}</td>
 						<td>{{ x.digitalIdDataInfo.student.CourseToPursue }}</td>
 						<td>{{ x.digitalIdDataInfo.student.HighestEducation }}</td>
-						<td>{{ x.digitalIdDataInfo.student.Specialization }}</td>
+						<td>{{ x.digitalIdDataInfo.universityAdmissionStatus }}</td>
 					  </tr>
 				  </table>
 				</span>
