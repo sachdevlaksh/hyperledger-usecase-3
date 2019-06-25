@@ -579,10 +579,7 @@ myApp.controller('employeeReadOnlyForm', ['$scope', 'fileUpload', '$http', '$fil
   }
 
   $scope.loadDigitalIdData = function() {
-        var data = {
-          _id : $scope.digitalId
-        }
-
+        
     $http({
       method: 'POST',
       url: '/getDigitalIdData',
