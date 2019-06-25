@@ -640,8 +640,8 @@ myApp.controller('visaReadOnlyForm', ['$scope', 'fileUpload', '$http', '$filter'
           data: data
     }).then(function successCallback(response) {
       if(response.data.success == true && response.data.result.visaApplicationStatus == 'Pending')  {
-                $scope.digitalIdData = response.data.result[0];
-                $scope.dob = new Date(response.data.result[0].digitalIdInfo.dateOfBirth);
+                $scope.digitalIdData = response.data.result;
+                $scope.dob = new Date(response.data.result.digitalIdInfo.dateOfBirth);
       } else {
         alert(response.data.message);
       }
@@ -828,5 +828,4 @@ myApp.controller('visaAdmin', ['$scope', '$http', '$window', 'NgTableParams', fu
   }
 
 }]);
-
 
