@@ -59,6 +59,7 @@
               <th>Duration</th>
               <th>Reason Of Traveling</th>
               <th>Visa Type</th>
+			  <th>Application Status</th>
 					  </tr>
 					  <tr ng-repeat="x in tableData">
 						<td ng-click="selectedDigitalId(x.digitalIdDataInfo.GovermentId)"><a ng-href="#">REQ-00{{ $index + 1 }}</a></td>
@@ -67,6 +68,7 @@
 						<td>{{ x.digitalIdDataInfo.visa.Duration }}</td>
 						<td>{{ x.digitalIdDataInfo.visa.ReasonOfTraveling }}</td>
 						<td>{{ x.digitalIdDataInfo.visa.Comments }}</td>
+						<td>{{ x.visaApplicationStatus }}</td>
 					  </tr>
 				  </table>
 				</span>
